@@ -1,0 +1,100 @@
+#calendario {
+    width: 80%;
+    position: relative;
+    margin-left:20%;
+}
+
+.calendario_dia {
+    height: 100px;
+	width: 100px;
+	/*background-color: #BDB9B9;*/
+	background-color:#E6E6E6;
+    margin: 5px;
+   /* border-radius: 10px;*/
+    padding: 2px;
+	float: left;
+	position: relative;
+}
+
+.calendario_vazio {
+    height: 100px;
+	width: 100px;
+    margin: 5px;
+   /* border-radius: 10px;*/
+    padding: 2px;
+	float: left;
+	position: relative;
+}
+
+#calendario_filtro{
+	border: 1px solid #000;
+	height: 200px;
+	float: left;
+	width: 190px;
+	margin-left: 10px;
+	margin-top: 100px;
+	background-color:#E6E6E6;
+}
+
+#selecionar_ano{
+	border: 1px solid #000;
+	height: 30px;
+	margin-top: 5px;
+	margin-left: 8px;
+	width: 173px;
+}
+
+#ano{
+	float: left;
+    margin-left: 35%;
+}
+
+#voltar_ano{
+	 float: left;
+}
+
+#selecionar_meses{
+	width: 173px;
+	border: 1px solid #000;
+	height: 150px;
+	margin-left: 8px;
+}
+
+#avancar_ano{
+	float: right;
+}
+
+.mes{
+	height: 30px;
+	border: 1px solid #000;
+	width: 50px;
+	float: left;
+	margin: 2.5px;
+}
+
+.link-calendario{
+	position: relative;
+	float: left;
+}
+
+.popup{
+	float: left;
+	width: 100%;
+	height: auto;
+	position: absolute;
+	z-index: 10;
+	background-color: white;
+	border: 1px black solid;
+	border-radius: 10px;
+	bottom: 110px;
+	padding: 5px;
+	display:none;
+}
+
+#listar-videos{
+	
+}
+
+.div-video{
+	float:left;
+}
