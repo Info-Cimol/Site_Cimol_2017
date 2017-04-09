@@ -1,8 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Classe Inicio
+ * Esta classe carrega o conteúdo inicial da página Home do site 
+ * @see Versão 1.1 Atualização do sistema para 2017
+ * @since 04/04/2017
+ * @name Início
+ * @version 1.1
+ * @author Cândido
+ *
+ */
 
 class Inicio extends MX_Controller {
-	
+	/**
+	 * Metodo construtor d classe
+	 * @Version 1.1
+	 * @Since 04/04/2017
+	 * @author Cândido
+	 */
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('noticia_model');
@@ -12,6 +27,13 @@ class Inicio extends MX_Controller {
 		$this->load->model('video_model');
 	}
 	
+	/**
+	 * Método inicial destinado a carregar o conteúdo da págian inícial
+	 * @name Index
+	 * @Version 1.1
+	 * @Since 04/04/2017
+	 * @author Cândido
+	 */
 	public function index()
 	{
 		$this->data['title']="Cimol";
@@ -24,11 +46,6 @@ class Inicio extends MX_Controller {
 		foreach($this->data['noticias'] as $noticia){
 			$this->data['imagens'][]=$this->imagem_model->listar_imagem_noticia($noticia->id);
 		}
-		/*
-		foreach($this->data['eventos'] as $evento){
-			$this->data['imagens_evento'][]=$this->imagem_model->listar_imagem_evento($evento->id);
-		}
-		*/
 		$this->view->show_view($this->data);
 	}
 }

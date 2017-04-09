@@ -2,7 +2,7 @@
 img{
 	
 	width:70%;
-	margin:auto;
+	margin:10%;
 }
 
 </style>
