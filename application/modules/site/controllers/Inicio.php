@@ -15,7 +15,7 @@ class Inicio extends MX_Controller {
 	public function index()
 	{
 		$this->data['title']="Cimol";
-		$this->data['template']="inicio";
+		$this->data['content']="construcao";
 		$this->data['noticias']=$this->noticia_model->listar_inicial();
 		$this->data['eventos']=$this->evento_model->listar_eventos(2);
 		$this->data['cursos']=$this->curso_model->listar();

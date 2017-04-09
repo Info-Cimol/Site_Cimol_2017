@@ -13,7 +13,7 @@ class View {
 			$this->show_message();
 			$this->remove_message();
 		}
-		$this->CI->load->view('templates/default', $vars);
+		$this->CI->load->view('temas/default/default', $vars);
 	}
 	function set_message($message,$class){
 		$msg['message']=$message;
