@@ -19,6 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$config['base_url'] = 'http://www2.cimol.g12.br/';
 $config['base_url'] = 'http://localhost/cimolpro';
+$config['tema'] = 'default';
 
 /*
 |--------------------------------------------------------------------------

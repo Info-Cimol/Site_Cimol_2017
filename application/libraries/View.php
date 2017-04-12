@@ -3,10 +3,19 @@
 class View {
 	
 	private $CI;
+	private $tema;
+	
+	
 	
 	function __construct(){
 		$this->CI =& get_instance();
+		$this->tema="default";
 	}
+	
+	function setTema($tema){
+		$this->tema=$tema;
+	}
+	
 	function show_view($vars=null)
 	{
 		if(isset($_SESSION['messages'])){
