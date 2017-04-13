@@ -1,7 +1,7 @@
 <main>
 <?php
 
-include $content.".php";
+include APPPATH."modules/site/views/".$content.".php";
 
 ?>
 
