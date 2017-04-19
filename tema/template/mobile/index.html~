@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>CIMOL</title>
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<header>
+			<div id="nav"> </div>
+			<div id="escola"> </div>
+			<nav id="desktop"> </nav>
+			<div id="busca"> </div>
+
+		</header>
+		<nav id="mobile">
+			<ul>
+				<li><a href="#">INÍCIO</a></li>
+				<li><a href="#">CURSOS</a></li>
+				<li><a href="#">INSTITUCIONAL</a></li>
+				<li><a href="#">NOTÍCIAS</a></li>
+				<li><a href="#">ÁREA DO ESTAGIÁRIO</a></li>
+				
+         <ul>
+		</nav>
+		<main>
+
+		</main>
+		<footer>
+
+		</footer>
+	</body>
+
+</html>

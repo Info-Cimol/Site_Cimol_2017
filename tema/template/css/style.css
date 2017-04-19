@@ -1,0 +1,68 @@
+div{
+	border:solid #000;
+}
+
+body{
+	background-color:#cdcfd3;
+	
+	
+}
+
+header{
+	border-bottom:solid #41006f;
+	height:50px;
+	
+	width:100%;
+}
+
+header div{
+	height:35px;
+}
+
+header #nav{
+	width:22%;
+	float:left;
+	margin:0px;
+}
+header #escola{
+	width:50%;
+	float:left;
+	margin:0px;
+}
+header #busca{
+	width:22%;
+	float:left;
+	margin:0px;
+}
+
+#mobile{
+	background-color:#fff;
+	margin:-5px;
+	padding:0px;
+}
+
+#mobile ul{
+	margin:0px;
+	margin-top:5px;
+	padding:5px;
+}
+
+#mobile ul li{
+	border-bottom:solid 1px #545454;
+	padding:5px;
+	list-style-type:none;
+	margin:0px;
+}
+
+#mobile ul li a{
+	text-decoration:none;
+	color:#545454;
+	font-size:18px;
+	margin-left:15px;
+}
+
+
+
+
+
+
