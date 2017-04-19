@@ -4,7 +4,7 @@ div{
 
 body{
 	background-color:#cdcfd3;
-	padding:0px;
+	
 	
 }
 
@@ -61,7 +61,12 @@ header #busca{
 	margin-left:15px;
 }
 
-
+#desktop{
+	display:none;
+}
+#mobile{
+	display:none;
+}
 
 
 
