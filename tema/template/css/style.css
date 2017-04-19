@@ -61,7 +61,12 @@ header #busca{
 	margin-left:15px;
 }
 
-
+#desktop{
+	display:none;
+}
+#mobile{
+	display:block;
+}
 
 
 
