@@ -9,7 +9,7 @@
                 	<?php 
                 	$i=0;
                 	
-                	//foreach($imagens as $imagem){
+   foreach($imagens as $imagem){
                 		?>
                 		<div class='imagem-editar'>
                 		<a data-toggle='modal' href='.modal-imagem' onclick='editar_imagem("<?php echo $imagem ?>",<?php echo $i?>);'><img src="<?php echo base_url().$imagem?>"></img></a>
@@ -24,7 +24,7 @@
 	                		<input type='hidden' name="imagem[<?php echo $i ?>]" value="<?php echo $imagem?>">
                 		<?php 
                 		$i++;
-                	//}
+                	}
                 	?> 
                 			<br/>
                 			<br/>

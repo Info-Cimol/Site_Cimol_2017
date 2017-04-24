@@ -32,6 +32,7 @@ class Imagem extends MX_Controller {
     }
     
     public function editar_imagens($id=null, $tipo=null){
+    	
     	$_SESSION['falha']=0;
     	$ext_images=array('jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'gif', 'GIF', 'bmp', 'BMP');
     	$_SESSION['id']=$id;

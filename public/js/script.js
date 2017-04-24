@@ -1,5 +1,5 @@
 //var base_url="http://www2.cimol.g12.br/";
-var base_url="http://localhost/cimolpro/";
+var base_url="http://localhost/cimol_2017/";
 $('document').ready(function(){
 	var ano=$('#ano').html();
 	var mes=$('#mes-input').val();;
