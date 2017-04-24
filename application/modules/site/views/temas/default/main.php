@@ -1,7 +1,7 @@
 <main>
 <?php
 
-include APPPATH."modules/site/views/".$content.".php";
+include APPPATH."modules/site/views/temas/default/".$content.".php";
 
 ?>
 
