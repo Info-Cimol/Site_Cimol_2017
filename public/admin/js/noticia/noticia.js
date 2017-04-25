@@ -97,11 +97,18 @@
 		    					"</div>"
 		    					);
 		        			})
-		        			$('#content').after("<div id='form-modal-imagem'><form method='POST' action='"+base_url+"admin/imagem/editar_imagens/"+id+"/noticia' enctype='multipart/form-data'>"+
-	    		    				"<input type='file' name='imagens[]' accept='image/*' multiple>"+
-	    		    				"<br/>"+
-	    		    				"<button type='submit' class='btn btn-blue'>Salvar Imagens</button>"+
-	    		    				"</form></div>"		
+		        			$('#content').after(
+		        				"<div id='form-modal-imagem'>" +
+		        					"<form method='POST' action='"+base_url+"admin/imagem/editar_imagens/"+id+"/noticia' enctype='multipart/form-data'>"+
+		        					"<fieldset>" +
+		        					"<legend>Adicionar Imagens</legend>"+
+	    		    					
+		        					"<input type='file' name='imagens[]' accept='image/*' multiple>"+
+	    		    					"<br/>"+
+	    		    					"<input type='submit' class='btn btn-blue'>Salvar Imagens</button>" +
+	    		    					"</fieldset>"+
+	    		    				"</form>" +
+	    		    			"</div>"		
 	    	        			);
 		        	}
 			})
