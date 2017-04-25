@@ -99,4 +99,9 @@ class Usuario_model extends CI_Model{
 			return false;
 		}
 	}
+	
+	function buscarNivelAdmin(){
+		
+		return null;
+	}
 }
