@@ -5,11 +5,23 @@
 	<title>CIMOL</title>
 	<link rel="stylesheet" href="./css/style.css" />
 	<link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css" />
+	
 </head>
 <body>
 	<header>
 		<div id="nav">
-			<img src = "./imagens/threelines.png" alt = "menu"/>
+			<img onclick="expandirMenu()" src = "./imagens/threelines.png" alt = "menu"/>
+			<script>
+			function expandirMenu(){
+			var menu = document.getElementById("mobile");
+			if(menu.style.display=='none'){
+				menu.style.display='block';
+			}
+			else{
+				menu.style.display='none';
+			}
+			}
+			</script>
 		</div>
 		<div id="escola"> 
 			<img src = "./imagens/img-logo-MOBILE.png" alt = "escola"/>
@@ -28,7 +40,7 @@
 		</div>
 	</header>
 	
-	<nav id="mobile">
+	<nav id="mobile" style="display: none;">
 		<ul>
 			<li><a href="#">INÍCIO</a></li>
 			<li><a href="#">CURSOS</a></li>
