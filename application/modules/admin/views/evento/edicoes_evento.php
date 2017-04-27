@@ -24,48 +24,58 @@
             <!----TABLE LISTING STARTS--->
             <div class="tab-pane box active" id="list">
             	
-            	<a data-toggle="modal" href="#modal-form" class="btn btn-blue" onclick="novo_painel_edicao(<?php echo $evento_id?>)">Novo Painel</a>
-               <?php echo "<p>Evento : ".$edicoes_evento[0]->titulo_evento."</p>";
-				echo "<p>Edições</p>"?>
-                <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
-                	<thead>
-                		<tr>
-                    		<th><div>#</div></th>
-                    		<th><div></div></th>
-                    		<th><div>Edição</div></th>
-                    		<th><div>Opções</div></th>
-						</tr>
-					</thead>
-					<tbody>
-                    	<?php 
-                    	
-                    	$count = 1;
-                    	foreach($edicoes_evento as $edicao_evento):?>
-                        <tr>
-                        	<td><?php echo $count++;?></td>
-                            <td ><?php echo "<img src='".base_url().$edicao_evento->url_imagem.$edicao_evento->nome_imagem."' style='width:100px'/>";?></td>
-							<td><?php echo "<p>".$edicao_evento->titulo."</p>";
-							echo "<p> de ".$edicao_evento->data_inicial." à ".$edicao_evento->data_final."</p>";
-							
-							?></td>
-							<td align="center">
-								<a data-toggle="modal" href="#modal-form" onclick="editar_edicao_evento(<?php echo $evento_id; ?>,<?php echo $edicao_evento->id; ?>)" class="btn btn-gray btn-small"> 
-                                		<i class="icon-wrench"></i>
-                                </a>
-                            	<a data-toggle="modal" href="#modal-delete" onclick="modal_delete('<?php echo base_url();?>admin/evento/deletar_edicao/<?php echo $evento_id;?>/<?php echo $edicao_evento->id;?>')" class="btn btn-red btn-small">
-                                		<i class="icon-trash"></i> 
-                                </a>
-                                <a data-toggle="modal" href="#modal-form" onclick="listar_imagens_edicao(<?php echo $evento_id?>,<?php echo $edicao_evento->id?>); return false;"  class="btn btn-blue btn-small"> 
-                                		<i class="icon-picture"></i>
-                                </a>
-                              	<a href="<?php echo base_url()."admin/evento/paineis_edicao/".$edicao_evento->evento_id."/".$edicao_evento->id."/".$edicao_evento->titulo_evento."/".$edicao_evento->titulo ?>"  class="btn btn-blue btn-small"> 
-                                		<i class="icon-list"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <?php endforeach;?>
-                    </tbody>
-                </table>
+            	<a data-toggle="modal" href="#modal-form" class="btn btn-blue" onclick="novo_painel_edicao(<?php echo $evento_id?>)">Nova Edicao</a>
+               <?php 
+               if(is_array($edicoes_evento)){
+	               echo "<p>Evento : ".$edicoes_evento[0]->titulo_evento."</p>";
+					echo "<p>Edições</p>"
+					?>
+	                <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+	                	<thead>
+	                		<tr>
+	                    		<th><div>#</div></th>
+	                    		<th><div></div></th>
+	                    		<th><div>Edição</div></th>
+	                    		<th><div>Opções</div></th>
+							</tr>
+						</thead>
+						<tbody>
+	                    	<?php 
+	                    	
+	                    	$count = 1;
+	                    	foreach($edicoes_evento as $edicao_evento):?>
+	                        <tr>
+	                        	<td><?php echo $count++;?></td>
+	                            <td ><?php echo "<img src='".base_url().$edicao_evento->url_imagem.$edicao_evento->nome_imagem."' style='width:100px'/>";?></td>
+								<td><?php echo "<p>".$edicao_evento->titulo."</p>";
+								echo "<p> de ".$edicao_evento->data_inicial." à ".$edicao_evento->data_final."</p>";
+								
+								?></td>
+								<td align="center">
+									<a data-toggle="modal" href="#modal-form" onclick="editar_edicao_evento(<?php echo $evento_id; ?>,<?php echo $edicao_evento->id; ?>)" class="btn btn-gray btn-small"> 
+	                                		<i class="icon-wrench"></i>
+	                                </a>
+	                            	<a data-toggle="modal" href="#modal-delete" onclick="modal_delete('<?php echo base_url();?>admin/evento/deletar_edicao/<?php echo $evento_id;?>/<?php echo $edicao_evento->id;?>')" class="btn btn-red btn-small">
+	                                		<i class="icon-trash"></i> 
+	                                </a>
+	                                <a data-toggle="modal" href="#modal-form" onclick="listar_imagens_edicao(<?php echo $evento_id?>,<?php echo $edicao_evento->id?>); return false;"  class="btn btn-blue btn-small"> 
+	                                		<i class="icon-picture"></i>
+	                                </a>
+	                              	<a href="<?php echo base_url()."admin/evento/paineis_edicao/".$edicao_evento->evento_id."/".$edicao_evento->id."/".$edicao_evento->titulo_evento."/".$edicao_evento->titulo ?>"  class="btn btn-blue btn-small"> 
+	                                		<i class="icon-list"></i>
+	                                </a>
+	                            </td>
+	                        </tr>
+	                        <?php endforeach;?>
+	                    </tbody>
+	                </table>
+	              <?php 
+               	}else{
+               		echo "<h3>Não há edições para este evento.</h3>";
+               		
+               	}
+	              
+	              ?>
 			</div>
             <!----TABLE LISTING ENDS--->
             <!----CREATION FORM STARTS---->
