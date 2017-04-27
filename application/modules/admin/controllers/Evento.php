@@ -307,8 +307,9 @@ class Evento extends MX_Controller {
 	function edicoes($evento_id){
 		
 		$this->data['template']="evento/edicoes_evento";
-		$this->data['edicoes_evento']=$this->evento_model->listar_edicoes_evento($evento_id);
+		$this->data['edicoes_evento']=$this->evento_model->listarEdicoesEvento($evento_id);
 		$this->data['evento_id']=$evento_id;
+		
 		$this->view->show_view($this->data);
 	}
 	
