@@ -46,12 +46,14 @@ header{
 	text-align: center;
 	
 }
-#busca p{
+.login{
+	margin: 35px;
+}
+#busca a{
 	font-family: "arial";
 	font-size: 20px;
 	text-decoration:none;
 	color: #ffffff;
-	margin: 35px;
 }
 #mobile{
 	padding-top: 5px;
