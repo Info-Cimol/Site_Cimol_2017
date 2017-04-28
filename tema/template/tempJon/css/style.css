@@ -1,0 +1,180 @@
+body{
+	background-color:#cdcfd3;
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+header{
+	background-color: #0067b1;
+	border-bottom:solid 7px #ffff00;
+	height:90px;
+	width:100%;
+	margin: 0px;
+	padding: 0px;
+	
+}
+#desktop{
+	display:none;
+}
+#nav{
+	width: 24%;
+	margin: 0px;
+	height: 80px;
+	float: left;
+}
+#nav img{
+	width: 95px;
+	height: 70px;
+	margin-top:10px;
+	padding-left: 15px;
+}
+#escola{
+	width: 50%;
+	margin: 0px;
+	height: 80px;
+	float: left;
+}
+#escola img{
+	margin: 15px;
+	padding-left: 15%;
+}
+#busca{
+	width: 24%;
+	margin: 0px;
+	height: 80px;
+	float: left;
+	text-align: center;
+	
+}
+.login{
+	margin: 35px;
+}
+#busca a{
+	font-family: "arial";
+	font-size: 20px;
+	text-decoration:none;
+	color: #ffffff;
+}
+#mobile{
+	padding-top: 5px;
+	background-color: #fff;
+}
+#mobile ul{
+	margin: 0px;
+	padding: 5px;
+	
+}
+#mobile ul li{
+	list-style-type:none;
+	border-bottom:solid 1px #545454;
+	padding: 12px;
+	margin: 0px;
+}
+#mobile ul li a{
+	text-decoration:none;
+	color:#545454;
+	font-size:20px;
+	margin-left: 7%;
+	
+}
+#mobile ul li a:hover{
+	color:#000;
+	font-size:28px;
+	margin-left: 7%;
+	
+}
+.redes ul{
+	position: absolute;
+	visibility: hidden;
+}
+.redes:hover ul{
+	visibility: visible;
+	position: relative;
+}
+#section{
+	background-color: #fff;
+	border-bottom: solid 7px #0000ff;
+	height: 1950px;
+}
+#notPrincipal{
+	width: 100%;
+	height: 750px;
+	text-align: justify;
+	font-family: "arial";
+	font-size: 23px;
+	text-decoration: inherit;
+}
+#notPrincipal img{
+	width: 100%;
+	height: 600px;
+}
+
+#notPrincipal h2{
+	margin: 0px;
+	padding: 10px 5% 15px 5%;
+}
+#noticias{
+	width: 100%;
+	height: 900px;
+}
+#conteiner{
+	width: 45%;
+	float: left;
+	padding-left: 3%;
+}
+#noticias img{
+	width: 100%;
+	height: 300px;
+}
+#conteiner{
+	font-family: "arial";
+	font-size: 24px;
+	text-align: justify;
+	margin: 0px 0px 60px 0px;
+}
+#conteiner a{
+	font-size: 29px;
+	margin-bottom: 10px;
+}
+#footer{
+	width: 100%;
+	height: 80px;
+	position: relative;
+}
+.logo{
+	width: 50px;
+	height: 65px;
+	margin-top: 0px;
+	margin-left: 5%; 
+	padding-bottom: 7px;
+	float: left;
+}
+#footer a{
+	float: left;
+	margin: 23px 23px -30px 23px;
+	padding-left: 15px;
+	font-family: "arial";
+	font-size: 17px;
+}
+.rodape{
+	float: right;
+	width: 300px;
+	height: 70px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

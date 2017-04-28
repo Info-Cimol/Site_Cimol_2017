@@ -102,6 +102,10 @@ class Evento_model extends CI_Model{
 		$query=$this->db->get();
 		return $query->result_array();
 	}
+	
+	function listarEdicoesEvento($idEvento){
+		return null;
+	}
 	/*
 	function deletar_imagem_evento($imagem_id, $evento_id){
 		if($this->db->delete('imagem_evento', array('imagem_id' => $imagem_id, 'evento_id'=>$evento_id))){
