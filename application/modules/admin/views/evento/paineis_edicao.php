@@ -1,4 +1,4 @@
-<script src="<?php echo base_url();?>public/js/evento/evento.js" type="text/javascript"></script>
+<script src="<?php echo base_url();?>public/admin/js/evento/evento.js" type="text/javascript"></script>
 
 	<div class="box-header">
     	<!------CONTROL TABS START------->
