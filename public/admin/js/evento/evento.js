@@ -219,10 +219,11 @@
 			})
 		}
 		
-		function listar_imagens_edicao(evento_id,id){
+		function listar_imagens_edicao(evento_id,edicao_evento_id){
+			
 			$('#modal-body').html('');
 			$.ajax({
-		        url: base_url+"admin/evento/listar_imagens_edicao/"+id,
+		        url: base_url+"admin/evento/listar_imagens_edicao/"+edicao_evento_id,
 		        dataType: 'json',
 		        type: "post",
 		        success: function(data){
@@ -237,12 +238,12 @@
 		        				"<div class='div-imagem-modal controls'>"+
 		    					"<img src='"+base_url+element.url_imagem+element.nome+"'>"+
 		    					"<br/>"+
-		    					"<a class='btn btn-default botao-excluir' onclick='excluir_imagem_edicao("+element.id+","+id+","+evento_id+");'><i class='icon-trash'></i> </a>"+
+		    					"<a class='btn btn-default botao-excluir' onclick='excluir_imagem_edicao("+element.id+","+edicao_evento_id+","+evento_id+");'><i class='icon-trash'></i> </a>"+
 		    					"</div>"
 		    					);
 		        			})
-		        			$('#content').after("<div id='form-modal-imagem'><form method='POST' action='"+base_url+"admin/evento/salvar_imagens_edicao/"+id+"/' enctype='multipart/form-data'>"+
-		        					"<input type='hidden' name='edicao_id' value='"+id+"'/>"+
+		        			$('#content').after("<div id='form-modal-imagem'><form method='POST' action='"+base_url+"admin/evento/salvar_imagens_edicao/"+edicao_evento_id+"/' enctype='multipart/form-data'>"+
+		        					"<input type='hidden' name='edicao_evento_id' value='"+edicao_evento_id+"'/>"+
 		        					"<input type='hidden' name='evento_id' value='"+evento_id+"'/>"+
 		        					"<input type='file' name='imagens[]' accept='image/*' multiple />"+
 	    		    				"<br/>"+

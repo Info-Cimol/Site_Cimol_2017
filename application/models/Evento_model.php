@@ -104,8 +104,78 @@ class Evento_model extends CI_Model{
 	}
 	
 	function listarEdicoesEvento($idEvento){
-		return null;
+		$this->db->select("e.*, e.id AS evento_id, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.*, ee.id AS edicao_evento_id,i.nome AS nome_imagem")
+		->from('evento e')
+		->join("edicao_evento ee", "ee.evento_id=e.id")
+		->join('imagem i', 'i.id=e.imagem_id')
+		->where('ee.status =','ativo');
+		
+		$this->db->order_by('ee.id',"desc");
+		$query=$this->db->get();
+		return $query->result();
 	}
+	
+	function postarEdicaoEvento($edicao_evento){
+		if($this->db->insert('edicao_evento', $edicao_evento)){
+			return $this->db->insert_id();
+		}else{
+			return false;
+		}
+	}
+	
+	function salvarPainelEdicaoEvento($painelEdicaoEvento){
+		if($this->db->insert('painel_edicao_evento', $painelEdicaoEvento)){
+			return $this->db->insert_id();
+		}else{
+			return false;
+		}
+	}
+	
+	function listarImagensEdicao($edicaoId){
+		$this->db->select('iee.*, i.*')
+		->from("imagem_edicao_evento iee")
+		->join("edicao_evento ee", "iee.edicao_evento_id=ee.id")
+		->join("evento e","e.id=ee.evento_id")
+		->join("imagem i","iee.imagem_id=i.id")
+		->where("ee.id",$edicaoId);
+		$query=$this->db->get();
+		return $query->result();
+	}
+	
+	function postarImagemEdicao($imagemEdicaoEvento){
+		if($this->db->insert('imagem_edicao_evento', $imagemEdicaoEvento)){
+			return $this->db->insert_id();
+		}else{
+			return false;
+		}
+	}
+	
+	
+	function deletarImagemEdicaoEvento($imagemId,$edicaoEventoId){
+		if($this->db->delete('imagem_edicao_evento',array('imagem_id'=>$imagemId,'edicao_evento_id'=>$edicaoEventoId))){
+			$this->db->delete('imagem',array('id'=>$imagemId));
+			return true;
+		}else{
+			return false;
+		}
+	} 
+	
+	function listarPaineisEdicao($eventoId,$edicaoId){
+		$this->db->select("e.*, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.*, ee.id AS edicao_evento_id,i.nome AS nome_imagem, pee.*")
+		->from('evento e')
+		->join("edicao_evento ee", "ee.evento_id=e.id")
+		->join('imagem i', 'i.id=e.imagem_id')
+		->join('painel_edicao_evento pee','pee.edicao_id=ee.id')
+		->where('e.id',$eventoId)
+		->where('ee.id',$edicaoId)
+		->where('ee.status =','ativo');
+		
+		$this->db->order_by('ee.id',"desc");
+		$query=$this->db->get();
+		return $query->result();
+	}
+	
+	
 	/*
 	function deletar_imagem_evento($imagem_id, $evento_id){
 		if($this->db->delete('imagem_evento', array('imagem_id' => $imagem_id, 'evento_id'=>$evento_id))){
