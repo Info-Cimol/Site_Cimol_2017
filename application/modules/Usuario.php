@@ -17,7 +17,11 @@ class Usuario extends MX_Controller{
 			$this->data['content']="usuario/index";
 		}
 		$this->view->show_view($this->data);
-		
+		/*else if(in_array('admin', $this->user_data['permissoes'])){
+			print_r($_SESSION['user_data']['permissoes']);
+		}
+		print_r($_SESSION);
+		*/
 	}
 	
 	
@@ -25,10 +29,10 @@ class Usuario extends MX_Controller{
 		$this->load->model('usuario_model');
 		$usuario = $this->input->post('usuario');
 		$senha = md5($this->input->post('senha'));
-		echo $usuario."<br/>".$senha."<br/>";
+		
 		$query=$this->usuario_model->autenticar($usuario,$senha);
 		$resultado=$query->row();
-		print_r($resultado);
+		
 		if($resultado->pessoa > 0){
 			$_SESSION['user_data']['id']=$resultado->id;
 			$_SESSION['user_data']['nome']=$resultado->nome;
