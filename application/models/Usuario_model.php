@@ -1,5 +1,15 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Classe responsavel por todas as interações de usuarios com a base de dados.
+ */
 class Usuario_model extends CI_Model{
+	/**
+	 * Função responsavel pela autenticação dos usuarios pelo e-mail e senha.
+	 * @param $usuario
+	 * @param $senha
+	 * @return $result
+	 */
 	function autenticar($usuario, $senha){
         $query="SELECT usuario.id, pessoa.nome,pessoa.rg, pessoa.cpf, 
 		count(administrador.pessoa_id) as admin,
@@ -20,10 +30,12 @@ class Usuario_model extends CI_Model{
             WHERE usuario.senha = '".$senha."' AND email.email = '".$usuario."'";
        $result = $this->db->query($query); 
        return $result;
-				/*$query = $this->db->get();
-				return $query;*/
 	}
-	
+	/**
+	 * Função que verifica se existe um usuario para o email cadastrado.
+	 * @param unknown $email
+	 * @return boolean
+	 */
 	function existe_usuario($email){
 		$query="SELECT pessoa.*, pessoa.id AS pessoa_id, email.email, count(usuario.id) AS num_reg
 				FROM usuario 
@@ -33,41 +45,41 @@ class Usuario_model extends CI_Model{
 				email.email='".$email."'";
 		echo $query;
 		$result = $this->db->query($query);
-		//print_r($result);
+		// Se existir um usuario retorna verdadeiro
 		if($result->row()->num_reg){
-			//print_r($result->row());
 			return $result->row();
-		}else{
+		}
+		// Se não existir um usuario retorna falso
+		else{
 			return false;
 		}
-		//return $result->row()->num_reg;
 	}
-	
-	
+	/**
+	 * Função responsavel pelo registro da chave de acesso do usuario
+	 * @param unknown $chave_de_acesso
+	 * @param unknown $pessoa_id
+	 * @return boolean
+	 */
 	function registra_chave_de_acesso($chave_de_acesso, $pessoa_id){
-		/*$query="UPDATE usuario
-				SET chave_de_acesso='".$chave_de_acesso.
-		"' WHERE pessoa_id="+$pessoa_id;
-		
-		echo $query;
-		
-		if($this->db->query($query)){
-			return true;
-		}else{
-			return false;
-		}*/
+		//Faz o registro da chave de licença e retorna verdadeiro
 		if($this->db->set('chave_de_acesso', $chave_de_acesso)
 				->where('pessoa_id =', $pessoa_id)
 				->update('usuario')){
 					return true;
-		}else{
+		}
+		//Retorna falso se o registro da chave de licença não foi efetuado.
+		else{
 			return false;
 		}
 		
 	}
-	
-	
+	/**
+	 * Função responsavel por buscar se existe a chave de acesso do usuario
+	 * @param unknown $chave_de_acesso
+	 * @return boolean
+	 */
 	function buscar_usuario_por_chave_de_acesso($chave_de_acesso){
+		//Faz a consulta no banco de dados
 		$query="SELECT pessoa.*, pessoa.id AS pessoa_id, email.email, count(usuario.id) AS num_reg
 				FROM usuario
 				LEFT JOIN pessoa on pessoa.id=usuario.pessoa_id
@@ -75,16 +87,23 @@ class Usuario_model extends CI_Model{
 				WHERE
 				usuario.chave_de_acesso='".$chave_de_acesso."'";
 		echo $query;
+		// Passa o valor da connsulta para uma variavel
 		$result = $this->db->query($query);
-		//print_r($result);
 		if($result->row()->num_reg){
-			//print_r($result->row());
+			//Retorna o usuario para a chave de acesso solicitada
 			return $result->row();
 		}else{
+			//Se a chave de acesso não existir retorna falso
 			return false;
 		}
 	}
-	
+	/**
+	 * Função responsavel pela alteração de senha.
+	 * @param unknown $chave_de_acesso
+	 * @param unknown $email
+	 * @param unknown $senha
+	 * @return boolean
+	 */
 	function alterar_senha($chave_de_acesso, $email, $senha){
 		$query="UPDATE usuario set senha=".$senha." 
 				WHERE chave_de_acesso='".$chave_de_acesso."' 
@@ -92,13 +111,33 @@ class Usuario_model extends CI_Model{
 				pessoa_id=(SELECT pessoa.id FROM pessoa
 				JOIN email ON email.pessoa_id=pessoa.id
 				WHERE email.email='".$email."')";
+		//retorna que a alteração foi feita com sucesso
 		if($this->db->query($query)){
 			return true;
-		}else{
+		}
+		//retorna que a alteração não foi feita 
+		else{
 			return false;
 		}
 	}
-	
+	/**
+	 * Função responsavel por ativar ou desativar usuarios
+	 * @param unknown $status
+	 * @param unknown $id
+	 * @return boolean
+	 */
+	function status_usuario($status,$id){
+		$query="UPDATE usuario SET status='$status' 
+				WHERE pessoa_id='$id'";
+		//retorna que a alteração foi feita com sucesso
+		if($this->db->query($query)){
+			return true;
+		}
+		//retorna que a alteração não foi feita 
+		else{
+			return false;
+		}
+	}
 	function buscarNivelAdmin(){
 		
 		return null;
