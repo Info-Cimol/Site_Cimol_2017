@@ -5,18 +5,23 @@ class Usuario extends MX_Controller{
 	
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('Usuario_model');
 	}
 	
 	public function index(){
 		$this->data['title']="Cimol";
 		if(empty($this->user_data)){
+			
 			$this->data['content']="formulario_login";
+			
 		}else{
 			$this->data['content']="usuario/index";
 		}
 		$this->view->show_view($this->data);
-		
+		/*else if(in_array('admin', $this->user_data['permissoes'])){
+			print_r($_SESSION['user_data']['permissoes']);
+		}
+		print_r($_SESSION);
+		*/
 	}
 	
 	
@@ -24,10 +29,10 @@ class Usuario extends MX_Controller{
 		$this->load->model('usuario_model');
 		$usuario = $this->input->post('usuario');
 		$senha = md5($this->input->post('senha'));
-		echo $usuario."<br/>".$senha."<br/>";
+		
 		$query=$this->usuario_model->autenticar($usuario,$senha);
 		$resultado=$query->row();
-		print_r($resultado);
+		
 		if($resultado->pessoa > 0){
 			$_SESSION['user_data']['id']=$resultado->id;
 			$_SESSION['user_data']['nome']=$resultado->nome;
@@ -60,7 +65,7 @@ class Usuario extends MX_Controller{
 			}
 			
 		}else{
-			$this->view->set_message("Login ou senha estÃ£o incorretos!","alert alert-error");
+			$this->view->set_message("Login ou senha estão incorretos!","alert alert-error");
 			redirect('usuario', 'refresh');
 		}
 		
@@ -90,14 +95,14 @@ class Usuario extends MX_Controller{
 			
 			if($this->usuario_model->registra_chave_de_acesso($chave_de_acesso, $usuario->pessoa_id)){
 				
-				$mensagem="OlÃ¡,
-					<p>VocÃª esqueceu a sua senha?</p>
-					<p> VocÃª estÃ¡ recebendo esta mensagem devido a uma solicitaÃ§Ã£o realizada na seÃ§aÃ£o de login 
-						do site da Escola TÃ©cnica Estadual Monteiro Lobato - CIMOL</p>
+				$mensagem="Olá,
+					<p>Você esqueceu a sua senha?</p>
+					<p> Você está recebendo esta mensagem devido a uma solicitação realizada na seçaão de login 
+						do site da Escola Técnica Estadual Monteiro Lobato - CIMOL</p>
 					
 					<p>Se isso for verdade, clique no link a seguir, para definir uma nova senha.</p>
 					<a href='".base_url()."usuario/alterar_senha/".$chave_de_acesso."'>Redefinir senha</a>
-					<p> Caso vocÃª nÃ£o tenha realizado esta solicitaÃ§Ã£o clique <a href='#'>aqui</a></p>";
+					<p> Caso você não tenha realizado esta solicitação clique <a href='#'>aqui</a></p>";
 					
 				
 				echo $mensagem;
@@ -108,26 +113,26 @@ class Usuario extends MX_Controller{
 			
 			//$this->input->post('email');
 			
-			$para=$usuario->nome;//Nome do destinatÃ¡rio
+			$para=$usuario->nome;//Nome do destinatário
 			$de = $this->input->post('info.cimol@gmail.com', TRUE);        //'E-mail Remetente'
 			$para = $this->input->post($usuario->email, TRUE);    //CAPTURA O VALOR DA CAIXA DE TEXTO 'E-mail de Destino'
 			///$msg = $this->input->post('$mensagem', TRUE);      //CAPTURA O VALOR DA CAIXA DE TEXTO 'Mensagem'
 			$this->load->library('email');                   //CARREGA A CLASSE EMAIL DENTRO DA LIBRARY DO FRAMEWORK
-			$this->email->from($de, 'AdministraÃ§Ã£o');                //ESPECIFICA O FROM(REMETENTE) DA MENSAGEM DENTRO DA CLASSE
-			$this->email->to($para);                         //ESPECIFICA O DESTINATÃ�RIO DA MENSAGEM DENTRO DA CLASSE
-			$this->email->subject('RecuperaÃ§Ã£o de senha');         //ESPECIFICA O ASSUNTO DA MENSAGEM DENTRO DA CLASSE
-			$this->email->message($mensagem);	                 //ConteÃºdo da mensagem a ser enviada
+			$this->email->from($de, 'Administração');                //ESPECIFICA O FROM(REMETENTE) DA MENSAGEM DENTRO DA CLASSE
+			$this->email->to($para);                         //ESPECIFICA O DESTINATÁRIO DA MENSAGEM DENTRO DA CLASSE
+			$this->email->subject('Recuperação de senha');         //ESPECIFICA O ASSUNTO DA MENSAGEM DENTRO DA CLASSE
+			$this->email->message($mensagem);	                 //Conteúdo da mensagem a ser enviada
 			
-			if($this->email->send()){//AÃ‡ÃƒO QUE ENVIA O E-MAIL COM OS PARÃ‚METROS DEFINIDOS ANTERIORMENTE
-				$this->view->set_message("Mensagem para recuperaÃ§Ã£o de senha enviada com sucesso!", "alert alert-success");
+			if($this->email->send()){//AÇÃO QUE ENVIA O E-MAIL COM OS PARÂMETROS DEFINIDOS ANTERIORMENTE
+				$this->view->set_message("Mensagem para recuperação de senha enviada com sucesso!", "alert alert-success");
 				echo ":-)";
 			}else{
-				$this->view->set_message("Falha ao enviar mensagem para recuperaÃ§Ã£o de senha! - ", "alert alert-error");
+				$this->view->set_message("Falha ao enviar mensagem para recuperação de senha! - ", "alert alert-error");
 				echo ":-(";
 			}
 			
 		}else{
-			$this->view->set_message("usuÃ¡rio nÃ£o encontrado!", "alert alert-success");
+			$this->view->set_message("usuário não encontrado!", "alert alert-success");
 		}
 		//print_r($_SESSION);
 		//redirect('usuario/resposta_mensagem_recuperar_senha', 'refresh');
@@ -149,28 +154,28 @@ class Usuario extends MX_Controller{
 	
 	function alterar_senha($chave_de_acesso=null){
 		$this->data['title']="Cimol";
-		//Verifica envio formulÃ¡rio
+		//Verifica envio formulário
 		
 		$this->data['template']="usuario/alterar_senha";
-		//Verificar se Ã© um usuario logado
+		//Verificar se é um usuario logado
 		if(isset($_SESSION['user_data'])){
 			$this->data['usuario']=$_SESSION['user_data'];
 			$this->data['usuario']['chave_de_acesso']=obter_chave_de_acesso();
 			
-		}else{//Caso o usuÃ¡rio nÃ£o estiver logado
+		}else{//Caso o usuário não estiver logado
 			if($chave_de_acesso){
 				echo $chave_de_acesso;
-				$this->load->model('Usuario_model');
-				if($usuario=$this->Usuario_model->buscar_usuario_por_chave_de_acesso($chave_de_acesso)){
+				$this->load->model('usuario_model');
+				if($usuario=$this->usuario_model->buscar_usuario_por_chave_de_acesso($chave_de_acesso)){
 					$this->data['usuario']=$usuario;
 					$this->data['usuario']->chave_de_acesso=$chave_de_acesso;
 					
 				}else{
-					$this->view->set_message("InformaÃ§Ãµes inconsistentes, para utilizar esta funcionalidade! ", "alert alert-error");
+					$this->view->set_message("Informações inconsistentes, para utilizar esta funcionalidade! ", "alert alert-error");
 					redirect('login', 'refresh');
 				}
 			}else{
-				$this->view->set_message("NÃ£o estÃ¡ autorizado a utilizar esta funcionalidade! ", "alert alert-error");
+				$this->view->set_message("Não está autorizado a utilizar esta funcionalidade! ", "alert alert-error");
 				redirect('login', 'refresh');
 			}
 			
@@ -204,20 +209,15 @@ class Usuario extends MX_Controller{
 		echo $this->input->post('email');
 		echo "<br/>";
 		echo $this->input->post('perfil');
-		echo "<br/>";
-		//Verificar se \Usuario jÃ¡ existe
-		
-		if($usuario=$this->Usuario_model->existe_usuario($this->input->post('email'))){
+		//Verificar se \Usuario já existe
+		$this->load->model('usuario_model');
+		if($usuario=$this->usuario_model->existe_usuario($this->input->post('email'))){
 			//verifica o perfil do usuario
-			echo "<br/>";
-			echo "existe";
 		}else{
-			echo "<br/>";
-			echo "Não existe";
 			//aBusca pela pessoa
 			//Se a pessoa existir, busca o perfil
-				//Registra o usuÃ¡rio
-				//Envia mensagem confirmaÃ§Ã£o, com link criaÃ§Ã£o de senha
+				//Registra o usuário
+				//Envia mensagem confirmação, com link criação de senha
 		}
 	}
 	

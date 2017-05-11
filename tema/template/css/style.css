@@ -17,6 +17,7 @@ header{
 	display:none;
 }
 #nav{
+	display: block;
 	width: 24%;
 	margin: 0px;
 	height: 80px;
@@ -47,11 +48,11 @@ header{
 	
 }
 .login{
-	margin: 35px;
+	margin: 30px;
 }
 #busca a{
 	font-family: "arial";
-	font-size: 20px;
+	font-size: 30px;
 	text-decoration:none;
 	color: #ffffff;
 }
@@ -67,30 +68,48 @@ header{
 #mobile ul li{
 	list-style-type:none;
 	border-bottom:solid 1px #545454;
-	padding: 12px;
+	padding: 30px 0px 30px 0px;
 	margin: 0px;
 }
 #mobile ul li a{
 	text-decoration:none;
 	color:#545454;
-	font-size:20px;
+	font-size:30px;
 	margin-left: 7%;
 	
 }
+#mobile ul li:hover{
+	background-color: #0067b1;
+}
 #mobile ul li a:hover{
-	color:#000;
+	color:#ffffff;
 	font-size:28px;
 	margin-left: 7%;
 	
 }
-.redes ul{
+.subMenu ul{
 	position: absolute;
 	visibility: hidden;
 }
-.redes:hover ul{
+.subMenu:hover ul{
 	visibility: visible;
 	position: relative;
+	background-color: #fff;
+	padding: 0px;
 }
+.subMenu{
+	background-color: #f3f3f3;
+}
+
+#mobile ul li ul li{
+	border-bottom: 0px;
+}
+#mobile ul li ul{
+	margin-top: 20px;
+	border-top: solid 1px #545454;
+	background-color: #fff;
+}
+
 #section{
 	background-color: #fff;
 	border-bottom: solid 7px #0000ff;
@@ -162,19 +181,9 @@ header{
 	height: 70px;
 }
 
+@media query (min-width: 768px) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#nav{
+	display: none;
+}
+}
