@@ -38,11 +38,18 @@ h3 p{
     font-size: 18px;
 }
 #msg{
-    padding: 10px 0px 20px 0px;
+    padding: 10px 0px 0px 0px;
     color: #fff;
     font: 14px Elvetica, sans-serif;
     margin: auto;
     width: 250px;
+}
+#email{
+    color: #fff;
+    margin: auto;
+    width: 250px;
+    font: 10px Elvetica, sans-serif;
+    padding: 0px 0px 10px 0px;
 }
 .form-log{
     width: 280px;

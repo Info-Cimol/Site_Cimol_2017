@@ -13,13 +13,8 @@
             <div class="fechar">X</div>
             <div id="imagem"><img src="images/cimol_branco.png"/></div>
             <div id="sbv"><strong><p>DEFINA SUA SENHA</p></strong></div>
-            <div id="msg"><p>VOCÊ SOLICITOU A DEFINIÇÃO DE SENHA PARA:</p></div>
-            <div id="email">
-                <!--<?php
-                    $var_email=$_POST['email'];
-                    echo "$var_email";
-                php?>-->
-            </div>
+            <div id="msg"><p>VOCï¿½ SOLICITOU A DEFINIï¿½ï¿½O DE SENHA PARA:</p></div>
+            <div id="email"><p>*****@g***l.com</p></div>
             <form action="definir_senha.php" method="POST" class="form-log">
                 <div class="form-grupo">
                     <div class="col-sm-10" id="pqp">
