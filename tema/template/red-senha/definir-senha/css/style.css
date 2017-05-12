@@ -50,13 +50,21 @@ h3 p{
     width: 250px;
     margin: auto;
 }
+.glyphicon{
+    font-size:15px;
+    color:#fff;
+    float: left;
+}
 #carta-email{
     width: 250px;
     margin: auto;
-    margin-top: 15px;
 }
-#carta-email img{
-    width: 30px;
+#carta-email p{
+    width: 100px;
+    float: left;
+    padding: 0px 0px 0px 10px;
+    color: #fff;
+    font: 10px Elvetica, sans-serif;
 }
 @media screen and (min-width: 360px){
    #imagem img {

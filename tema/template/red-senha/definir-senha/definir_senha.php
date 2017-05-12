@@ -13,14 +13,11 @@
             <div class="fechar">X</div>
             <div id="imagem"><img src="images/cimol_branco.png"/></div>
             <div id="sbv"><strong><p>DEFINA SUA SENHA</p></strong></div>
-            <div id="msg"><p>VOCÊ RECEBERÁ UMA MENSAGEM CONTENDO INSTRUÇÕES VISANDO SUA DEFINIÇÃO DE SENHA</p></div>
-            <div id="def"><p>Email de definição:</p></div>
+            <div id="msg"><p>VOCï¿½ RECEBERï¿½ UMA MENSAGEM CONTENDO INSTRUï¿½ï¿½ES VISANDO SUA DEFINIï¿½ï¿½O DE SENHA</p></div>
+            <div id="def"><p>Email de definiï¿½ï¿½o:</p></div>
             <div id="carta-email">
-                <img src="images/email.png"/>
-                <!--<?php
-                    $var_email=$_POST['email'];
-                    echo "$var_email";
-                php?>-->
+                <span class="glyphicon glyphicon-envelope"></span>
+                <p>*****@gmail.com</p>
             </div>
         </section>
     </body>
