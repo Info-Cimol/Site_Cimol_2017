@@ -13,9 +13,11 @@ header{
 	width:100%;
 }
 
-
-header #escola{
+.link-user-log{
 	float:left;
+}
+header #escola{
+	float:right;
 	
 }
 
@@ -103,7 +105,7 @@ header #escola{
 		width:80%;
 		border:solid #fff;
 		float:left;
-		min-height:400px;
+		
 	}
 	aside{
 		width:20%;

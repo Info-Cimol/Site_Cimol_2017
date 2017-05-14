@@ -18,10 +18,10 @@ class View {
 	
 	function show_view($vars=null)
 	{
-		if(isset($_SESSION['messages'])){
+		/*if(isset($_SESSION['messages'])){
 			$this->show_message();
 			$this->remove_message();
-		}
+		}*/
 		$this->CI->load->view('temas/default/default', $vars);
 	}
 	function set_message($message,$class){

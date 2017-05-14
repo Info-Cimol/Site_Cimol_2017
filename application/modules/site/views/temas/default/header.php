@@ -44,8 +44,16 @@
 					 </div>
 				  </div>
 				</form>
-			<ul class="nav navbar-nav navbar-right ">
-				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			<ul class="nav navbar-nav navbar-right">
+				<?php if(isset($_SESSION['user_data'])){?>
+				<li>
+				<a href="<?php echo base_url();  ?>perfil" class="link-user-log"><span class="glyphicon glyphicon-user"></span></a><a href="<?php echo base_url();  ?>logout" class="link-user-log"><span class="glyphicon glyphicon-log-out"></span></a>
+			 	</li>
+			 	<?php }else{ ?>
+			 	<li>
+			 	<a href="<?php echo base_url();  ?>login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+			 	</li>
+			 	<?php }?>
 			 </ul>
 		  </div>
 		</nav>

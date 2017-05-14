@@ -1,6 +1,6 @@
 <footer class="visible-desktop">
 		<div id="logo-footer">
-			<img src="<?php echo base_url();  ?>public/images/tema/default/logo.png" />
+			<img src="<?php echo base_url();  ?>public/temas/default/images/logo.png" />
 		</div>
 		<div id="resumo">
 			<div id="sobre-cimol">
