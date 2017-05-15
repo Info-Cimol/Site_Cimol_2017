@@ -10,7 +10,7 @@ class Login extends MX_Controller{
 	public function index(){
 		if(empty($this->user_data)){
 			$this->data['title']="Cimol";
-			$this->data['content']="formulario_login";
+			$this->data['content']="usuario/formulario_login";
 			$this->view->show_view($this->data);
 		}else if(in_array('admin', $this->user_data['permissoes'])){
 				print_r($_SESSION['user_data']['permissoes']);

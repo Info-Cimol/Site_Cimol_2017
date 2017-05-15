@@ -1,0 +1,237 @@
+body{
+	/*background-color:#cdcfd3;*/
+	margin:inherit;
+	padding-right: 0px;
+   padding-left: 0px;
+	
+}
+
+header{
+	background-color: #f8f8f8;
+	border-bottom:solid 3px #ffff00;
+	height:90px;
+	width:100%;
+}
+
+.link-user-log{
+	float:left;
+}
+header #escola{
+	float:right;
+	
+}
+
+
+
+
+#logo_desktop{
+	height: 55px;
+	margin-top:-8px;
+}
+
+#info{
+	height: 20px;
+	background-color:#1b4fa3;
+	color:#fff;
+	padding-left:20px;
+}
+
+@media screen and (max-width: 1024px) {
+		header{
+			background-color: #1b4fa3;
+			
+			height:60px;
+			
+		}
+
+		
+
+		header #icon_nav {
+			float:left;
+			width:40px;
+			margin-top:5px;
+		}
+		header #icon_nav img{
+			height: 45px;
+		}
+
+		#escola_mobile{
+				float:left:
+				height: 45px;
+		}
+		#escola_mobile img{
+				float:left;
+				height: 40px;
+				margin-top:10px;
+				margin-left:15px;
+		}
+		.caret{
+			float:right;
+			margin-top:10px;
+		}
+		.nav li a{
+			background-color:#fff;
+			margin-top:0px;
+			border:none;
+			border-bottom: dotted #545454 1px;
+			
+		}
+		.item-dropdown {
+			
+			background-color:#E8E8E8;
+		}
+
+		#icone-login-mobile{
+			border:none;
+			float:right;
+			margin-top:15px;
+			margin-right:7px;
+			font-size:22px;
+			color:#fff;
+		}
+		#icone-busca-mobile{
+			border:none;
+			float:right;
+			margin-top:15px;
+			margin-right:15px;
+			font-size:22px;
+			color:#fff;
+		}
+
+}
+
+@media screen and (min-width: 1025px) {
+	main{
+		width:80%;
+		border:solid #fff;
+		float:left;
+		
+	}
+	aside{
+		width:20%;
+		border:solid #fff;
+		float:left;
+	min-height:400px;
+	}
+	footer{
+		width: 100%;
+		position: relative;
+		border:solid #fff;
+		float:left;
+
+		border-top:dotted #1b4fa3 2px;
+		
+	}
+	#logo-footer{
+		width:80px;
+		margin:auto;
+		background-color:#fff;
+		margin-top:-45px;
+		margin-bottom:30px;
+	}
+	#logo-footer img{
+		margin:0px;
+		width:60px;
+		margin-left:10px;
+		margin-right:10px;
+		
+	}
+	#face-desktop{
+		border:solid #fff;
+		width: 200px;
+		/*height: 150px;*/
+		margin:auto;
+	}
+
+	
+	#calendario{
+		border:solid #fff;
+		width: 200px;
+		/*height: 300px;*/
+		margin:auto;
+	}
+
+	#museu{
+		width: 200px;
+		/*height: 400px;*/
+		margin:auto;
+	}
+	#museu img{
+		width: 220px;
+	}
+
+	footer #resumo{
+		width: 100%;
+		float:left;
+	}
+
+	footer #resumo #sobre-cimol{
+		width: 25%;
+		border:solid #fff;
+		float:left;
+		margin-left:15px;
+	}
+	
+
+	.lista-footer{
+		list-style:none;
+		margin:0px;
+	}
+	.link-lista-resumo{
+		font-size:20px;
+		color:#999999;
+		text-decoration:none;
+	}
+
+	footer #resumo #multimidia{
+		width: 25%;
+		border:solid #fff;
+		float:left;
+		margin-left:10%;
+	}
+	h3{
+		margin-left:35px;
+		font-weight:bold;
+		color:#999999;
+	}
+
+	footer #resumo #redes-sociais{
+		width: 25%;
+		border:solid #fff;
+		float:right;
+		margin-left:15px;
+	}
+
+	footer #resumo #redes-sociais img{
+		width:40px;
+		margin:15px;
+	}
+
+	footer #resumo #redes-sociais h3{
+		margin-left:5px;
+	}
+
+	#endereco-footer{
+		width:100%;
+		float:left;
+		margin-top:20px;
+	}
+	#endereco-footer p{
+		color:#fff;
+		background-color:#1b4fa3;
+		font-size:18px;
+		padding-left:15px;
+		
+	}
+	#endereco-footer img{
+		width:400px;
+		float:right;
+		margin-top:-63px;
+		
+	}
+
+
+	
+}
+
+

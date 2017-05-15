@@ -5,13 +5,13 @@ class Usuario extends MX_Controller{
 	
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('Usuario_model');
+		$this->load->model('usuario_model');
 	}
 	
 	public function index(){
 		$this->data['title']="Cimol";
 		if(empty($this->user_data)){
-			$this->data['content']="formulario_login";
+			$this->data['content']="usuario/formulario_login";
 		}else{
 			$this->data['content']="usuario/index";
 		}
@@ -19,10 +19,15 @@ class Usuario extends MX_Controller{
 		
 	}
 	
+	 /**
+	 * 
+	 * 
+	 */
 	
 	function autenticar(){
+		
 		$this->load->model('usuario_model');
-		$usuario = $this->input->post('usuario');
+		$usuario = $this->input->post('email');
 		$senha = md5($this->input->post('senha'));
 		echo $usuario."<br/>".$senha."<br/>";
 		$query=$this->usuario_model->autenticar($usuario,$senha);
@@ -60,8 +65,8 @@ class Usuario extends MX_Controller{
 			}
 			
 		}else{
-			$this->view->set_message("Login ou senha estÃ£o incorretos!","alert alert-error");
-			redirect('usuario', 'refresh');
+			$this->view->set_message("Login ou senha estÃ£o incorretos!","alert alert-danger");
+			//redirect('', 'refresh');
 		}
 		
 	}
@@ -180,7 +185,7 @@ class Usuario extends MX_Controller{
 	}
 	
 	function registrar_alteracao_senha(){
-		$this->load->model('usuario_model');
+		
 		
 		if($this->usuario_model->alterar_senha($this->input->post('chave_de_acesso'),$this->input->post('email'),$this->input->post('senha'))){
 			$this->view->set_message("Senha alterada com sucesso! ", "alert alert-success");
@@ -193,7 +198,15 @@ class Usuario extends MX_Controller{
 	}
 	
 	function perfil(){
-		
+		$this->data['title']="Cimol";
+		if(!empty($this->user_data)){
+			//print_r($this->user_data);
+			$this->data['usuario']=$this->usuario_model->buscar_perfil($this->user_data["id"]);
+			$this->data['content']="usuario/perfil";
+		}else{
+			$this->data['content']="usuario/form_login";
+		}
+		$this->view->show_view($this->data);
 	}
 	
 	function obter_chave_de_acesso($usuario){

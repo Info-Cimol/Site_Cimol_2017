@@ -1,0 +1,320 @@
+body{
+    margin:0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+section{
+    background-color: #222222;
+    width: 100%;
+    
+    position: absolute;
+       
+}
+.fechar{
+    background-color:#cccc7a; 
+    color:#fff;  
+    padding: 5px 10px;
+    border-radius: 1px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+}
+#imagem{
+    text-align: center;
+}
+#imagem img{    
+    width: 60px;
+    margin-top: 40px;
+}
+#sbv{
+    margin-top: 30px;    
+    color: #fff;
+    font: 20px Elvetica, sans-serif;
+    text-align: center;
+}
+#msg{
+    padding: 10px 0px 20px 0px;
+    color: #fff;
+    font: 14px Elvetica, sans-serif;
+    margin: auto;
+    width: 282px;
+    text-align: center;
+}
+.form-log{
+    width: 300px;
+    margin: auto;
+}
+.form-grupo{
+    margin-bottom: 20px;
+}
+#email{
+    background:rgba(146,143,141, 0.4);
+    border-radius: 1px;
+    font: 16px Elvetica, sans-serif;
+}
+#senha{
+    background:rgba(146,143,141, 0.4);
+    border-radius: 1px;
+    font: 16px Elvetica, sans-serif;
+}
+#enviar{
+    background:#140352;
+    border-color: #140352;
+    border-radius: 1px;
+    font: 16px Elvetica, sans-serif;
+    height: 46px;
+}
+.cadastro{
+    width: 300px;
+    color: #fff;
+    font: 14px Elvetica, sans-serif;
+    text-align: center;
+    margin: auto;
+}
+#esq-sen{
+    margin:10px;
+    color: #fff;
+    font: 14px Elvetica, sans-serif;
+    text-align: center;
+}
+p a{
+    color:#fff;
+    text-decoration:none;
+    font: 14px Elvetica, sans-serif;
+}
+@media screen and (min-width: 360px){
+    #imagem img{
+        width: 60px;
+        margin-top: 60px;
+    }
+}
+@media screen and (min-width: 400px){
+    #imagem img{
+        width: 75px;
+        margin-top: 90px;
+    }
+    section{
+        width: 80%; 
+        margin-left: 10%;
+    }
+}
+@media screen and (min-width: 425px){
+    #imagem img{
+        width: 65px;
+        margin-top: 30px;
+    }
+}
+@media screen and (min-width: 480px){
+    #imagem img{    
+        width: 90px;
+        margin-top: 80px;
+    }
+    #sbv{
+        margin-top: 30px; 
+    }
+    #msg{
+        padding: 20px 0px 30px 0px;
+    }
+    .cadastro{
+        font: 17px Elvetica, sans-serif;
+        padding: 10px 0px 10px 0px;
+    }
+    p a{
+        font: 17px Elvetica, sans-serif;
+    }
+}
+@media screen and (min-width: 530px){
+    #imagem img{
+        width: 110px;
+        margin-top: 120px;
+    }
+    #sbv{
+        font: 30px Verdana, sans-serif;
+        margin-top: 90px;
+    }
+    #msg{
+        font: 18px Verdana, sans-serif;
+    }
+}
+@media screen and (min-width: 768px){
+    .fechar {
+        padding: 20px 25px;        
+    }
+    #imagem img{
+        width: 110px;
+        margin-top: 120px;
+    } 
+    #sbv{
+        font: 30px Verdana, sans-serif;
+        margin-top: 60px;
+    }
+    h3 p{
+        font-size: 35px;
+    }
+    #msg{
+        width: 460px;
+        font: 25px Verdana, sans-serif;
+    }
+    .form-log{
+        width: 600px;
+        margin: auto;
+    }
+    .form-grupo{
+        margin-bottom: 20px;
+    }
+    #pqp{
+        float: none;
+        margin: auto;
+    }
+    #email{
+        font: 19px Elvetica, sans-serif;
+        height: 60px;
+    }
+    #senha{
+        font: 19px Elvetica, sans-serif;
+        height: 60px;
+    }
+    #enviar{
+        font: 22px Elvetica, sans-serif;
+        height: 60px;
+    }
+    .cadastro {
+        font: 25px Elvetica, sans-serif;
+        width: 350px;
+    }
+    p a{
+       font: 25px Elvetica, sans-serif; 
+    }
+}
+@media screen and (min-width: 960px){
+    section{
+        width: 70%;
+        height: 94%;
+        position: absolute;
+        margin-left: 15%;
+        margin-top: 3%;
+    }
+}
+@media screen and (min-width: 1024px){
+    section{
+        width: 50%;
+        height: 80%;
+        position: absolute;
+        margin-left: 25%;
+        margin-top: 15%;
+    }
+    .fechar {
+        padding: 10px 15px;       
+    }
+    h3 p{
+        font-size: 28px;
+    }
+    #imagem img{    
+        width: 80px;
+        margin-top: 50px;
+    }
+    #sbv{
+        margin-top: 100px;
+    }
+    #msg{
+        padding: 20px 0px 40px 0px;
+        color: #fff;
+        font: 20px Elvetica, sans-serif;
+        margin: auto;
+        width: 360px;
+        text-align: center;
+    }
+    .form-log{
+        width: 460px;
+    }
+    
+    #email{
+        font: 16px Elvetica, sans-serif;
+        height: 60px;
+    }
+    #senha{
+        font: 16px Elvetica, sans-serif;
+        height: 60px;
+    }
+    #enviar{
+        font: 16px Elvetica, sans-serif;
+        height: 60px;
+    }
+    .cadastro {
+        margin-top: 0px ;
+        font: 22px Elvetica, sans-serif;
+        width: 350px;
+    }
+    #esq-sen{
+        margin:10px;        
+    }
+    p a{
+       font: 22px Elvetica, sans-serif; 
+    }
+}
+@media screen and (min-width: 1200px){
+    section{
+        width: 35%;
+        height: 100%;
+        position: absolute;
+        margin-left: 30%;
+        margin-top: 0px;
+    }
+    .fechar{
+        background-color:#cccc7a; 
+        color:#fff;  
+        padding: 5px 10px;
+        border-radius: 1px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        cursor: pointer;
+    }
+    h3 p{
+        font-size: 22px;
+    }
+    #imagem img{    
+        width: 70px;
+        margin-top: 30px;
+    }
+    #sbv{
+        margin-top: 40px;
+    }
+    #msg{
+        padding: 10px 0px 20px 0px;
+        color: #fff;
+        font: 16px Elvetica, sans-serif;
+        margin: auto;
+        width: 282px;
+        text-align: center;
+    }
+    .form-log{
+        width: 360px;
+    }
+    
+    #email{
+        font: 16px Elvetica, sans-serif;
+        height: 50px;
+    }
+    #senha{
+        font: 16px Elvetica, sans-serif;
+        height: 50px;
+    }
+    #enviar{
+        font: 16px Elvetica, sans-serif;
+        height: 50px;
+    }
+    .cadastro {
+        margin-top: 0px ;
+        font: 20px Elvetica, sans-serif;
+        width: 350px;
+    }
+    #esq-sen{
+        margin:10px;        
+    }
+    p a{
+       font: 20px Elvetica, sans-serif; 
+    }
+}

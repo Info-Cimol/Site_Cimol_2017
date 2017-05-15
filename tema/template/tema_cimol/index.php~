@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>CIMOL</title>
+	<link rel="stylesheet" href="./css/style.css" />
+	<link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css" />
+	
+</head>
+<body>
+	<header>
+		<div id="nav">
+			<img onclick="expandirMenu()" src = "./imagens/threelines.png" alt = "menu"/>
+			<script>
+			function expandirMenu(){
+			var menu = document.getElementById("mobile");
+			if(menu.style.display=='none'){
+				menu.style.display='block';
+			}
+			else{
+				menu.style.display='none';
+			}
+			}
+			</script>
+		</div>
+		<div id="escola"> 
+			<img src = "./imagens/img-logo-MOBILE.png" alt = "escola"/>
+		</div>
+		<nav id="desktop"> 
+			<ul>
+				<li><a href="#">INÍCIO</a></li>
+				<li><a href="#">CURSOS</a></li>
+				<li><a href="#">INSTITUCIONAL</a></li>
+				<li><a href="#">NOTÍCIAS</a></li>
+				<li><a href="#">ÁREA DO ESTAGIÁRIO</a></li>	
+	        <ul>
+		</nav>
+		<div id="busca">
+			<div class="login" >
+			<a href="index.html">ENTRAR</a>
+			</div>
+		</div>
+	</header>
+	
+	<nav id="mobile" style="display: none;">
+		<ul>
+			<li><a href="#">INÍCIO</a></li>
+			<li><a href="#">CURSOS</a></li>
+			<li><a href="#">INSTITUCIONAL</a></li>
+			<li><a href="#">NOTÍCIAS</a></li>
+			<li><a href="#">ÁREA DO ESTAGIÁRIO</a></li>
+			<li class="redes"><a href="#">REDES SOCIAIS</a>
+            	<ul>
+                <li><a href="#">FACEBOOK</a></li>
+                <li><a href="#">GMAIL</a></li>
+                <li><a href="#">MOODLE</a></li>
+                </ul>
+            </li>
+            <li class="redes"><a href="#">STATUS</a>
+            	<ul>
+                <li><a href="#">VISITANTE</a></li>
+                <li><a href="#">PROFESSOR</a></li>
+                <li><a href="#">ALUNO</a></li>
+                <li><a href="#">COORDENADOR</a></li>
+                </ul>
+            </li>
+         <ul>
+	</nav>
+	<main>
+		
+	</main>
+	<footer>
+		<img class="logo" src = "./imagens/logo.png" alt = "logo"/>
+		<a>Rua Guilherme Lahm, 1778, Centro - Taquara - RS - Brasil | 95600-000 | (51) 3542 1309</a>
+		<img class="rodape" src = "./imagens/adorno_rodape.png" alt = "rodape"/>
+	<footer>
+</body>
+</html>
