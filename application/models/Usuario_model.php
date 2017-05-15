@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * Classe responsavel por todas as interações de usuarios com a base de dados.
+ * Classe responsavel por todas as interaÃ§Ãµes de usuarios com a base de dados.
  */
 class Usuario_model extends CI_Model{
 	/**
-	 * Função responsavel pela autenticação dos usuarios pelo e-mail e senha.
+	 * FunÃ§Ã£o responsavel pela autenticaÃ§Ã£o dos usuarios pelo e-mail e senha.
 	 * @param $usuario
 	 * @param $senha
 	 * @return $result
@@ -31,8 +31,46 @@ class Usuario_model extends CI_Model{
        $result = $this->db->query($query); 
        return $result;
 	}
+	
 	/**
-	 * Função que verifica se existe um usuario para o email cadastrado.
+	 * FunÃ§Ã£o responsavel por buscar as informaÃ§Ãµes de perfil do usuarios.
+	 * @param $id
+	* @return $usuario
+	 */
+	function buscar_perfil($pessoa_id){
+		$query="SELECT u.id, p.nome,p.rg, p.cpf,e.email,p.foto, p.id as pessoa_id,
+		count(ad.pessoa_id) as admin,
+		count(a.pessoa_id) as aluno,
+		count(pr.pessoa_id) as professor,
+        count(f.pessoa_id) as feintec,
+        count(b.pessoa_id) as biblioteca,
+        count(cc.professor_id) as coordenador_curso,
+		count(p.id) as pessoa from pessoa p
+        	LEFT JOIN usuario u ON u.pessoa_id = p.id
+            LEFT JOIN email e ON e.pessoa_id=p.id
+			LEFT JOIN administrador ad ON ad.pessoa_id=p.id
+            LEFT JOIN aluno a ON a.pessoa_id=p.id
+            LEFT JOIN professor pr ON pr.pessoa_id=p.id
+            LEFT JOIN feintec f ON f.pessoa_id=p.id
+            LEFT JOIN biblioteca b ON b.pessoa_id=p.id
+            LEFT JOIN coordenador_curso cc ON cc.professor_id=pr.id
+            WHERE p.id=".$pessoa_id;
+		$usuario = $this->db->query($query);
+		$usuario=$usuario->row();
+		$this->db->select("*")
+		->from('telefone t')
+		->where('t.pessoa_id',$usuario->pessoa_id);
+		$telefones=$this->db->get();
+		$telefones=$telefones->result();
+		$usuario->telefones=$telefones;
+		//print_r($usuario);
+		return $usuario;
+	}
+	
+	
+	
+	/**
+	 * FunÃ§Ã£o que verifica se existe um usuario para o email cadastrado.
 	 * @param unknown $email
 	 * @return boolean
 	 */
@@ -49,32 +87,32 @@ class Usuario_model extends CI_Model{
 		if($result->row()->num_reg){
 			return $result->row();
 		}
-		// Se não existir um usuario retorna falso
+		// Se nï¿½o existir um usuario retorna falso
 		else{
 			return false;
 		}
 	}
 	/**
-	 * Função responsavel pelo registro da chave de acesso do usuario
+	 * Funï¿½ï¿½o responsavel pelo registro da chave de acesso do usuario
 	 * @param unknown $chave_de_acesso
 	 * @param unknown $pessoa_id
 	 * @return boolean
 	 */
 	function registra_chave_de_acesso($chave_de_acesso, $pessoa_id){
-		//Faz o registro da chave de licença e retorna verdadeiro
+		//Faz o registro da chave de licenï¿½a e retorna verdadeiro
 		if($this->db->set('chave_de_acesso', $chave_de_acesso)
 				->where('pessoa_id =', $pessoa_id)
 				->update('usuario')){
 					return true;
 		}
-		//Retorna falso se o registro da chave de licença não foi efetuado.
+		//Retorna falso se o registro da chave de licenï¿½a nï¿½o foi efetuado.
 		else{
 			return false;
 		}
 		
 	}
 	/**
-	 * Função responsavel por buscar se existe a chave de acesso do usuario
+	 * FunÃ§Ã£o responsavel por buscar se existe a chave de acesso do usuario
 	 * @param unknown $chave_de_acesso
 	 * @return boolean
 	 */
@@ -93,12 +131,12 @@ class Usuario_model extends CI_Model{
 			//Retorna o usuario para a chave de acesso solicitada
 			return $result->row();
 		}else{
-			//Se a chave de acesso não existir retorna falso
+			//Se a chave de acesso nï¿½o existir retorna falso
 			return false;
 		}
 	}
 	/**
-	 * Função responsavel pela alteração de senha.
+	 * FunÃ§Ã£o responsavel pela alteraÃ§Ã£o de senha.
 	 * @param unknown $chave_de_acesso
 	 * @param unknown $email
 	 * @param unknown $senha
@@ -111,17 +149,17 @@ class Usuario_model extends CI_Model{
 				pessoa_id=(SELECT pessoa.id FROM pessoa
 				JOIN email ON email.pessoa_id=pessoa.id
 				WHERE email.email='".$email."')";
-		//retorna que a alteração foi feita com sucesso
+		//retorna que a alteraï¿½ï¿½o foi feita com sucesso
 		if($this->db->query($query)){
 			return true;
 		}
-		//retorna que a alteração não foi feita 
+		//retorna que a alteraï¿½ï¿½o nï¿½o foi feita 
 		else{
 			return false;
 		}
 	}
 	/**
-	 * Função responsavel por ativar ou desativar usuarios
+	 * Funï¿½ï¿½o responsavel por ativar ou desativar usuarios
 	 * @param unknown $status
 	 * @param unknown $id
 	 * @return boolean
@@ -129,11 +167,11 @@ class Usuario_model extends CI_Model{
 	function status_usuario($status,$id){
 		$query="UPDATE usuario SET status='$status' 
 				WHERE pessoa_id='$id'";
-		//retorna que a alteração foi feita com sucesso
+		//retorna que a alteraï¿½ï¿½o foi feita com sucesso
 		if($this->db->query($query)){
 			return true;
 		}
-		//retorna que a alteração não foi feita 
+		//retorna que a alteraï¿½ï¿½o nï¿½o foi feita 
 		else{
 			return false;
 		}
