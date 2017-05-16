@@ -63,6 +63,10 @@ body{
 	background-color: #32689b;
 }
 
+#eletronica h3{
+	margin-left: 60px;
+}
+
 
 #mecanica{
 	float: left;
@@ -80,6 +84,10 @@ body{
 	height: 115px;
 	margin-top: 47px;
 	background-color: #626262;
+}
+
+#mecanica h3{
+	margin-left: 60px;
 }
 
 
@@ -101,6 +109,9 @@ body{
 	background-color: #3e499c;
 }
 
+#eletro h3{
+	margin-left: 60px;
+}
 
 
 #quimica{
@@ -119,6 +130,10 @@ body{
 	height: 115px;
 	margin-top: 47px;
 	background-color: #000000;
+}
+
+#quimica h3{
+	margin-left: 60px;
 }
 
 
@@ -140,6 +155,10 @@ body{
 	background-color: #008d8f;
 }
 
+#informatica h3{
+	margin-left: 60px;
+}
+
 
 #meio_ambiente{
 	float: left;
@@ -157,6 +176,10 @@ body{
 	height: 115px;
 	margin-top: 47px;
 	background-color: #17a74a;
+}
+
+#meio_ambiente h3{
+	margin-left: 60px;
 }
 
 
@@ -224,6 +247,7 @@ h2{
 	font-family: calibri;
 	color: #4F4F4F;
 	font-weight: normal;
+	
 }
 
 
@@ -232,4 +256,38 @@ h3{
 	font-family: arial;
 	text-align: left;
 	color: #4F4F4F;
+}
+
+a{
+	color: blue;
+}
+
+.download_anexos a{
+	color: black;
+}
+
+.download_anexos h1{
+	float: left; 
+	margin-top: 10px;
+	color: black;
+}
+
+.carga_horaria h2{
+	float: left; 
+	margin-top: -15px; 
+	margin-left: 25px; 
+	font-weight: bolder;
+}
+
+.area_estagiario h1{
+	color: white; 
+	margin-top:15px;
+}
+
+.area_estagiario h2{
+	color: white;
+}
+
+.area_estagiario p{
+	margin-top:-30px
 }

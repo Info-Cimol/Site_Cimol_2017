@@ -44,9 +44,12 @@ body{
 	letter-spacing: 1px;
 }
 
+.p saibaMais{
+	margin-top:15px
+}
+
 
 h1{
-	float:left;
 	text-align: left;
 	font-family: Helvetica;
 	color: #363636;
@@ -57,16 +60,15 @@ h1{
 
 
 h2{
-	float:left;
 	text-align:justify;
 }
 
 
 h3{
-	float:left;
 	text-align:justify;
 	font-size:30px;
 	margin-left:10px;
+	text-align:justify;
 }
 
 
@@ -76,4 +78,5 @@ h4{
 	font-family: Helvetica;
 	color: white;
 	font-weight: normal;
+	text-align:justify;
 }
