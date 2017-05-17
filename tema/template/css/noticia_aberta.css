@@ -1,0 +1,74 @@
+.banner{
+	width: 100%;
+	height: 400px;
+	float: left;
+}
+
+.titulo_noticia{
+	width: 90%;
+	height: auto;
+	float: left;
+	margin-left: 45px;
+}
+
+.noticia_texto{
+	width: 100%;
+	height: auto;
+	float: left;
+	margin-top:30px;
+}
+
+.noticia{
+	width: 90%;
+	height: auto;
+	float: left;
+	margin-left: 45px;
+}
+
+.download{
+	width: 90%;
+	height: auto;
+	float: left;
+	margin-left: 45px;
+}
+
+h1{
+	text-align: left;
+	font-family: Helvetica;
+	font-size: 50px;
+	font-weight: bolder;
+	color: #000000;
+}
+
+h2{
+	text-align: left;
+	font-family: Helvetica;
+	font-size: 40px;
+	font-weight: bold;
+	color: #000000;
+}
+
+h3{
+	text-align: left;
+	font-family: Helvetica;
+	font-size: 20px;
+	font-weight: lighter;
+	color: #000000;
+}
+
+h6{
+	text-align: left;
+	font-family: Helvetica;
+	font-weight: lighter;
+	color: #000000;
+}
+
+.titulo_noticia p{
+	margin-top: -25px;
+	font-family: Helvetica;
+}
+
+.download a{
+	color: blue;
+}
+
