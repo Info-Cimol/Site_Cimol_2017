@@ -1,0 +1,146 @@
+body{
+	margin: 0px;
+}
+
+.institucional{
+	background-color:#CFCFCF;
+	height: 100px;
+	width: 100%;
+	float:left;
+	text-align:center;
+	z-index:10;
+	display:flex;
+    display:-webkit-flex;
+    justify-content: center;
+    align-items: center;
+	color: white;
+}
+
+.banner{
+	float: left;
+	width: 100%;
+	height: 600px;
+}
+
+.titulo_texto{
+	float: left;
+	width: 90%;
+	height: auto;
+	margin-left: 30px;
+	//background: red;
+}
+
+.instituicao_texto{
+	float: left;
+	width: 90%;
+	height: auto;
+	text-align: justify;
+	margin-left: 30px;
+	//background: blue;
+	margin-top: -35px;
+	text-hyphen: auto;
+}
+
+
+.bloco_integrados{
+	float: left;
+	width: 90%;
+	height:  auto;
+	margin-left: 30px;
+	margin-top: 0px;
+}
+
+.bloco_subsequentes{
+	float: left;
+	width: 90%;
+	height:  auto;
+	margin-left: 30px;
+	margin-top: 0px;
+}
+
+.bloco_historia{
+	float: left;
+	width: 90%;
+	height:  auto;
+	margin-left: 30px;
+	margin-top: 0px;
+}
+
+.titulo{
+	float: left;
+	width: 60%;
+	height: auto;
+	//background: orange;
+}
+
+.imagem{
+	float: right;
+	width: 30%;
+	height: 220px;
+	margin-top: 71px;
+	margin-right: 15px;
+}
+
+.texto{
+	float: left;
+	width: 63%;
+	height: auto;
+	margin-top: 20px;
+}
+
+h1{
+	float: left;
+	font-family: Helvetica;
+	text-align: justify;
+	font-size: 35px;
+	color: #545454;
+	hyphens: auto;
+}
+
+
+h2{
+	float: left;
+	text-align: justify;
+	font-family: Helvetica;
+	font-size: 35px;
+	color: #545454;
+	hyphens: auto;
+}
+
+h3{
+	float: left;
+	font-family: Helvetica;
+	text-align: left;
+	color: #545454;
+	hyphens: auto;
+}
+
+.institucional h1{
+	color: white;
+	font-size: 40px;
+}
+
+.titulo_texto h1{
+	font-size: 60px;
+}
+
+.instituicao_texto p{
+	font-family: Helvetica;
+	color: #545454;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.instituicao_texto a{
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.texto h1{
+	font-size: 35px;
+}
+
+.texto p{
+	
+}
