@@ -1,6 +1,7 @@
 	
 	function form_noticia(noticia){
-			form="<form action='"+base_url+"admin/noticia/editar_imagens/' method='post' enctype='multipart/form-data' novalidate>"+
+		
+			form="<form enctype='multipart/form-data' action='"+base_url+"admin/noticia/editar_imagens/' method='post'  novalidate>"+
 			"<div class='padded'>"+
 			"<input type='hidden' name=noticia[id] value='"+noticia.id+"' />"+
             "<div class='control-group'>"+
@@ -23,11 +24,11 @@
                 "</div>"+
             "</div>"+
             "<div class='control-group'>"+
-            "<label class='control-label'>Imagem:</label>"+
-            "<div class='controls'>"+
-                		"<input type='file' name='noticia['imagem']' />"+
+	            "<label class='control-label'>Imagem:</label>"+
+	            "<div class='controls'>"+
+	                		"<input type='file' name='noticia[imagem]' />"+
+	            "</div>"+
             "</div>"+
-        "</div>"+
             
             "<div class='form-actions'>"+
             	"<button type='submit' class='btn btn-blue'>Salvar Mudanças</button>"+
@@ -56,15 +57,15 @@
 			})
 		}
 		
+		
 		function nova_noticia(){ 
 			$('#modal-body').html('');
 			noticia={id:'', titulo:'',conteudo:'', resumo:''};
 			
 			$('#modal-body').append(form_noticia(noticia));
 			callTinymce();
-			
-			
 		}
+		
 		
 		function excluir_imagem_noticia(imagem_id,noticia_id){
 			$.ajax({
@@ -75,6 +76,7 @@
 		        }
 			});
 		}
+		
 		
 		function listar_imagens(id){
 			$('#modal-body').html('');

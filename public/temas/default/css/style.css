@@ -2,7 +2,7 @@ body{
 	/*background-color:#cdcfd3;*/
 	margin:inherit;
 	padding-right: 0px;
-   padding-left: 0px;
+    padding-left: 0px;
 	
 }
 
@@ -105,13 +105,15 @@ header #escola{
 		width:80%;
 		border:solid #fff;
 		float:left;
+		padding-bottom:35px;
 		
 	}
 	aside{
 		width:20%;
 		border:solid #fff;
 		float:left;
-	min-height:400px;
+		min-height:400px;
+		padding-bottom:35px;
 	}
 	footer{
 		width: 100%;
@@ -229,7 +231,10 @@ header #escola{
 		margin-top:-63px;
 		
 	}
-
+	
+	navbar{
+		border:none;
+	}
 
 	
 }

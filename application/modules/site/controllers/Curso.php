@@ -9,7 +9,7 @@ class Curso extends MX_Controller{
 		
             $this->data['title']="Cimol - Cursos";
            // $this->data['cursos']=$this->curso_model->listar();
-            $this->data['template']="curso/curso";
+            $this->data['content']="curso/index";
             if($curso_id){
             	$this->data['curso_id']=$curso_id;
             }

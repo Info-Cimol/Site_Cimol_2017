@@ -42,17 +42,14 @@ class Professor extends MX_Controller{
 	public function editar_imagem(){
 		$ext_images=array('jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'gif', 'GIF', 'bmp', 'BMP');
 		$_SESSION['post']=$_POST;
+		$_SESSION['form_action']="admin/professor/salvar";
 		if($_POST['professor']['pessoa_id']==null){
-			$_SESSION['form_action']="admin/professor/salvar";
-		}else{
-			if(!empty($_FILES['foto']['tmp_name'])){
-				$_SESSION['pessoa_id']=$_POST['professor']['pessoa_id'];
-				$_SESSION['form_action']="admin/professor/salvar/";
-			}else{
-				redirect('admin/professor/salvar/');
-			}
+			$_SESSION['pessoa_id']=$_POST['professor']['pessoa_id'];
 		}
-		$ext = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+		
+		if(!empty($_FILES['foto']['tmp_name'])){
+			$ext = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+		
 			if(in_array($ext,$ext_images)){
 				$temp_name = $_FILES['foto']['tmp_name'];
 				$temp = explode(".",$_FILES["foto"]["name"]);
@@ -77,8 +74,11 @@ class Professor extends MX_Controller{
 				}
 				$this->data['imagem']=$name;
 			}
-		$this->data['template']='professor/professor-imagens';
-		$this->view->show_view($this->data);
+			$this->data['template']='professor/professor-imagens';
+			$this->view->show_view($this->data);
+		}else{
+			redirect('admin/professor/salvar/');
+		}
 	}
 	
 	

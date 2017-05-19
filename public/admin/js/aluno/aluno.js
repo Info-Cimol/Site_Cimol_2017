@@ -35,7 +35,7 @@
 	                "<div class='control-group'>"+
                     "<label class='control-label'>Email:</label>"+
                     "<div class='controls' id='emails'>"+
-            			"<input type='text' class='span3' name='aluno[email][]' value='' placeholder='Email'/>"+
+            			
                     "</div>"+
                 "</div>"+
 	                "<div class='control-group'>"+
@@ -45,9 +45,9 @@
 	                "</div>"+
 	                "<input type='hidden' name='old-foto' value='"+aluno.foto+"'>";
 				   	if(aluno.foto!=""){
-				   		form+="<img src='"+base_url+aluno.foto+"' />";
+				   		form+="<img src='"+base_url+aluno.foto+"' style='width:100px'/>";
 				   	}else{	
-				   		form+="<img src='"+base_url+aluno.foto+"' />"; 
+				   		form+="<img src='"+base_url+"public/images/user.jpg' style='width:100px'/>"; 
 					}
 				form+="<div class='form-actions'>"+
 	                "<input type='submit'  class='btn btn-blue' name='salvar' value='Salvar'>"+
@@ -135,16 +135,21 @@
 		            }
 		            $('#telefones').append(telefones);
 					
-		            emails='';
-		            if(data[0].emails.lengt>0){
+		            email='';
+		            console.log(data[0].emails[0]);
+		            console.log(data[0].emails.length);
+		            if(data[0].emails.length>0){
+		            	console.log(data[0].emails);
 			            for(i=0;i<data[0].emails.length;i++){
-			            	$('#emails').append(emails);
+			            	email="<input type='text' class='span3' name='aluno[email][]' value='"+data[0].emails[i].email+"' placeholder='Email'/>";
+			            	$('#emails').append(email);
 			  	        }
-		            }else{
-		            	$('#emails').append(emails);
+		            }else{ 
+		            	$('#emails').append(email);
 		            }
-		           // $('#emails').append(emails);
+		            
 		        }
+		          
 			});
 		}
 		
@@ -154,6 +159,7 @@
 			aluno={id:'',pessoa_id:'',nome:'',matricula:'',rg:'',cpf:'',emails:'',foto:'',telefones:''};
 			form_aluno(aluno);
 			adicionar_compo_telefone();
+			adicionar_campo_email();
 		}
 		
 		

@@ -42,7 +42,7 @@
 							if($professor->foto!=''){
 								echo "<img src='".base_url().$professor->foto."' style='width:70px'/> ";
 							}else{
-								echo "<img src='".base_url()."public/images/user.jpg' style='width:70px'/> ";
+								echo "<img src='".base_url()."public/images/prof.jpg' style='width:70px'/> ";
 							}
 							echo $professor->nome;
 							?></td>

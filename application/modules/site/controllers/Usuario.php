@@ -29,10 +29,10 @@ class Usuario extends MX_Controller{
 		$this->load->model('usuario_model');
 		$usuario = $this->input->post('email');
 		$senha = md5($this->input->post('senha'));
-		echo $usuario."<br/>".$senha."<br/>";
+		//echo $usuario."<br/>".$senha."<br/>";
 		$query=$this->usuario_model->autenticar($usuario,$senha);
 		$resultado=$query->row();
-		print_r($resultado);
+		//print_r($resultado);
 		if($resultado->pessoa > 0){
 			$_SESSION['user_data']['id']=$resultado->id;
 			$_SESSION['user_data']['nome']=$resultado->nome;
@@ -65,8 +65,8 @@ class Usuario extends MX_Controller{
 			}
 			
 		}else{
-			$this->view->set_message("Login ou senha estÃ£o incorretos!","alert alert-danger");
-			//redirect('', 'refresh');
+			$this->view->set_message("Login ou senha estão incorretos!","alert alert-danger");
+			redirect('', 'refresh');
 		}
 		
 	}

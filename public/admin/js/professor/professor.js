@@ -3,7 +3,7 @@
 	
 	function form_professor(professor){
 			
-			console.log(professor);
+			
 			$('#modal-body').html('');
 			   		form="<form action='"+base_url+"admin/professor/editar_imagem/"+professor.id+"' method='post' enctype='multipart/form-data'>"+
         			"<div class='padded'>"+
@@ -34,23 +34,14 @@
 	            	"</div>"+
 	                "<div class='control-group'>"+
                     "<label class='control-label'>telefone(s)<button   class='btn btn-blue btn-mini'>+</button>:</label>"+
-                    "<div class='controls' id='telefone_modal'>"+
-            			professor.telefones+	
-            			"<input type='text' class='span1' name='professor[telefone]["+x+"][ddd]' placeholder='DDD' value=''/>"+
-        				"&nbsp;<input type='text' class='span2' name='professor[telefone]["+x+"][numero]' placeholder='Número' value=''/>"+
-        				"<select maxlength='20' name='professor[telefone]["+x+"][tipo]' >"+
-        							"<option value='celular' selected>- Tipo -</option>"+
-        	        				"<option value='celular' selected>Celular</option>"+
-        	        				"<option value='comercial'>Comercial</option>"+
-        	        				"<option value='residencial'>Residencial</option>"+
-        	        				"</select><br/>"+
+                    "<div class='controls' id='telefones'>"+
+            			
             			"</div>"+
                 	"</div>"+
 	                "<div class='control-group'>"+
                     "<label class='control-label'>Email:</label>"+
-                    "<div class='controls'>"+
-            			professor.emails +
-            			"<input type='text' class='span3' name='professor[email][]' value='' placeholder='Email'/>"+
+                    "<div class='controls' id='emails'>"+
+            			
                     "</div>"+
                 "</div>"+
 	                "<div class='control-group'>"+
@@ -61,7 +52,7 @@
 					   	if(professor.foto!=""){
 					   		form+="<img src='"+base_url+professor.foto+"' />";
 					   	}else{	
-					   		form+="<img src='"+base_url+professor.foto+"' />"; 
+					   		form+="<img src='"+base_url+"public/images/prof.jpg' />"; 
 						}
 					form+="<div class='form-actions'>"+
 	                "<input type='submit'  class='btn btn-blue' name='salvar' value='Salvar'>"+
@@ -69,13 +60,13 @@
 	            "<input type='hidden' name='old-foto' value='"+professor.foto+"'>"+
 	           
 	        "</form>";
-		        	$('#modal-body').append(form);
+		    $('#modal-body').append(form);
 
-		        }
+		}
 		   
 
 		function adicionar_campo_telefone(){
-			$('#telefone').append("<br/><input type='text' class='span1' name='professor[telefone]["+i+"][ddd]' placeholder='DDD'/>"+
+			$('#telefones').append("<br/><input type='text' class='span1' name='professor[telefone]["+i+"][ddd]' placeholder='DDD'/>"+
 					"&nbsp;<input type='text' class='span2' name='professor[telefone]["+i+"][numero]' placeholder='Número' />"+
 					"<select maxlength='20' name='professor[telefone]["+i+"][tipo]' >"+
 		        	"<option value='celular'>Celular</option>"+
@@ -89,7 +80,7 @@
 
 
 		function adicionar_campo_email(){
-			$('#email').append("<br/><input type='text' class='span3' name='professor[email][]' maxlength='60' />");
+			$('#emails').append("<br/><input type='text' class='span3' name='professor[email][]' maxlength='60' />");
 			
 		}
 		
@@ -141,12 +132,14 @@
 			        				;
 			
 						}
+						
 					}
+		            $('#telefones').append(telefones);    
 					
-					emails='';
+					email='';
 		            for(i=0;i<data[0].emails.length;i++){
-		            	emails+="<input type='text' class='span3' name='professor[email][]' value='"+data[0].emails[i].email+"' /><br/>";
-		  	                  
+		            	email+="<input type='text' class='span3' name='professor[email][]' value='"+data[0].emails[i].email+"' /><br/>";
+		            	$('#emails').append(email);    
 		            }
 		}
 			});
@@ -157,6 +150,8 @@
 			$('#modal-body').html('');
 			professor={id:'',pessoa_id:'',nome:'',carga_horaria:'',rg:'',cpf:'',emails:'',foto:'',telefones:''};
 			form_professor(professor);
+			adicionar_campo_email();
+			adicionar_campo_telefone();
 			
 		}
 		

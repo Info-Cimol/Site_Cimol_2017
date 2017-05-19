@@ -98,6 +98,7 @@ class Curso extends MX_Controller{
 		echo json_encode($resultado);
 	}
 	public function editar_imagem($id=null){
+		print_r($_REQUEST);
 		/*if(!isset($_FILES['logo'])){
 			$this->view->set_message("Deve ser selecionado uma imagem para o curso","alert alert-error");
 			redirect("admin/curso","redirect");
@@ -146,6 +147,8 @@ class Curso extends MX_Controller{
 		
 		$this->view->show_view($this->data);
 	}
+	
+	
 	public function editar_curso($id){
 		print_r($_SESSION);
 		$curso=$_SESSION['post']['curso'];

@@ -33,10 +33,11 @@ class Noticia extends MX_Controller {
     }
     
     public function editar_imagens(){
+    	print_r($_REQUEST);
     	$ext_images=array('jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'gif', 'GIF', 'bmp', 'BMP');
     	$_SESSION['post']=$_POST;
     	$_SESSION['form_action']="admin/noticia/salvar_noticia";
-    	print_r($_FILES);
+    	
     	if(!empty($_FILES['imagens']['tmp_name'][0])){
     		echo 1;
 	    	for($i=0; $i<count($_FILES['imagens']['name']); $i++) {
@@ -76,12 +77,13 @@ class Noticia extends MX_Controller {
 	    	$this->data['template']='noticia/noticia-imagens';
 	    	$this->view->show_view($this->data);
         }else{
-           // redirect('admin/noticia/salvar_noticia','refresh');
+           //redirect('admin/noticia/salvar_noticia','refresh');
         }
     }
     
     public function salvar_noticia(){
     	print_r($_POST);
+    	PRINT_R($_SESSION['post']);
     	//$noticia = $_SESSION['post']['noticia'];
     	$noticia = $this->input->post('noticia');
     	if($noticia['id']!=''){

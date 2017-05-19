@@ -21,7 +21,7 @@
 			<img src = "<?php echo base_url();  ?>public/temas/default/images/img-logo-MOBILE.png" alt = "escola"  class="visible-phone visible-tablet"/>
 			</div>
 		
-		<nav class="navbar navbar-default visible-desktop">
+		<nav class="navbar  visible-desktop">
 		  <div class="container-fluid">
 			 
 			 <div class="navbar-header">

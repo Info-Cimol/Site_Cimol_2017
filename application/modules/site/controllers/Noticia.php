@@ -14,7 +14,7 @@ class Noticia extends MX_Controller{
 		foreach($this->data['noticias'] as $noticia){
 			$this->data['imagens'][]=$this->imagem_model->listar_imagem_noticia($noticia->id);
 		}
-		$this->data['template']="noticia";
+		$this->data['content']="noticia/index";
 		$this->view->show_view($this->data);
 	}
 	
@@ -22,7 +22,7 @@ class Noticia extends MX_Controller{
 		$this->data['title']="Cimol - Notícias";
 		$this->data['noticia']=$this->noticia_model->buscar_noticia($id);
 		$this->data['imagens']=$this->imagem_model->buscar_imagens($id);
-		$this->data['template']="ver_noticia";
+		$this->data['content']="ver_noticia";
 		$this->view->show_view($this->data);
 	}
 }

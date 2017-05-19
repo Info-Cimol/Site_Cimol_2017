@@ -13,7 +13,7 @@ class Evento extends MX_Controller{
 			$this->data['imagens_evento'][]=$this->imagem_model->listar_imagem_evento($evento->id);
 		}
 		*/
-		$this->data['template']="evento";
+		$this->data['content']="evento/index";
 		$this->view->show_view($this->data);
 	}
 	
@@ -21,7 +21,7 @@ class Evento extends MX_Controller{
 		$this->data['title']="Cimol - Eventos";
 		$this->data['evento']=$this->evento_model->buscar_evento($id);
 		$this->data['imagens']=$this->imagem_model->buscar_imagens_evento($id);
-		$this->data['template']="ver_evento";
+		$this->data['content']="evento/ver_evento";
 		$this->view->show_view($this->data);
 	}
 	
