@@ -14,11 +14,11 @@
             
             <div id="imagem"><img src="images/cimol_branco.png"/></div>
             <div id="titulo"><strong><p>SEJA BEM-VINDO</p></strong></div>
-            <div id="mensagem"><p> SE VOCÊ JÁ POSSUI USUÁRIO ATIVO, INFORME SEUS DADOS DE ACESSO </p></div>
+            <div id="mensagem"><p> SE VOCï¿½ Jï¿½ POSSUI USUï¿½RIO ATIVO, INFORME SEUS DADOS DE ACESSO </p></div>
             
             <form class="form-login">
                 <div class="form-grupo">
-                    <div class="col-sm-10" id="email" >
+                    <div class="col-sm-10" id="campo-email" >
                         <input type="email" class="input-login form-control input-lg " name="email" placeholder="Email">
                     </div>                    
                 </div>
@@ -35,7 +35,7 @@
             </form>
             
             <div class="cadastro">
-                <p>Se você não possui usuário avito, <a href="#" ><strong>clique aqui</strong></a></p>
+                <p>Se vocï¿½ nï¿½o possui usuï¿½rio avito, <a href="#" ><strong>clique aqui</strong></a></p>
             </div>
             <div class="esqueceu">
                 <p><a href="#" >Esqueceu a senha?</a></p>

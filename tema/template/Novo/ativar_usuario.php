@@ -13,18 +13,18 @@
         <section>
             
             <div id="imagem"><img src="images/cimol_branco.png"/></div>
-            <strong><p id="titulo">ATIVAR USUÁRIO</p></strong>
-            <p id="mensagem"> PREENCHA O FORMULÁRIO ABAIXO E ATIVE SEU USUÁRIO </p>
+            <strong><p id="titulo">ATIVAR USUï¿½RIO</p></strong>
+            <p id="mensagem"> PREENCHA O FORMULï¿½RIO ABAIXO E ATIVE SEU USUï¿½RIO </p>
             
             <form class="form-login">
                 <div class="form-grupo">
-                    <div class="col-sm-10" id="email">
+                    <div class="col-sm-10" id="campo-email">
                         <input type="email" class="input-login form-control input-lg " name="email" placeholder="Email">
                     </div>                    
                 </div>
                 <div class="form-grupo">
                     <select>
-                        <option>Tipo de usuário</option>
+                        <option>Tipo de usuï¿½rio</option>
                         <option>Aluno</option>
                         <option>Professor</option>
                         <option>Coordenador</option>

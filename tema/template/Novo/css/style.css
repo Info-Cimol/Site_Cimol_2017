@@ -48,8 +48,8 @@ section{
     width: 270px;
     
 }
-#email {
-    width: 270px;
+#campo-email {
+    width: 300px;
 }
 input[type=email]{
     background:rgba(146,143,141, 0.4);
@@ -121,14 +121,14 @@ p a{
         width: 300px;
         text-align: center;
     }
-    #email{
+    #campo-email{
         float: none;
         
     }
     #senha{
         float: none;
     }
-    #botão{
+    #botï¿½o{
         float: none;        
     }
     .cadastro{
