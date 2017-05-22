@@ -1,0 +1,149 @@
+section{
+    width: 100%;
+    height: 560px;
+    background-color: #222222;
+}
+#imagem{
+    text-align: center;
+}
+#imagem img{    
+    width: 60px;
+    margin-top: 40px;
+}
+#titulo{
+    margin-top: 30px;    
+    color: #fff;
+    font: 20px Elvetica, sans-serif;
+    text-align: center;
+}
+#mensagem{
+    padding: 10px 0px 20px 0px;
+    color: #fff;
+    font: 14px Elvetica, sans-serif;
+    margin: auto;
+    width: 270px;
+}
+#email{
+    color: #fff;
+    margin: auto;
+    width: 250px;
+    font: 10px Elvetica, sans-serif;
+    padding: 0px 0px 10px 0px;
+}
+.form-login{
+    width: 300px;
+    margin: auto;
+}
+.form-grupo{
+    margin-bottom: 20px;
+    width: 300px;
+    text-align: center;
+}
+.form-grupo select{
+    background:rgba(146,143,141, 0.4);
+    border-radius: 1px;
+    font: 16px Elvetica, sans-serif;
+    height: 46px;     
+    color: darkgray;
+    width: 270px;
+    
+}
+#email {
+    width: 270px;
+}
+input[type=email]{
+    background:rgba(146,143,141, 0.4);
+    border-radius: 1px;
+    font: 18px Elvetica, sans-serif;
+}
+input[type=password]{
+    background:rgba(146,143,141, 0.4);
+    border-radius: 1px;
+    font: 18px Elvetica, sans-serif;
+    width: 270px;
+}
+input[type=submit]{
+    background:#140352;
+    border-color: #140352;
+    border-radius: 1px;
+    font: 18px Elvetica, sans-serif;
+    color: #fff;
+    height: 46px;
+    width: 270px;
+    margin-bottom: 10px;
+}
+#botao{
+    margin-left: 0px;
+    width: 300px;
+    height: 45px;
+}
+#nova-senha{
+    margin-bottom: 20px;
+    width: 300px;
+    height: 45px;
+}
+.cadastro{
+    width: 220px;
+    color: #fff;
+    font: 14px Elvetica, sans-serif;
+    margin: auto;
+}
+p a{
+    color:#fff;
+    text-decoration:none;
+    font: 14px Elvetica, sans-serif;
+}
+.esqueceu{
+    width: 220px;
+    color: #fff;
+    font: 14px Elvetica, sans-serif;
+    margin: auto;
+}
+@media screen and (min-width: 530px){
+    section{
+        width: 60%; 
+        margin-left: 20%;
+    }
+}
+@media screen and (min-width: 670px){
+    section{
+        width: 50%; 
+        margin-left: 25%;
+    }
+}
+@media (min-width: 768px){
+    .form-login{
+        width: 300px;
+        margin: auto;
+    }
+    .form-grupo{
+        margin-bottom: 20px;
+        width: 300px;
+        text-align: center;
+    }
+    #email{
+        float: none;
+        
+    }
+    #senha{
+        float: none;
+    }
+    #botão{
+        float: none;        
+    }
+    .cadastro{
+        margin-top: 80px;
+    }
+}
+@media screen and (min-width: 900px){
+   section{
+        width: 40%; 
+        margin-left: 30%;
+    }
+}
+@media screen and (min-width: 1100px){
+   section{
+        width: 30%; 
+        margin-left: 35%;
+    }
+}
