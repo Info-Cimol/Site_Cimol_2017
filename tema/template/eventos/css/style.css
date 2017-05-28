@@ -1,0 +1,26 @@
+img{
+    width: 300px;
+}
+.item-evento{
+    float: left;
+    margin: 10px;
+    font: 10px Elvetica, sans-serif;
+}
+.descricao{
+    background-color:#1b4ea1;
+    width: 300px;
+    color: #fff;
+    padding: 10px 0px 12px 10px;
+    font: 9px Elvetica, sans-serif;
+    height: 50px;
+}
+.data{
+    float: left;
+    border-right: solid #fff 2px;
+    margin-right: 10px;
+    font: 25px Elvetica, sans-serif;
+    padding-right: 10px;
+}
+.titulo{
+    font: 10px Elvetica, sans-serif;
+}
