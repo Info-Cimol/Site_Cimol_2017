@@ -99,26 +99,13 @@ class Curso extends MX_Controller{
 	}
 	public function editar_imagem($id=null){
 		print_r($_REQUEST);
-		/*if(!isset($_FILES['logo'])){
-			$this->view->set_message("Deve ser selecionado uma imagem para o curso","alert alert-error");
-			redirect("admin/curso","redirect");
-		}*/
-		print_r($_FILES);
 		
 		$ext_images=array('jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'gif', 'GIF', 'bmp', 'BMP');
 		$_SESSION['post']=$_POST;
-		if($id==null){
-			$_SESSION['form_action']="admin/curso/salvar_curso";
-		}else{
-			if(!empty($_FILES['logo']['tmp_name'])){
-				$_SESSION['id']=$id;
-				$_SESSION['form_action']="admin/curso/salvar_curso/".$id;
-			}else{
-				redirect('admin/curso/salvar_curso/'.$id);
-			}
-		}
+		$_SESSION['form_action']="admin/curso/salvar_curso";
 		
-		$ext = pathinfo($_FILES['logo']['name'], PATHINFO_EXTENSION);
+		if(!empty($_FILES['logo']['tmp_name'])){
+			$ext = pathinfo($_FILES['logo']['name'], PATHINFO_EXTENSION);
 			if(in_array($ext,$ext_images)){
 				$temp_name = $_FILES['logo']['tmp_name'];
 				$temp = explode(".",$_FILES["logo"]["name"]);
@@ -143,9 +130,12 @@ class Curso extends MX_Controller{
 				}
 				$this->data['imagem']=$name;
 			}
-		$this->data['template']='curso/curso-imagens';
+			$this->data['template']='curso/curso-imagens';
 		
-		$this->view->show_view($this->data);
+			$this->view->show_view($this->data);
+		}else{
+			redirect('admin/curso/salvar_curso/'.$id);
+		}
 	}
 	
 	
