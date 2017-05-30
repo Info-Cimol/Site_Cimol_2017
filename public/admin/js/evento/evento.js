@@ -38,9 +38,9 @@
 								form+="<img src='"+base_url+evento.url_imagem+evento.nome_imagem+"' style='width:100px' /><br/>"+
 			                	"<input type='checkbox' name='edit' onclick='exibir_input_file()' />Substituir imagem <br/>";
 							}	
-		                "</div>"+
+		                form+="</div>"+
                         "<div class='form-actions'>"+
-	                    	"<button type='submit' class='btn btn-blue'>Salvar Mudanças</button>"+
+	                    	"<button type='submit' class='btn btn-blue'>Salvar</button>"+
 	                    "</div>"+
 				"</form>";
 			
