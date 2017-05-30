@@ -14,7 +14,7 @@
                             "<div class='controls'>"+
                             "<div class='box closable-chat-box'>"+
                                             "<div class='chat-message-box'>"+
-                                				"<textarea name='evento[descricao]' class='mceEditor' rows='5' required>"+evento.descricao+"</textarea>"+
+                                				"<textarea name='evento[descricao]' class='mceEditor' rows='5'>"+evento.descricao+"</textarea>"+
                                 			"</div>"+	
                             "</div>"+
                             "</div>"+
@@ -24,7 +24,7 @@
                             "<div class='controls'>"+
                             	"<div class='box closable-chat-box'>"+
                                     "<div class='chat-message-box'>"+
-                                		"<textarea name='evento[resumo]' rows='5' maxlength='140' required>"+evento.resumo+"</textarea>"+
+                                		"<textarea name='evento[resumo]' rows='5' maxlength='140'>"+evento.resumo+"</textarea>"+
                                 	"</div>"+
                                 "</div>"+	
                             "</div>"+
@@ -44,22 +44,7 @@
 	                    "</div>"+
 				"</form>";
 			
-			/*
-				$.ajax({
-			        url: base_url+"admin/curso/listar_cursos_json/",
-			        dataType: 'json',
-			        type: "post",
-			        success: function(data){
-			        	$.each(data,function(index, element){
-							
-				    	 	$('#cursos').append(
-				    	 		"<input type='checkbox' name='evento[cursos][]' value='"+element.id+"'>"+element.titulo+"<br/>"
-				    	 	);
-						});
-			        }
-			        
-				});
-				*/	
+			
 				return form;
 			 		
 		}
