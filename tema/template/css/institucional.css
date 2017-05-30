@@ -27,7 +27,6 @@ body{
 	width: 90%;
 	height: auto;
 	margin-left: 30px;
-	//background: red;
 }
 
 .instituicao_texto{
@@ -36,7 +35,6 @@ body{
 	height: auto;
 	text-align: justify;
 	margin-left: 30px;
-	//background: blue;
 	margin-top: -35px;
 	text-hyphen: auto;
 }
@@ -70,7 +68,6 @@ body{
 	float: left;
 	width: 60%;
 	height: auto;
-	//background: orange;
 }
 
 .imagem{
