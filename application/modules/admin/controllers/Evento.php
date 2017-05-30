@@ -239,13 +239,13 @@ class Evento extends MX_Controller {
 					$temp = explode(".",$_FILES['evento']["name"]['imagem']);
 					print_r($temp);
 					$data_nome=date("m-d-Y_H-i-s");
-					echo "<br/>".$data_nome;
+					//echo "<br/>".$data_nome;
 					$name = "public/images/temp/".$data_nome.".".end($temp);
-					echo "<br/>".$name;
+					//echo "<br/>".$name;
 					$name_imagem=$data_nome.".".end($temp);
-					echo "<br/>".$name_imagem;
+					//echo "<br/>".$name_imagem;
 					$_SESSION['post']['imagem-nome']=$name_imagem;
-					echo "<br/>".$_SESSION['post']['imagem-nome'];
+					//echo "<br/>".$_SESSION['post']['imagem-nome'];
 					move_uploaded_file($_FILES['evento']['tmp_name']['imagem'], $name);
 					list($width, $height) = getimagesize($name);
 					if($width!=800 || $height!=600){
@@ -280,7 +280,7 @@ class Evento extends MX_Controller {
 			}
 			*/
 			
-			print_r($_SESSION['post']);
+			//print_r($_SESSION['post']);
 			$this->crop->crop_image( $_POST['imagem'][0], "public/images/geral/".$_SESSION['post']['imagem-nome'], $_POST['width'][0], $_POST['height'][0], $_POST['x'][0], $_POST['y'][0]);
 			$imagem['nome']=$_SESSION['post']['imagem-nome'];
 			$imagem['url_imagem']="public/images/geral/";
