@@ -180,10 +180,3 @@ header{
 	width: 300px;
 	height: 70px;
 }
-
-@media query (min-width: 768px) {
-
-#nav{
-	display: none;
-}
-}
