@@ -66,13 +66,13 @@ class Evento extends MX_Controller {
 						$temp_name = $_FILES['imagens']['tmp_name'][$i];
 						$temp = explode(".",$_FILES['imagens']["name"][$i]);
 						$data_nome=date("m-d-Y_H-i-s")."-".$i;
-						echo "<br/>".$data_nome;
+						//echo "<br/>".$data_nome;
 						$name = "public/images/temp/".$data_nome.".".end($temp);
-						echo "<br/>".$name;
+						//echo "<br/>".$name;
 						$name_imagem=$data_nome.".".end($temp);
-						echo "<br/>".$name_imagem;
+						//echo "<br/>".$name_imagem;
 						$_SESSION['post']['imagem-nome'][$i]=$name_imagem;
-						echo "<br/>".$_SESSION['post']['imagem-nome'][$i];
+						//echo "<br/>".$_SESSION['post']['imagem-nome'][$i];
 						move_uploaded_file($_FILES['imagens']['tmp_name'][$i], $name);
 						list($width, $height) = getimagesize($name);
 						if($width!=800 || $height!=600){
