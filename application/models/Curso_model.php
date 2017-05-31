@@ -15,6 +15,8 @@ class Curso_model extends CI_Model{
 			->where('sc.curso_id',$curso->id);
 			$query=$this->db->get();
 			$curso->segmentos=$query->result();
+			
+			
 			$cursos[]=$curso;
 		}
 		return $cursos;
@@ -60,11 +62,29 @@ class Curso_model extends CI_Model{
 		->where('segmento_id',$segmento_id)
 		->delete("segmento_curso");
 		*/	
-		$segmento_curso=array('curso_id'=>$curso_id, 'segmento_id'=>$segmento_id, 'num_periodos'=>$num_periodos);
-		if($this->db->insert("segmento_curso",$segmento_curso)){
-			return true;
+		$this->db->select('sc.*')
+		->from('segmento_curso sc')
+		->where('sc.curso_id',$curso_id)
+		->where('sc.segmento_id',$segmento_id);
+		$query=$this->db->get();
+		print_r($query);
+		echo $query->num_rows();
+		if($query->num_rows()==0){
+			$segmento_curso=array('curso_id'=>$curso_id, 'segmento_id'=>$segmento_id, 'num_periodos'=>$num_periodos);
+			if($this->db->insert("segmento_curso",$segmento_curso)){
+				return true;
+			}else{
+				return false;
+			}
 		}else{
-			return false;
+			if($this->db->where('curso_id', $curso_id)
+					->where('segmento_id', $segmento_id)
+					->set('num_periodos',$num_periodos)
+					->update('segmento_curso')){
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 	
@@ -104,11 +124,37 @@ class Curso_model extends CI_Model{
 		$coordenador['ip'] = $_SERVER['REMOTE_ADDR'];
 		$coordenador['usuario_id'] = $_SESSION['user_data']['id'];
 		if($curso_id==null){
-			if($this->db->insert("coordenador_curso",$coordenador)){
-				return true;
+			$this->db->select('cc.*')
+			->from('coordenador_curso cc')
+			->where('cc.curso_id',$coordenador['curso_id'])
+			->where('cc.professor_id',$coordenador['professor_id']);
+			
+			$query=$this->db->get();
+			print_r($query);
+			echo $query->num_rows();
+			if($query->num_rows()==0){
+				/*desativa o coordenador atual se existir*/
+				$this->db->where('curso_id', $coordenador['curso_id'])
+				->set('status','inativo')
+				->update('coordenador_curso');
+				
+				/*registra a informação referente ao novo coordenador*/
+				if($this->db->insert("coordenador_curso",$coordenador)){
+					return true;
+				}else{
+					return false;
+				}
 			}else{
-				return false;
+				/*altera informações do coordenador atual*/
+				if($this->db->where('curso_id', $coordenador['curso_id'])
+				->where('professor_id',$coordenador['professor_id'])
+				->update('coordenador_curso',$coordenador)){
+					return true;
+				}else{
+					return false;
+				}
 			}
+			
 		}else{
 			if($this->db->where('curso_geral_id',$curso_id)
 					->where('professor_id', $professor_id)

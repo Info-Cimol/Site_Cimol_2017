@@ -24,10 +24,25 @@ class Evento_model extends CI_Model{
 	}
 	
 	function postar_evento($evento){
-		if($this->db->insert('evento', $evento)){
-			return $this->db->insert_id();
+		//print_r($evento);
+		if(empty($evento['id'] or $evento['id']!='')){
+			if($this->db->insert('evento', $evento)){
+				return $this->db->insert_id();
+			}else{
+				return false;
+			}
 		}else{
-			return false;
+			if($this->db->set('titulo', $evento['titulo'])
+					->set('resumo', $evento['resumo'])
+					->set('descricao', $evento['descricao'])
+					->set('imagem_id',$evento['imagem_id'])
+				->where('id =', $evento['id'])
+				->update('evento')){
+					return true;
+			}else{
+				return false;
+			}
+			
 		}
 	}
 	
@@ -46,8 +61,8 @@ class Evento_model extends CI_Model{
 				"ip" => $_SERVER['REMOTE_ADDR'],
 				"usuario_id" => $_SESSION['userdata']['id']
 		);*/
-		$this->db->where('evento_id =', $id)
-		->delete('curso_evento');
+		/*$this->db->where('evento_id =', $id)
+		->delete('curso_evento');*/
 		if($this->db->set('status', 'inativo')
 				->where('id =', $id)
 				->update('evento')){

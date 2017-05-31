@@ -28,16 +28,21 @@
                 	<thead>
                 		<tr>
                     		<th><div>#</div></th>
-                    		<th><div>Título</div></th>
+                    		<th><div>Curso</div></th>
                     		<th><div>Segmento</div></th>
                     		<th><div>Opções</div></th>
 						</tr>
 					</thead>
 					<tbody>
-                    	<?php $count = 1;foreach($cursos as $curso):?>
+						<?php 
+                    	
+						$count = 1;foreach($cursos as $curso):?>
                         <tr>
                             <td><?php echo $count++;?></td>
-							<td><?php echo "<p>".$curso->titulo."</p>";
+							<td><?php 
+								
+								echo "<img src='".base_url(). $curso->logo."' style='width:100px;float:left;margin:15px'/>";
+								echo "<p>".$curso->titulo."</p>";
 								echo "<p>".$curso->descricao."<p/>";
 							?>
 							</td>

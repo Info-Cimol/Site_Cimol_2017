@@ -31,11 +31,12 @@
                         "</div>"+
                         
 	                    "<div class='control-group'>"+
-		                	"<label class='control-label'>Imagem:</label>";
-						
+						                	"<label class='control-label'>Imagem:</label>";
+							
 		                    form+="<div id='file'><input type='file' name='evento[imagem]' ></div>";
 		                    if(evento.id!=''){
 								form+="<img src='"+base_url+evento.url_imagem+evento.nome_imagem+"' style='width:100px' /><br/>"+
+								"<input type='hidden' name='evento[imagem_id]' value='"+evento.imagem_id +"' />"+
 			                	"<input type='checkbox' name='edit' onclick='exibir_input_file()' />Substituir imagem <br/>";
 							}	
 		                form+="</div>"+

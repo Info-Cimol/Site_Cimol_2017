@@ -222,22 +222,22 @@ class Evento extends MX_Controller {
 	
 	public function salvar_evento(){
 		$ext_images=array('jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'gif', 'GIF', 'bmp', 'BMP');
-			
+		//print_r($_POST);
+		$evento=null;
 		if(!isset($_POST['crop'])){
-			
+			//echo 1;
+			$evento=$_POST['evento'];
 			$_SESSION['post']=$_POST;
 			$_SESSION['form_action']="admin/evento/salvar_evento";
-			//print_r($_FILES);
-			//print_r($_SESSION['post']);
-			print($_FILES['evento']['tmp_name']['imagem']);
+			//print_r($_FILES['evento']);
 			if(!empty($_FILES['evento']['tmp_name']['imagem'])){
-				
+				//echo 1.2;
 				$ext = pathinfo($_FILES['evento']['name']['imagem'], PATHINFO_EXTENSION);
 				if(in_array($ext,$ext_images)){
-					
+					echo 1.3;
 					$temp_name = $_FILES['evento']['tmp_name']['imagem'];
 					$temp = explode(".",$_FILES['evento']["name"]['imagem']);
-					print_r($temp);
+					//print_r($temp);
 					$data_nome=date("m-d-Y_H-i-s");
 					//echo "<br/>".$data_nome;
 					$name = "public/images/temp/".$data_nome.".".end($temp);
@@ -265,42 +265,52 @@ class Evento extends MX_Controller {
 					$this->data['template']='imagem/crop-imagens';
 					$this->view->show_view($this->data);
 				}
+			}else{
+				echo 0;
+				//print_r($evento);
+				if(isset($evento['imagem_id'])){
+					if($evento_id=$this->evento_model->postar_evento($evento)){
+						$this->view->set_message("Evento salvo com sucesso", "alert alert-success");
+					
+						redirect('admin/evento', 'refresh');
+					}else{
+						$this->view->set_message("Ocorreu um erro ao salvar evento", "alert alert-error");
+						redirect('admin/evento', 'refresh');
+					}
+				}
 			}
 		}else{
-			
+			echo 2;
 			$evento = $_SESSION['post']['evento'];
-			//$cursos=$evento['cursos'];
-			//unset($evento['cursos']);
-			//print_r($evento);
-			//$evento['ip']=$_SERVER['REMOTE_ADDR'];
-			/*date_default_timezone_set("Brazil/East");
-			if(strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') !== FALSE){
-				$data=explode('/',$_POST['evento']['data']);
-				$_POST['evento']['data']=$data[2]."-".$data[1]."-".$data[0];
-			}
-			*/
 			
-			//print_r($_SESSION['post']);
 			$this->crop->crop_image( $_POST['imagem'][0], "public/images/geral/".$_SESSION['post']['imagem-nome'], $_POST['width'][0], $_POST['height'][0], $_POST['x'][0], $_POST['y'][0]);
 			$imagem['nome']=$_SESSION['post']['imagem-nome'];
 			$imagem['url_imagem']="public/images/geral/";
-			print_r($imagem);
 			$evento['imagem_id']= $this->imagem_model->postar_imagem($imagem);
+			
 			
 			if($evento_id=$this->evento_model->postar_evento($evento)){
 			  	$this->view->set_message("Evento adicionado com sucesso", "alert alert-success");
-	          	/*	                
-				foreach($cursos as $curso){
-					$this->curso_model->postar_curso_evento($curso, $evento_id);
-				}
-				
-				*/
+	          	
 				redirect('admin/evento', 'refresh');
 			}else{
 				$this->view->set_message("Ocorreu um erro ao adicionar evento", "alert alert-error");
 				redirect('admin/evento', 'refresh');
 			}
+			
 		}
+		
+		/*if($evento_id=$this->evento_model->postar_evento($evento)){
+			$this->view->set_message("Evento adicionado com sucesso", "alert alert-success");
+		
+			//redirect('admin/evento', 'refresh');
+		}else{
+			$this->view->set_message("Ocorreu um erro ao adicionar evento", "alert alert-error");
+			//redirect('admin/evento', 'refresh');
+		}
+		*/
+		
+		
 	}
 	
 	function edicoes($evento_id){
