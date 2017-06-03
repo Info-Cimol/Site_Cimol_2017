@@ -33,7 +33,10 @@
 						</tr>
 					</thead>
 					<tbody>
-                    	<?php $count = 1;foreach($professores as $professor):
+                    	<?php 
+                    	if(isset($professores)){
+                    	$count = 1;foreach($professores as $professor):
+                    	
                     	//print_r($professors);
                     	?>
                         <tr>
@@ -72,7 +75,8 @@
                                 </a>
         					</td>
                         </tr>
-                        <?php endforeach;?>
+                        <?php endforeach;
+                    	}?>
                     </tbody>
                 </table>
 			</div>

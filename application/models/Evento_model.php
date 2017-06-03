@@ -119,10 +119,10 @@ class Evento_model extends CI_Model{
 	}
 	
 	function listarEdicoesEvento($idEvento){
-		$this->db->select("e.*, e.id AS evento_id, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.*, ee.id AS edicao_evento_id,i.nome AS nome_imagem")
+		$this->db->select("e.titulo ,e.resumo,, e.id AS evento_id, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.*, ee.id AS edicao_evento_id,i.nome AS nome_imagem")
 		->from('evento e')
 		->join("edicao_evento ee", "ee.evento_id=e.id")
-		->join('imagem i', 'i.id=e.imagem_id')
+		->join('imagem i', 'i.id=ee.imagem_id')
 		->where('ee.status =','ativo');
 		
 		$this->db->order_by('ee.id',"desc");
@@ -131,18 +131,57 @@ class Evento_model extends CI_Model{
 	}
 	
 	function postarEdicaoEvento($edicao_evento){
-		if($this->db->insert('edicao_evento', $edicao_evento)){
-			return $this->db->insert_id();
+		 
+		if(!empty($edicao_evento['id']) or $edicao_evento['id']>0){
+			if($this->db->set('titulo', $edicao_evento['titulo'])
+					->set('edicao', $edicao_evento['edicao'])
+					->set('slogan', $edicao_evento['slogan'])
+					->set('data_inicial', $edicao_evento['data_inicial'])
+					->set('data_final', $edicao_evento['data_final'])
+					->set('imagem_id', $edicao_evento['imagem_id'])
+					->where('id =', $edicao_evento['id'])
+					->update('edicao_evento'))
+					//if($this->db->update('evento', $evento)->where('id','id='+$evento['id']))
+			{
+				echo ":-)";
+				return true;;
+			}else{
+				echo ":-(";
+				return false;
+			}
 		}else{
-			return false;
+			if($this->db->insert('edicao_evento', $edicao_evento)){
+				return $this->db->insert_id();
+			}else{
+				return false;
+			}
 		}
 	}
 	
 	function salvarPainelEdicaoEvento($painelEdicaoEvento){
-		if($this->db->insert('painel_edicao_evento', $painelEdicaoEvento)){
-			return $this->db->insert_id();
+		if(!empty($painelEdicaoEvento['id']) or $painelEdicaoEvento['id']>0){
+			if($this->db->set('titulo', $painelEdicaoEvento['titulo'])
+					->set('descricao', $painelEdicaoEvento['descricao'])
+					->set('data', $painelEdicaoEvento['data'])
+					->set('hora', $painelEdicaoEvento['hora'])
+					->set('imagem_id', $painelEdicaoEvento['imagem_id'])
+					->where('id =', $painelEdicaoEvento['id'])
+					->update('painel_edicao_evento'))
+					//if($this->db->update('evento', $evento)->where('id','id='+$evento['id']))
+			{
+				echo ":-)";
+				return true;;
+			}else{
+				echo ":-(";
+				return false;
+			}
 		}else{
-			return false;
+		
+			if($this->db->insert('painel_edicao_evento', $painelEdicaoEvento)){
+				return $this->db->insert_id();
+			}else{
+				return false;
+			}
 		}
 	}
 	
@@ -179,18 +218,37 @@ class Evento_model extends CI_Model{
 		$this->db->select("e.*, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.*, ee.id AS edicao_evento_id,i.nome AS nome_imagem, pee.*")
 		->from('evento e')
 		->join("edicao_evento ee", "ee.evento_id=e.id")
-		->join('imagem i', 'i.id=e.imagem_id')
 		->join('painel_edicao_evento pee','pee.edicao_id=ee.id')
+		->join('imagem i', 'i.id=pee.imagem_id')
 		->where('e.id',$eventoId)
 		->where('ee.id',$edicaoId)
-		->where('ee.status =','ativo');
+		->where('pee.status =','ativo');
 		
 		$this->db->order_by('ee.id',"desc");
 		$query=$this->db->get();
 		return $query->result();
 	}
 	
+	function buscarPainelEdicaoEvento($evento_id,$edicao_id, $painel_id){
+		$this->db->select("pee.*, i.nome as nome_imagem, i.url_imagem")
+		->join('imagem i','i.id=pee.imagem_id')
+		->from('painel_edicao_evento pee')
+		->where('pee.status =','ativo')
+		->where('pee.id =', $painel_id);
+		$query=$this->db->get();
+		return $query->result();
+	}
 	
+	function deletar_painel_edicao_evento($id){
+		
+		if($this->db->set('status', 'inativo')
+				->where('id =', $id)
+				->update('painel_edicao_evento')){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	/*
 	function deletar_imagem_evento($imagem_id, $evento_id){
 		if($this->db->delete('imagem_evento', array('imagem_id' => $imagem_id, 'evento_id'=>$evento_id))){

@@ -38,7 +38,7 @@
 					<tbody>
 						
                     	<?php 
-                    	
+                    	if(isset($eventos)){
                     	$count = 1;
                     	foreach($eventos as $evento):?>
                         <tr>
@@ -58,7 +58,8 @@
                                 </a>
                             </td>
                         </tr>
-                        <?php endforeach;?>
+                        <?php endforeach;
+                    	}?>
                     </tbody>
                 </table>
 			</div>

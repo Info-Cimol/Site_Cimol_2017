@@ -35,7 +35,7 @@
 					</thead>
 					<tbody>
 						<?php 
-                    	
+						if(isset($cursos)){
 						$count = 1;foreach($cursos as $curso):?>
                         <tr>
                             <td><?php echo $count++;?></td>
@@ -85,7 +85,8 @@
                                 </a>
         					</td>
                         </tr>
-                        <?php endforeach;?>
+                        <?php endforeach;
+						}?>
                     </tbody>
                 </table>
 			</div>

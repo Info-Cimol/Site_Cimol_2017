@@ -43,31 +43,33 @@
 	                    	<?php 
 	                    	
 	                    	$count = 1;
-	                    	foreach($edicoes_evento as $edicao_evento):
-	                    	?>
-	                        <tr>
-	                        	<td><?php echo $count++;?></td>
-	                            <td ><?php echo "<img src='".base_url().$edicao_evento->url_imagem.$edicao_evento->nome_imagem."' style='width:100px'/>";?></td>
-								<td><?php echo "<p>".$edicao_evento->titulo."</p>";
-								echo "<p> de ".$edicao_evento->data_inicial." à ".$edicao_evento->data_final."</p>";
-								
-								?></td>
-								<td align="center">
-									<a data-toggle="modal" href="#modal-form" onclick="editar_edicao_evento(<?php echo $evento_id; ?>,<?php echo $edicao_evento->edicao_evento_id; ?>)" class="btn btn-gray btn-small"> 
-	                                		<i class="icon-wrench"></i>
-	                                </a>
-	                            	<a data-toggle="modal" href="#modal-delete" onclick="modal_delete('<?php echo base_url();?>admin/evento/deletar_edicao/<?php echo $evento_id;?>/<?php echo $edicao_evento->edicao_evento_id;?>')" class="btn btn-red btn-small">
-	                                		<i class="icon-trash"></i> 
-	                                </a>
-	                                <a data-toggle="modal" href="#modal-form" onclick="listar_imagens_edicao(<?php echo $evento_id?>,<?php echo $edicao_evento->edicao_evento_id?>); return false;"  class="btn btn-blue btn-small"> 
-	                                		<i class="icon-picture"></i>
-	                                </a>
-	                              	<a href="<?php echo base_url()."admin/evento/paineis_edicao/".$edicao_evento->evento_id."/".$edicao_evento->edicao_evento_id."/".$edicao_evento->titulo_evento."/".$edicao_evento->titulo ?>"  class="btn btn-blue btn-small"> 
-	                                		<i class="icon-list"></i>
-	                                </a>
-	                            </td>
-	                        </tr>
-	                        <?php endforeach;?>
+	                    	if(isset($edicoes_evento)){
+		                    	foreach($edicoes_evento as $edicao_evento):
+		                    	?>
+		                        <tr>
+		                        	<td><?php echo $count++;?></td>
+		                            <td ><?php echo "<img src='".base_url().$edicao_evento->url_imagem.$edicao_evento->nome_imagem."' style='width:100px'/>";?></td>
+									<td><?php echo "<p>".$edicao_evento->titulo."</p>";
+									echo "<p> de ".$edicao_evento->data_inicial." à ".$edicao_evento->data_final."</p>";
+									
+									?></td>
+									<td align="center">
+										<a data-toggle="modal" href="#modal-form" onclick="editar_edicao_evento(<?php echo $evento_id; ?>,<?php echo $edicao_evento->edicao_evento_id; ?>)" class="btn btn-gray btn-small"> 
+		                                		<i class="icon-wrench"></i>
+		                                </a>
+		                            	<a data-toggle="modal" href="#modal-delete" onclick="modal_delete('<?php echo base_url();?>admin/evento/deletar_edicao/<?php echo $evento_id;?>/<?php echo $edicao_evento->edicao_evento_id;?>')" class="btn btn-red btn-small">
+		                                		<i class="icon-trash"></i> 
+		                                </a>
+		                                <a data-toggle="modal" href="#modal-form" onclick="listar_imagens_edicao(<?php echo $evento_id?>,<?php echo $edicao_evento->edicao_evento_id?>); return false;"  class="btn btn-blue btn-small"> 
+		                                		<i class="icon-picture"></i>
+		                                </a>
+		                              	<a href="<?php echo base_url()."admin/evento/paineis_edicao/".$edicao_evento->evento_id."/".$edicao_evento->edicao_evento_id."/".$edicao_evento->titulo_evento."/".$edicao_evento->titulo ?>"  class="btn btn-blue btn-small"> 
+		                                		<i class="icon-list"></i>
+		                                </a>
+		                            </td>
+		                        </tr>
+		                        <?php endforeach;
+	                    	}?>
 	                    </tbody>
 	                </table>
 	              <?php 

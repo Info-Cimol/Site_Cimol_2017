@@ -45,7 +45,7 @@ class Imagem_model extends CI_Model{
     	$this->db->select('i.*, count(in.imagem_id) as noticia, count(ie.imagem_id) as evento ')
     	->from('imagem i')
     	->join('imagem_noticia in','i.id=in.imagem_id','left')
-    	->join('imagem_evento ie','i.id=ie.imagem_id','left')
+    	->join('evento e','i.id=e.imagem_id','left')
         /*->join('noticia n','in.noticia_id=n.id','left')
         ->join('evento e','e.id=ie.evento_id','left')
         ->where('n.status !=','inativo')
@@ -54,6 +54,7 @@ class Imagem_model extends CI_Model{
     	$query = $this->db->get();
     	return $query->result();
     }
+    
     function deletar($id){
     	if($this->db->where('id='.$id)
     			->delete('imagem')){

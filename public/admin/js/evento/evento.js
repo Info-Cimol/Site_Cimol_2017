@@ -159,7 +159,9 @@
 		                    form+="<div id='file'><input type='file' name='edicao_evento[imagem]' ></div>";
 		                    if(edicao_evento.id!=''){
 								form+="<img src='"+base_url+edicao_evento.url_imagem+edicao_evento.nome_imagem+"' style='width:100px' /><br/>"+
-			                	"<input type='checkbox' name='edit' onclick='exibir_input_file()' />Substituir imagem <br/>";
+								"<input type='hidden' name='edicao_evento[imagem_id]' value='"+edicao_evento.imagem_id +"' />"+
+			                	
+								"<input type='checkbox' name='edit' onclick='exibir_input_file()' />Substituir imagem <br/>";
 							}	
 		               form+="</div>"+
                         "<div class='form-actions'>"+
@@ -300,7 +302,9 @@
 		                    form+="<div id='file'><input type='file' name='painel_edicao_evento[imagem]' ></div>";
 		                    if(painel_edicao_evento.id!=''){
 								form+="<img src='"+base_url+painel_edicao_evento.url_imagem+painel_edicao_evento.nome_imagem+"' style='width:100px' /><br/>"+
-			                	"<input type='checkbox' name='edit' onclick='exibir_input_file()' />Substituir imagem <br/>";
+								"<input type='hidden' name='painel_edicao_evento[imagem_id]' value='"+painel_edicao_evento.imagem_id +"' />"+
+			                	
+								"<input type='checkbox' name='edit' onclick='exibir_input_file()' />Substituir imagem <br/>";
 							}	
 		               form+="</div>"+
                         "<div class='form-actions'>"+
@@ -329,7 +333,7 @@
 		function editar_painel_edicao_evento(evento_id,edicao_id,painel_id){
 			$('#modal-body').html('');
 			$.ajax({
-		        url: base_url+"admin/evento/buscar_paineis_edicao/"+evento_id+"/"+edicao_id+"/"+painel_id,
+		        url: base_url+"admin/evento/buscar_painel_edicao/"+evento_id+"/"+edicao_id+"/"+painel_id,
 		        dataType: 'json',
 		        type: "post",
 		        success: function(data){

@@ -30,7 +30,10 @@
 						</tr>
 					</thead>
 					<tbody>
-                    	<?php $count = 1;foreach($disciplinas as $disciplina):?>
+                    	<?php 
+                    	if(isset($disciplinas)){
+                    	$count = 1;
+                    	foreach($disciplinas as $disciplina):?>
                         <tr>
                             <td><?php echo $count++;?></td>
 							<td><?php echo $disciplina->titulo;?></td>
@@ -51,7 +54,8 @@
                                 </a>
         					</td>
                         </tr>
-                        <?php endforeach;?>
+                        <?php endforeach;
+                    	}?>
                     </tbody>
                 </table>
 			</div>

@@ -49,7 +49,11 @@ class Evento extends MX_Controller {
 		echo json_encode($imagens_edicao);
 	}
 	
+	function buscar_painel_edicao($evento_id,$edicao_id,$painel_id){
+		$painel_edicao_evento=$this->evento_model->buscarPainelEdicaoEvento($evento_id,$painel_id, $painel_id);
 	
+		echo json_encode($painel_edicao_evento);
+	}
 	function salvar_imagens_edicao($id=null){
 		$ext_images=array('jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'gif', 'GIF', 'bmp', 'BMP');
 			
@@ -150,6 +154,18 @@ class Evento extends MX_Controller {
 			
 		}
 		redirect('admin/evento/edicoes/'.$evento_id, 'refresh');
+	}
+	
+	
+	public function deletar_painel_edicao($evento_id,$edicao_id,$painel_id){
+		if($this->evento_model->deletar_painel_edicao_evento($painel_id)){
+			$this->view->set_message("Painel da edição do evento deletado com sucesso", "alert alert-success");
+				
+		}else{
+			$this->view->set_message("Ocorreu um erro ao deletar painel da edição do evento", "alert alert-error");
+				
+		}
+		redirect('admin/evento/paineis_edicao/'.$evento_id.'/'.$edicao_id, 'refresh');
 	}
 	
 	public function buscar_evento($id){
@@ -314,14 +330,14 @@ class Evento extends MX_Controller {
 	}
 	
 	function edicoes($evento_id){
-		echo $evento_id;
+		//echo $evento_id;
 		$this->data['template']="evento/edicoes_evento";
 		$this->data['edicoes_evento']=$this->evento_model->listarEdicoesEvento($evento_id);
 		$this->data['evento_id']=$evento_id;
 		$this->view->show_view($this->data);
 	}
 	
-	function paineis_edicao($evento_id,$edicao_id,$titulo_evento,$titulo_edicao){
+	function paineis_edicao($evento_id,$edicao_id){
 	   /* echo $evento_id."<br/>";
 	    echo $edicao_id."<br/>";
 	   */
@@ -330,8 +346,7 @@ class Evento extends MX_Controller {
 		//print_r($this->data['paineis_edicao']);
 		$this->data['evento_id']=$evento_id;
 		$this->data['edicao_id']=$edicao_id;
-		$this->data['titulo_edicao']=$titulo_edicao;
-		$this->data['titulo_evento']=$titulo_evento;
+		
 		$this->view->show_view($this->data);
 	}
 	
@@ -348,7 +363,7 @@ class Evento extends MX_Controller {
 			}	
 			$_SESSION['post']=$_POST;
 			$_SESSION['form_action']="admin/evento/salvar_edicao";
-			
+			$edicao_evento=$_POST['edicao_evento'];
 			if(!empty($_FILES['edicao_evento']['tmp_name']['imagem'])){
 		
 				$ext = pathinfo($_FILES['edicao_evento']['name']['imagem'], PATHINFO_EXTENSION);
@@ -379,17 +394,32 @@ class Evento extends MX_Controller {
 					$this->data['template']='imagem/crop-imagens';
 					$this->view->show_view($this->data);
 				}
+			}else{
+				echo 1;
+				print_r($edicao_evento);
+				if(isset($edicao_evento['imagem_id'])){
+					if($this->evento_model->postarEdicaoEvento($edicao_evento)){
+						$this->view->set_message("Evento Salvo com sucesso", "alert alert-success");
+					}else{
+						$this->view->set_message("Ocorreu um erro ao adicionar evento", "alert alert-error");
+					
+					}
+					redirect('admin/evento/edicoes/'.$edicao_evento['evento_id'], 'refresh');
+				}
 			}
 		}else{
-				
+			print_r($_SESSION['post']);	
 			$edicao_evento = $_SESSION['post']['edicao_evento'];
-			
+			//print_r($edicao_evento);
 			$this->crop->crop_image( $_POST['imagem'][0], "public/images/geral/".$_SESSION['post']['imagem-nome'], $_POST['width'][0], $_POST['height'][0], $_POST['x'][0], $_POST['y'][0]);
 			$imagem['nome']=$_SESSION['post']['imagem-nome'];
 			$imagem['url_imagem']="public/images/geral/";
 			$edicao_evento['imagem_id']= $this->imagem_model->postar_imagem($imagem);
+			
+			
 			if($this->evento_model->postarEdicaoEvento($edicao_evento)){
-			  	$this->view->set_message("Evento adicionado com sucesso", "alert alert-success");
+			  	$this->view->set_message("Evento salvo com sucesso", "alert alert-success");
+			  
 	        }else{
 				$this->view->set_message("Ocorreu um erro ao adicionar evento", "alert alert-error");
 				
@@ -412,7 +442,7 @@ class Evento extends MX_Controller {
 			//echo 2;
 			$_SESSION['post']=$_POST;
 			$_SESSION['form_action']="admin/evento/salvar_painel_edicao";
-			//echo 3;
+			$painel_edicao_evento=$_POST['painel_edicao_evento'];
 			if(!empty($_FILES['painel_edicao_evento']['tmp_name']['imagem'])){
 				echo 4;
 				$ext = pathinfo($_FILES['painel_edicao_evento']['name']['imagem'], PATHINFO_EXTENSION);
@@ -444,6 +474,24 @@ class Evento extends MX_Controller {
 					$this->data['template']='imagem/crop-imagens';
 					$this->view->show_view($this->data);
 				}
+			}else{//update
+				echo "1-0";
+				print_r($painel_edicao_evento);
+				echo $painel_edicao_evento['imagem_id'];
+				if(isset($painel_edicao_evento['imagem_id'])){
+					echo 2;
+					if($this->evento_model->salvarPainelEdicaoEvento($painel_edicao_evento)){
+						echo 2 ;
+						$this->view->set_message("Painel salvo com sucesso", "alert alert-success");
+					}else{
+						$this->view->set_message("Ocorreu um erro ao salvar painel", "alert alert-error");
+							
+					}
+					redirect('admin/evento/paineis_edicao/'.$painel_edicao_evento['evento_id'].'/'.$painel_edicao_evento['edicao_id'], 'refresh');
+				}
+				echo "x";
+				
+				
 			}
 		}else{
 			$painel_edicao_evento = $_SESSION['post']['painel_edicao_evento'];

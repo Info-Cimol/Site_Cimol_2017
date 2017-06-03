@@ -29,7 +29,10 @@
 						</tr>
 					</thead>
 					<tbody>
-                    	<?php $count = 1;foreach($turmas as $turma):
+                    	<?php
+                    	if(isset($turmas)){ 
+                    	$count = 1;
+                    	foreach($turmas as $turma):
                     	//print_r($turma);?>
                         <tr>
                             <td><?php echo $count++;?></td>
@@ -81,7 +84,8 @@
                                
         					</td>
                         </tr>
-                        <?php endforeach;?>
+                        <?php endforeach;
+                    	}?>
                     </tbody>
                 </table>
 			</div>

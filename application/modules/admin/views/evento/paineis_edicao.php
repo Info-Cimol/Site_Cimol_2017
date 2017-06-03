@@ -28,9 +28,9 @@
                <?php 
                	echo "<p>Evento : ";
                	
-               	echo $titulo_evento."</p>";
+               	echo $paineis_edicao[0]->titulo_evento."</p>";
               
-				echo "<p>Edição : ".$titulo_edicao."</p>"?>
+				echo "<p>Edição : ".$paineis_edicao[0]->titulo_edicao."</p>"?>
                 <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
                 	<thead>
                 		<tr>
@@ -44,26 +44,30 @@
                     	<?php 
                     	
                     	$count = 1;
-                    	foreach($paineis_edicao as $painel_edicao):?>
-                        <tr>
-                        	<td><?php echo $count++;?></td>
-                            <td ><?php echo "<img src='".base_url().$painel_edicao->url_imagem.$painel_edicao->nome_imagem."' style='width:100px'/>";?></td>
-							<td><?php echo "<p>".$painel_edicao->titulo."</p>";
-							echo "<p>".$painel_edicao->descricao."</p>";
-							echo "<p>".$painel_edicao->data." às ".$painel_edicao->hora."</p>";
-							
-							?></td>
-							<td align="center">
-								<a data-toggle="modal" href="#modal-form" onclick="editar_painel_edicao(<?php echo $evento_id; ?>,<?php echo $painel_edicao->id; ?>)" class="btn btn-gray btn-small"> 
-                                		<i class="icon-wrench"></i>
-                                </a>
-                            	<a data-toggle="modal" href="#modal-delete" onclick="modal_delete('<?php echo base_url();?>admin/evento/deletar_edicao/<?php echo $evento_id;?>/<?php echo $painel_edicao->id;?>')" class="btn btn-red btn-small">
-                                		<i class="icon-trash"></i> 
-                                </a>
-                               
-                            </td>
-                        </tr>
-                        <?php endforeach;?>
+                    	//print_r( $paineis_edicao);
+                    	if(isset($paineis_edicao)){
+	                    	foreach($paineis_edicao as $painel_edicao):?>
+	                    	
+	                        <tr>
+	                        	<td><?php echo $count++;echo $painel_edicao->id?></td>
+	                            <td ><?php echo "<img src='".base_url().$painel_edicao->url_imagem.$painel_edicao->nome_imagem."' style='width:100px'/>";?></td>
+								<td><?php echo "<p>".$painel_edicao->titulo."</p>";
+								echo "<p>".$painel_edicao->descricao."</p>";
+								echo "<p>".$painel_edicao->data." às ".$painel_edicao->hora."</p>";
+								
+								?></td>
+								<td align="center">
+									<a data-toggle="modal" href="#modal-form" onclick="editar_painel_edicao_evento(<?php echo $evento_id; ?>,<?php echo $painel_edicao->edicao_evento_id?>,<?php echo $painel_edicao->id; ?>)" class="btn btn-gray btn-small"> 
+	                                		<i class="icon-wrench"></i>
+	                                </a>
+	                            	<a data-toggle="modal" href="#modal-delete" onclick="modal_delete('<?php echo base_url();?>admin/evento/deletar_painel_edicao/<?php echo $painel_edicao->evento_id.'/'.$painel_edicao->edicao_id.'/'.$painel_edicao->id.'/';?>')" class="btn btn-red btn-small">
+	                                		<i class="icon-trash"></i> 
+	                                </a>
+	                               
+	                            </td>
+	                        </tr>
+	                        <?php endforeach;
+                    	}?>
                     </tbody>
                 </table>
 			</div>

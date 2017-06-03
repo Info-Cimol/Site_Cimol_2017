@@ -203,7 +203,8 @@ class Evento_model extends CI_Model{
 	
 	function postar_edicao_evento($edicao_evento){
 		print_r($edicao_evento);
-		if($edicao_evento['id']!=''){
+		echo "<br/>".$edicao_evento['id'];
+		if(!empty($edicao_evento['id']) or $edicao_evento['id']>0){
 			if($this->db->set('titulo', $edicao_evento['titulo'])
 					->set('edicao', $edicao_evento['edicao'])
 					->set('slogan', $edicao_evento['slogan'])
