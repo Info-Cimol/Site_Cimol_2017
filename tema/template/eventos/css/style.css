@@ -1,4 +1,8 @@
-img{
+#conteudo-evento{
+    width: 100%;
+    margin: auto;
+}
+.item-evento img{
     width: 300px;
 }
 .item-evento{
@@ -10,17 +14,99 @@ img{
     background-color:#1b4ea1;
     width: 300px;
     color: #fff;
-    padding: 10px 0px 12px 10px;
+    padding: 10px 0px 10px 10px;
+    font: 9px Elvetica, sans-serif;
+    height: 50px;
+    text-align: center;
+}
+.titulo{
+    font: 10px Elvetica, sans-serif;
+}
+
+
+#conteudo{
+    margin: 10px;
+}
+#imagem{
+    text-align: center;
+}
+#imagem img{
+    width: 100%;
+}
+#feintec{
+    font: 25px Elvetica, sans-serif;
+    font-size:23px;
+    color: #333	;
+    margin: 30px 0px 30px 0px;
+}
+#sobre-evento p{
+    color: #333	;
+    font: 20px Elvetica, sans-serif;
+}
+#edicoes{
+    color: #333	;
+}
+#edicoes img{
+    float: left;
+}
+i.glyphicon{
+    font-size:15px;
+    color: lightgray;
+}
+h4{
+   color: #333	; 
+}
+#edicoes{
+    width: 100%;
+    margin: auto;
+}
+.item-evento-descricao{
+    float: left;
+    margin: 10px;
+    font: 10px Elvetica, sans-serif;
+}
+.item-evento-descricao img{
+    width: 250px;
+}
+.descricao-evento{
+    background-color:#1b4ea1;
+    width: 250px;
+    color: #fff;
+    padding: 10px 0px 10px 10px;
     font: 9px Elvetica, sans-serif;
     height: 50px;
 }
 .data{
     float: left;
     border-right: solid #fff 2px;
-    margin-right: 10px;
+    margin-right: 1px;
     font: 25px Elvetica, sans-serif;
-    padding-right: 10px;
+    padding-right: 1px;
 }
-.titulo{
+
+
+#imagem_evento{
+    float: left;
+    border-right: 1px solid #000;
+    max-width: 880px;
+    text-align: center;
+}
+#imagem_evento img{
+    width: 200px;
+    margin: 5px;
+}
+#painel_evento{
+    text-align: center;
+    margin-left: 5px;
+    float: left;
+    max-width: 540px;
+}
+.item-evento-descricao-painel{
+    float: left;
+    margin: 5px;
     font: 10px Elvetica, sans-serif;
+    text-align: center;
+}
+.item-evento-descricao-painel img{
+    width: 250px;
 }
