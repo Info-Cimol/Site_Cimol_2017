@@ -180,4 +180,53 @@ class Usuario_model extends CI_Model{
 		
 		return null;
 	}
+	
+	function listarUsuarios(){
+		$usuarios;
+		$query="select u.id, u.pessoa_id, p.nome, u.status, p.foto
+			from usuario u
+			left join pessoa p on p.id=u.pessoa_id";
+			
+		$result = $this->db->query($query);
+		$result=$result->result();
+		
+		if(count($result)>0){
+			//Busca permissões e emails
+			foreach($result  as $usuario){
+				$this->db->select("
+			    count(ad.pessoa_id) as admin,
+				count(a.pessoa_id) as aluno,
+				count(pr.pessoa_id) as professor,
+        		count(f.pessoa_id) as feintec,
+        		count(b.pessoa_id) as biblioteca,
+        		count(cc.professor_id) as coordenador_curso")
+				->from("pessoa p")
+				->join('usuario u', 'u.pessoa_id=p.id')
+				->join(	'administrador ad'," ad.pessoa_id=p.id",'left')
+            	->join("aluno a","a.pessoa_id=p.id",'left')
+            	->join("professor pr"," pr.pessoa_id=p.id",'left')
+            	->join("feintec f"," f.pessoa_id=p.id",'left')
+           		->join("biblioteca b"," b.pessoa_id=p.id",'left')
+            	->join("coordenador_curso cc"," cc.professor_id=pr.id",'left')
+				->where("p.id",$usuario->id);
+				$query=$this->db->get();
+				$usuario->permissoes=$query->result();
+				$usuarios[]=$usuario;
+				
+				$this->db->select("e.email")
+				->from("email e")
+				->join("pessoa p","p.id=e.pessoa_id")
+				->where("p.id",$usuario->pessoa_id);
+				$query=$this->db->get();
+				$usuario->emails=$query->result();
+				
+				
+			}
+			return $usuarios;
+		}
+		// Se não existir um usuario retorna falso
+		else{
+			return false;
+		}
+	}
 }

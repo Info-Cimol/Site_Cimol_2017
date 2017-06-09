@@ -33,7 +33,7 @@
 	                    "</div>"+
 	            	"</div>"+
 	                "<div class='control-group'>"+
-                    "<label class='control-label'>telefone(s)<button   class='btn btn-blue btn-mini'>+</button>:</label>"+
+                    "<label class='control-label'>telefone(s)<button   class='btn btn-blue btn-mini' onclick='adicionar_campo_telefone();return false;'>+</button>:</label>"+
                     "<div class='controls' id='telefones'>"+
             			
             			"</div>"+
@@ -66,15 +66,16 @@
 		   
 
 		function adicionar_campo_telefone(){
-			$('#telefones').append("<br/><input type='text' class='span1' name='professor[telefone]["+i+"][ddd]' placeholder='DDD'/>"+
-					"&nbsp;<input type='text' class='span2' name='professor[telefone]["+i+"][numero]' placeholder='Número' />"+
-					"<select maxlength='20' name='professor[telefone]["+i+"][tipo]' >"+
+			$('#telefones').append("<br/><input type='text' class='span1' name='professor[telefone]["+x+"][ddd]' placeholder='DDD'/>"+
+					"&nbsp;<input type='text' class='span2' name='professor[telefone]["+x+"][numero]' placeholder='Número' />"+
+					"<select maxlength='20' name='professor[telefone]["+x+"][tipo]' >"+
 		        	"<option value='celular'>Celular</option>"+
 		        	"<option value='comercial'>Comercial</option>"+
 		        	"<option value='residencial'>Residencial</option>"+
 		        	
 		        "</select>");
-			i++;
+				x++;
+			
 		}
 
 

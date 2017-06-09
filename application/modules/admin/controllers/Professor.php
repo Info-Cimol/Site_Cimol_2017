@@ -84,7 +84,6 @@ class Professor extends MX_Controller{
 	
 	
 	public function salvar(){
-		
 		$professor= $_SESSION['post']['professor'];
 		//print_r($professor);
 		$professor['ip']=$_SERVER['REMOTE_ADDR'];

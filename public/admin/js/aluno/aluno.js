@@ -26,7 +26,7 @@
 	                    "</div>"+
 	            	"</div>"+
 	                "<div class='control-group'>"+
-                    	"<label class='control-label'>telefone(s)<button   class='btn btn-blue btn-mini'>+</button>:</label>"+
+                    	"<label class='control-label'>telefone(s)<button   class='btn btn-blue btn-mini' onclick='adicionar_campo_telefone();return false;'>+</button>:</label>"+
                     	"<div class='controls' id='telefones'>"+
             			
 	            			
@@ -73,7 +73,7 @@
 
 
 		function adicionar_campo_email(){
-			$('#email').append("<br/><input type='text' class='span3' name='aluno[email][]' maxlength='60' />");
+			$('#emails').append("<br/><input type='text' class='span3' name='aluno[email][]' maxlength='60' />");
 			
 		}
 		
@@ -158,8 +158,9 @@
 			$('#modal-body').html('');
 			aluno={id:'',pessoa_id:'',nome:'',matricula:'',rg:'',cpf:'',emails:'',foto:'',telefones:''};
 			form_aluno(aluno);
-			adicionar_compo_telefone();
+			adicionar_campo_telefone();
 			adicionar_campo_email();
+			
 		}
 		
 		
