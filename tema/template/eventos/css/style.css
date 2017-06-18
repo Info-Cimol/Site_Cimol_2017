@@ -88,7 +88,7 @@ h4{
 #imagem_evento{
     float: left;
     border-right: 1px solid #000;
-    max-width: 880px;
+    width: 60%;
     text-align: center;
 }
 #imagem_evento img{
@@ -96,17 +96,29 @@ h4{
     margin: 5px;
 }
 #painel_evento{
-    text-align: center;
-    margin-left: 5px;
     float: left;
-    max-width: 540px;
+    width: 40%;
+    text-align: center;
 }
 .item-evento-descricao-painel{
     float: left;
-    margin: 5px;
+    padding: 5px;
     font: 10px Elvetica, sans-serif;
     text-align: center;
+    
 }
 .item-evento-descricao-painel img{
     width: 250px;
+    text-align: center;
+}
+
+@media screen and (max-width: 735px){
+    #imagem_evento{
+        width: 100%;
+        border-right: 0px;
+    }
+    #painel_evento{
+        width: 100%;
+        margin: auto;
+    }
 }
