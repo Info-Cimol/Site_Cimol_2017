@@ -188,12 +188,14 @@ class Curso extends MX_Controller{
 				$this->crop->crop_image( $_POST['imagem'], "public/images/logo/".$_SESSION['post']['imagem-nome'], $_POST['width'], $_POST['height'], $_POST['x'], $_POST['y']);
 				$curso['logo']="public/images/logo/".$_SESSION['post']['imagem-nome'];
 			}
-			//print_r($curso);
+			print_r($curso);
 			//echo "<br/>";
-			$segmentos=$curso['segmentos'];
-			unset($curso['segmentos']);
+			$segmentos['segmento_id']=$curso['segmento_id'];
+			$segmentos['num_periodos']=$curso['num_modulos'];
+			unset($curso['segmento_id']);
 			//$periodos=$curso['num_periodos'];
-			//unset($curso['num_periodos']);
+			unset($curso['num_modulos']);
+			unset($curso['segmentos']);
 			//echo "------------ <br/>";
 			//print_r($curso);
 			//echo "<br/>";
@@ -222,6 +224,7 @@ class Curso extends MX_Controller{
 			}
 			redirect("admin/curso","redirect");
 		}
+		
 		public function deletar_curso($id){
 			if($this->curso_model->deletar_curso($id)){
 				$this->view->set_message("Curso deletado com sucesso", "alert alert-success");

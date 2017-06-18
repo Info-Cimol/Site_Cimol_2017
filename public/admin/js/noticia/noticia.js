@@ -1,7 +1,7 @@
 	
 	function form_noticia(noticia){
 		
-			form="<form enctype='multipart/form-data' action='"+base_url+"admin/noticia/editar_imagens/' method='post'  novalidate>"+
+			form="<form enctype='multipart/form-data' action='"+base_url+"admin/noticia/salvar_noticia/' method='post'  novalidate>"+
 			"<div class='padded'>"+
 			"<input type='hidden' name=noticia[id] value='"+noticia.id+"' />"+
             "<div class='control-group'>"+

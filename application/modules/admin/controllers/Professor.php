@@ -51,6 +51,7 @@ class Professor extends MX_Controller{
 			$ext = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
 		
 			if(in_array($ext,$ext_images)){
+				
 				$temp_name = $_FILES['foto']['tmp_name'];
 				$temp = explode(".",$_FILES["foto"]["name"]);
 				$data_nome=date("m-d-Y_H-i-s");

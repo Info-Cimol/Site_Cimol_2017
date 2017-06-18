@@ -47,7 +47,6 @@ class Evento_model extends CI_Model{
 	}
 	
 	function buscar_evento($id){
-		//$this->db->select("*, DATE_FORMAT(data,'%d/%m/%Y') AS data_formatada")
 		$this->db->select("*")
 		->from('evento')
 		->where('status =','ativo')
@@ -57,12 +56,7 @@ class Evento_model extends CI_Model{
 	}
 	
 	function deletar_evento($id){
-		/*$evento = array(
-				"ip" => $_SERVER['REMOTE_ADDR'],
-				"usuario_id" => $_SESSION['userdata']['id']
-		);*/
-		/*$this->db->where('evento_id =', $id)
-		->delete('curso_evento');*/
+		
 		if($this->db->set('status', 'inativo')
 				->where('id =', $id)
 				->update('evento')){

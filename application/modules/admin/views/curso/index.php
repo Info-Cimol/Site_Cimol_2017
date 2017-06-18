@@ -35,6 +35,7 @@
 					</thead>
 					<tbody>
 						<?php 
+						//print_r($cursos);
 						if(isset($cursos)){
 						$count = 1;foreach($cursos as $curso):?>
                         <tr>
@@ -44,6 +45,7 @@
 								echo "<img src='".base_url(). $curso->logo."' style='width:100px;float:left;margin:15px'/>";
 								echo "<p>".$curso->titulo."</p>";
 								echo "<p>".$curso->descricao."<p/>";
+								//echo "<p>Coordenação: ".$curso->coordenador."<p/>";
 							?>
 							</td>
 							<td>
