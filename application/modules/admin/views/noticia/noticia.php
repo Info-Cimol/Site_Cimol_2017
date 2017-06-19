@@ -36,7 +36,7 @@
                     	<?php $count = 1;foreach($noticias as $noticia):?>
                         <tr>
                             <td><?php echo $count++;?></td>
-							<td><?php echo $noticia->titulo;?></td>
+							<td><?php echo "<img src='".base_url().$noticia->url_imagem.$noticia->arquivo_imagem."' style='width:50px'/>".$noticia->titulo;?></td>
 							<td align="center">
 								<a data-toggle="modal" href="#modal-form" onclick="editar_noticia(<?php echo $noticia->id; ?>)" class="btn btn-gray btn-small" title="Editar"> 
                                 		<i class="icon-wrench"></i>

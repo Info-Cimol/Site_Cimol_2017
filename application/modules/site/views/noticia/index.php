@@ -1,9 +1,39 @@
-<style>
-#construcao{
+<link rel="stylesheet" href="<?php echo base_url();  ?>public/site/css/noticia.css" />
+<section id="noticias">
 	
-	width:70%;
-	margin:10%;
-}
-
-</style>
-<img id="construcao"src="./public/temas/default/images/pagina-em-construcao.png"/>
+		
+		
+			<h4>Notícias</h4>
+			
+			<?php 
+				
+				foreach($noticias AS $noticia){
+			
+			?>
+				<div class="noticia">
+				
+					<div class="imagem">
+						
+						<img src="<?php echo base_url().$noticia->url_imagem.$noticia->arquivo_imagem?>" />
+				
+					</div>
+					
+						<div class="texto">
+					
+							<h1><strong><?php echo $noticia->titulo?></strong></h1>
+							<p><?php echo $noticia->data_noticia.": ".$noticia->resumo?></p>
+							<a href="<?php echo base_url()."noticia/".$noticia->id  ?>" class="saiba_mais">Saiba mais ...</a>
+						
+						</div>
+					
+				</div>
+			
+			
+			<?php 
+				}
+			?>	
+			
+				
+			
+		
+	</section>

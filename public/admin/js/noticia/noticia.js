@@ -101,7 +101,8 @@
 		        			})
 		        			$('#content').after(
 		        				"<div id='form-modal-imagem'>" +
-		        					"<form method='POST' action='"+base_url+"admin/imagem/editar_imagens/"+id+"/noticia' enctype='multipart/form-data'>"+
+		        					"<form method='POST' action='"+base_url+"admin/noticia/adicionar_imagens/' enctype='multipart/form-data'>"+
+		        					"<input type='hidden' name=noticia_id value='"+id+"' />"+
 		        					"<fieldset>" +
 		        					"<legend>Adicionar Imagens</legend>"+
 	    		    					

@@ -11,13 +11,13 @@
                 		<a data-toggle='modal' href='.modal-imagem' onclick='editar_imagem("<?php echo $imagens[$i] ?>");'><img src="<?php echo base_url().$imagens[$i]?>"></img></a>
                 		</div>
                 		<form action="<?php echo base_url().$_SESSION['form_action']?>" method="post">
-	                		<input id='width[<?php echo $i?>]' type='hidden' name='width[<?php echo $i?>]'>
-	                		<input id='height[<?php echo $i?>]' type='hidden' name='height[<?php echo $i?>]'>
-	                		<input id='x[<?php echo $i?>]' type='hidden' name='x[<?php echo $i?>]'>
-	                		<input id='y[<?php echo $i?>]' type='hidden' name='y[<?php echo $i?>]'>
-	                		<input id='x2[<?php echo $i?>]' type='hidden' name='x2[<?php echo $i?>]'>
-	                		<input id='y2[<?php echo $i?>]' type='hidden' name='y2[<?php echo $i?>]'>
-	                		<input type='hidden' name="imagens" value="<?php echo $imagens[$i] ?>">
+	                		<input id='width-<?php echo $i?>' type='hidden' name='width[<?php echo $i?>]'>
+	                		<input id='height-<?php echo $i?>' type='hidden' name='height[<?php echo $i?>]'>
+	                		<input id='x-<?php echo $i?>' type='hidden' name='x[<?php echo $i?>]'>
+	                		<input id='y-<?php echo $i?>' type='hidden' name='y[<?php echo $i?>]'>
+	                		<input id='x2-<?php echo $i?>' type='hidden' name='x2[<?php echo $i?>]'>
+	                		<input id='y2-<?php echo $i?>' type='hidden' name='y2[<?php echo $i?>]'>
+	                		<input type='hidden' name="imagens[<?php echo $i?>]" value="<?php echo $imagens[$i] ?>">
                 		<?php }?>	
                 			<br/>
                 			<br/>
