@@ -1,0 +1,223 @@
+
+
+#titulo{
+	width:100%;
+	background-color:#545454;
+	text-align:center;
+	color:#fff; 
+}
+
+.carga_horaria{
+	width: 600px;
+	height: 125px;
+	float:left;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+
+.aviso{
+	width: 90%;
+	height: 200px;
+	float: left;
+	margin-top: 20px;
+	margin-left: 50px;
+}
+
+
+.cursos{
+	float: left;
+	width: 100%;
+	height: 600px;
+	margin-top: 5px;
+}
+
+
+#eletronica{
+	float: left;
+	width: 40%;
+	height: 150px;
+	margin-left: 70px;
+	margin-top: 35px;
+}
+
+
+#color_eletronica{
+	float: left;
+	margin-left: 30px;
+	width: 10px;
+	height: 115px;
+	margin-top: 47px;
+	background-color: #32689b;
+}
+
+
+#mecanica{
+	float: left;
+	width: 40%;
+	height: 150px;
+	margin-left: 90px;
+	margin-top: 35px;
+}
+
+
+#color_mecanica{
+	float: left;
+	margin-left: 30px;
+	width: 10px;
+	height: 115px;
+	margin-top: 47px;
+	background-color: #626262;
+}
+
+
+#eletro{
+	float: left;
+	width: 40%;
+	height: 150px;
+	margin-left: 70px;
+	margin-top: 35px;
+}
+
+
+#color_eletro{
+	float: left;
+	margin-left: 30px;
+	width: 10px;
+	height: 115px;
+	margin-top: 47px;
+	background-color: #3e499c;
+}
+
+
+
+#quimica{
+	float: left;
+	width: 40%;
+	height: 150px;
+	margin-left: 90px;
+	margin-top: 35px;
+}
+
+
+#color_quimica{
+	float: left;
+	margin-left: 30px;
+	width: 10px;
+	height: 115px;
+	margin-top: 47px;
+	background-color: #000000;
+}
+
+
+#informatica{
+	float: left;
+	width: 40%;
+	height: 150px;
+	margin-left: 70px;
+	margin-top: 35px;
+}
+
+
+#color_informatica{
+	float: left;
+	margin-left: 30px;
+	width: 10px;
+	height: 115px;
+	margin-top: 47px;
+	background-color: #008d8f;
+}
+
+
+#meio_ambiente{
+	float: left;
+	width: 40%;
+	height: 150px;
+	margin-left: 90px;
+	margin-top: 35px;
+}
+
+
+#color_mab{
+	float: left;
+	margin-left: 30px;
+	width: 10px;
+	height: 115px;
+	margin-top: 47px;
+	background-color: #17a74a;
+}
+
+
+.informacoes{
+	width: 100%;
+	height: 800px;
+	float:left;
+	margin-top: 40px;
+	
+}
+
+
+#texto_informacoes{
+	float: left;
+	width: 90%;
+	height: 800px;
+	margin-left: 50px;
+}
+
+
+.anexos{
+	float: left;
+	width: 100%;
+	height: 350px;
+	margin-top: 10px;
+}
+
+
+.download_anexos{
+	float: left;
+	width: 100%;
+	height: 90px;
+	margin-bottom: 15px;
+}
+
+
+.barra{
+	float:left;
+	width: 10px;
+	height: 50%;
+	background-color: black;
+	margin: 20px;
+	margin-top: 1px;
+}
+
+
+.imagem{
+	float: right;
+	width: 100px;
+	height: 100%;
+	margin-top: -26px;
+	margin-left: 25px;
+}
+
+
+h1{
+	font-size:40px;
+	font-family: arial;
+	color: #4F4F4F;
+}
+
+
+h2{
+	font-size:39px;
+	font-family: calibri;
+	color: #4F4F4F;
+	font-weight: normal;
+}
+
+
+h3{
+	font-size: 40px;
+	font-family: arial;
+	text-align: left;
+	color: #4F4F4F;
+}

@@ -1,0 +1,91 @@
+body{
+	margin:0px;
+}
+
+
+.banner{
+	background-color:#CFCFCF;
+	height: 100px;
+	width: 100%;
+	float:left;
+	text-align:center;
+	z-index:10;
+	margin-top:30px;
+	display:flex;
+    display:-webkit-flex;
+    justify-content: center;
+    align-items: center;
+	margin-bottom: 15px;
+}
+
+
+.noticia{
+	min-height:220px;
+	width: 100%;
+	border-bottom:solid 1px #545454;
+}
+.noticia p{
+	color:#333;
+	text-align:justify;
+}
+
+.imagem{
+	width: 190px;
+	float:left;
+	margin-left:15px;
+	margin-top: 30px;
+}
+.imagem img{
+	width:150px;
+}
+
+
+.texto{
+	height:auto;
+	width: 70%;
+	float:left;
+	margin-left:15px;
+	margin-top:3px;
+	letter-spacing: 1px;
+}
+
+.saiba_mais{
+	margin-bottom:15px
+}
+
+
+h1{
+	text-align: left;
+	font-family: Helvetica;
+	color: #333;
+	font-weight: bolder;
+	font-weight: normal;
+	font-size: 30px;
+}
+
+
+h2{
+	text-align:justify;
+}
+
+
+h3{
+	font-size:30px;
+	margin-left:10px;
+	
+	
+}
+
+
+h4{
+	background-color:#CFCFCF;
+	height: 60px;
+	width: 100%;
+	font-size:32px;
+	font-family: Helvetica;
+	color: #fff;
+	font-weight: normal;
+	text-align:center;
+	padding:10px;
+	
+}
