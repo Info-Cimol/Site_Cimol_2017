@@ -20,7 +20,7 @@
 					
 						<div class="texto">
 					
-							<h1><strong><?php echo $noticia->titulo?></strong></h1>
+							<h2><strong><?php echo $noticia->titulo?></strong></h2>
 							<p><?php echo $noticia->data_noticia.": ".$noticia->resumo?></p>
 							<a href="<?php echo base_url()."noticia/".$noticia->id  ?>" class="saiba_mais">Saiba mais ...</a>
 						

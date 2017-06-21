@@ -42,7 +42,7 @@ class Noticia_model extends CI_Model{
     }
     
     function buscar_noticia($id){
-        $this->db->select('*')
+        $this->db->select("*,date_format(data_postagem,'%d/%m/%Y') as data_noticia ")
             ->from('noticia')
             ->where('status =','ativo')
             ->where('id =', $id);
