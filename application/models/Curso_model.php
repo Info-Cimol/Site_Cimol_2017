@@ -167,9 +167,11 @@ class Curso_model extends CI_Model{
 	}
 	
 	function buscar_curso($id){
-		$this->db->select("c.*,cc.professor_id")
+		$this->db->select("c.*,cc.professor_id, p.nome as nome_coordenador")
 		->from('curso c')
 		->join('coordenador_curso cc','cc.curso_id=c.id')
+		->join('professor pr','pr.id=cc.professor_id')
+		->join('pessoa p','p.id=pr.pessoa_id')
 		->where('cc.status','ativo')
 		->where('c.status','ativo')
 		->where('c.id =', $id);
