@@ -3,7 +3,7 @@
 	
 		
 		
-			<h4>Notícias</h4>
+			<h4 class="titulo_pagina">Notícias</h4>
 			
 			<?php 
 				
@@ -21,7 +21,13 @@
 						<div class="texto">
 					
 							<h2><strong><?php echo $curso->titulo?></strong></h2>
-							<p><?php echo $curso->descricao?></p>
+							<?php   if(strlen($curso->descricao)>300){
+										echo "<p>".substr($curso->descricao,0,300)."...";
+									}else{
+										echo "<p>".$curso->descricao;
+									}
+						?>
+							
 							<a href="<?php echo base_url()."curso/".$curso->id  ?>" class="saiba_mais">Saiba mais ...</a>
 						
 						</div>

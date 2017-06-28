@@ -3,7 +3,7 @@
 	
 		
 		
-			<h4>Notícias</h4>
+			<h4 class="titulo_pagina">Notícias</h4>
 			
 			<?php 
 				

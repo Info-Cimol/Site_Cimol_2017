@@ -3,7 +3,7 @@ class Aluno_turma_model extends CI_Model{
 	
 	
 	function listar($turma_id){
-		$this->db->select('a.id, m.matricula, pe.nome nome_aluno, pe.foto, c.titulo as titulo_curso, t.nome AS nome_turma')
+		$this->db->select('a.id,t.id AS turma_id, m.matricula, pe.nome nome_aluno, pe.foto, c.titulo as titulo_curso, t.nome AS nome_turma')
 		->from('aluno_turma at')
 		->join('aluno a','a.id=at.aluno_id','left')
 		->join('pessoa pe','pe.id=a.pessoa_id','left')
@@ -23,9 +23,9 @@ class Aluno_turma_model extends CI_Model{
 	
 	function salvar($alunos_turma){
 		if(count($alunos_turma)>0){
-			for($i=0;$i<count($alunos_turma);$i++){
+			foreach($alunos_turma['alunos_turma'] AS $aluno_id){
 				$aluno_turma['turma_id']=$alunos_turma['turma_id'];
-				$aluno_turma['aluno_id']=$alunos_turma['alunos_turma'][$i];
+				$aluno_turma['aluno_id']=$aluno_id;
 				$this->db->insert("aluno_turma",$aluno_turma);
 			}
 			return true;

@@ -18,6 +18,7 @@ class Curso extends MX_Controller{
 	public function saiba_mais($id){
 		
 		$this->data['curso']=$this->curso_model->buscar_curso($id);
+		$this->data['grades']=$this->curso_model->grade($id);
 		$this->data['title']="Cimol - "+$this->data['curso'][0]->titulo;
 		$this->data['content']="curso/saiba_mais";
 		$this->view->show_view($this->data);

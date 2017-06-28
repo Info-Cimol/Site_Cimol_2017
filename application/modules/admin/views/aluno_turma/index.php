@@ -43,13 +43,13 @@
 	                    	foreach($alunos_turma as $aluno):?>
 	                        <tr>
 	                            <td><?php echo $count++;?></td>
-								<td><?php echo $aluno->nome;?></td>
-								<td><?php echo $aluno->maticula;?></td>
+								<td><?php echo $aluno->nome_aluno;?></td>
+								<td><?php echo $aluno->matricula;?></td>
 								<td><?php ?></td>
 								<td><?php  ?></td>
 								<td align="center">
 									
-	                                <a data-toggle="modal" href="#modal-form" onclick="editar_aluno(<?php echo $aluno->turma_id.",".$aluno->id.",".$aluno->professor_id;?>)" class="btn btn-gray btn-small"> 
+	                                <a data-toggle="modal" href="#modal-form" onclick="editar_aluno(<?php echo $aluno->turma_id.",".$aluno->id ?>)" class="btn btn-gray btn-small"> 
 	                                		<i class="icon-wrench"></i>
 	                                </a>
 	                                <a data-toggle="modal" href="#modal-delete" onclick="modal_delete('<?php echo base_url();?>admin/aluno_turma/deletar/<?php echo $aluno->turma_id."/".$aluno->id;?>')" class="btn btn-red btn-small">

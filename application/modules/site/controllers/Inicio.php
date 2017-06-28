@@ -37,15 +37,16 @@ class Inicio extends MX_Controller {
 	public function index()
 	{
 		$this->data['title']="Cimol";
-		$this->data['content']="temas/default/construcao";
+		//$this->data['content']="temas/default/construcao";
+		$this->data['content']="inicio";
 		$this->data['noticias']=$this->noticia_model->listar_inicial();
-		$this->data['eventos']=$this->evento_model->listar_eventos(2);
-		$this->data['cursos']=$this->curso_model->listar();
-		$this->data['videos']=$this->video_model->listar();
+		//$this->data['eventos']=$this->evento_model->listar_eventos(2);
+		//$this->data['cursos']=$this->curso_model->listar();
+		//$this->data['videos']=$this->video_model->listar();
 		//print_r($this->data['videos']);
-		foreach($this->data['noticias'] as $noticia){
+		/*foreach($this->data['noticias'] as $noticia){
 			$this->data['imagens'][]=$this->imagem_model->listar_imagem_noticia($noticia->id);
-		}
+		}*/
 		$this->view->show_view($this->data);
 	}
 }

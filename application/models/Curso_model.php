@@ -217,9 +217,11 @@ class Curso_model extends CI_Model{
             {
               
 					$segmento['horario']=$this->db->query("select d.periodo, d.titulo, 
-                                  d.carga_horaria from curso c
+                                  d.carga_horaria 
+									from curso c
                                   join disciplina d on d.segmento_curso_curso_id = c.id
                                   where c.id=".$curso_id." and d.segmento_curso_segmento_id=".$segmento['id']." order by d.periodo")->result();
+					
             	$segmentos[]=$segmento;
 				}
             return $segmentos;

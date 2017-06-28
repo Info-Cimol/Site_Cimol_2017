@@ -20,11 +20,11 @@ class Noticia_model extends CI_Model{
     }
     
     function listar_inicial(){
-    	$this->db->select('*')
-    		->from('noticia')
-    		->where('status =','ativo')
+    	$this->db->select('n.id, n.titulo, n.resumo, n.url_imagem, n.arquivo_imagem, date_format(n.data_postagem,"%d/%m/%Y") AS data_postagem')
+    		->from('noticia n')
+    		->where('n.status =','ativo')
     		->limit(5)
-    		->order_by('id',"desc");
+    		->order_by('n.id',"desc");
     	$query=$this->db->get();
     	return $query->result();
     	$this->db->query();

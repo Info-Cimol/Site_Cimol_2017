@@ -1,3 +1,5 @@
+html, body { margin:0; height: 100%;}
+
 body{
 	/*background-color:#cdcfd3;*/
 	margin:inherit;
@@ -239,4 +241,36 @@ header #escola{
 	
 }
 
+.titulo_pagina{
+	/*background-color:#CFCFCF;*/
+	background-color:#1b4fa3;
+	height: 35px;
+	width: 100%;
+	font-size:24px;
+	font-family: Helvetica;
+	color: #fff;
+	font-weight: normal;
+	text-align:center;
+	padding:5px;
+	background: linear-gradient(top, #fff, #1b4fa3,#1b4fa3,#1b4fa3,#fff);
+	
+}
 
+.sessao_pagina{
+	/*background-color:#CFCFCF;*/
+	background-color:#1b4fa3;
+	height: 25px;
+	width: 100%;
+	font-size:18px;
+	font-family: Helvetica;
+	color: #fff;
+	font-weight: normal;
+	text-align:center;
+	padding:5px;
+	
+}
+
+p{
+	text-align:justify;	
+}
+}
