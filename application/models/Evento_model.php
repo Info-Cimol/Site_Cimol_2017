@@ -24,7 +24,6 @@ class Evento_model extends CI_Model{
 	}
 	
 	function postar_evento($evento){
-		//print_r($evento);
 		if(empty($evento['id'] or $evento['id']!='')){
 			if($this->db->insert('evento', $evento)){
 				return $this->db->insert_id();
@@ -47,10 +46,11 @@ class Evento_model extends CI_Model{
 	}
 	
 	function buscar_evento($id){
-		$this->db->select("*")
-		->from('evento')
-		->where('status =','ativo')
-		->where('id =', $id);
+		$this->db->select("e.*, i.nome as nome_imagem, i.url_imagem")
+		->from('evento e')
+                ->join('imagem i',"i.id=e.imagem_id")
+		->where('e.status =','ativo')
+		->where('e.id =', $id);
 		$query=$this->db->get();
 		return $query->result();
 	}
