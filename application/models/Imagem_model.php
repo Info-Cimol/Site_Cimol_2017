@@ -85,15 +85,6 @@ class Imagem_model extends CI_Model{
     	$query = $this->db->get();
     	return $query->result();
     }
-    function buscar_imagens_evento($id){
-    	$this->db->select('i.*, evento_id as evento_id')
-    	->from('imagem i')
-    	->join('imagem_evento ie', 'ie.imagem_id=i.id')
-    	->join('evento e', 'ie.evento_id=e.id')
-    	->where('e.id', $id);
-    	$query = $this->db->get();
-    	return $query->result();
-    }
     function listar_imagens(){
     	$this->db->select('*')
     	->from('imagem i')
@@ -119,7 +110,7 @@ class Imagem_model extends CI_Model{
     	$query = $this->db->get();
     	return $query->result();
     }
-    /*
+    //estava comentado
     function listar_imagem_evento($id){
     	$this->db->select('*')
     	->from('imagem_evento ie')
@@ -130,5 +121,4 @@ class Imagem_model extends CI_Model{
     	$query = $this->db->get();
     	return $query->result();
     }
-    */
 }
