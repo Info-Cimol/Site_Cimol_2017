@@ -28,11 +28,11 @@
 				<a class="navbar-brand" href="#"><img src = "<?php echo base_url();  ?>public/temas/default/images/logo_desktop.png" id="logo_desktop" alt = "escola" class="visible-desktop"/></a>
 			 </div>
 			 <ul class="nav navbar-nav">
-				<li class="active"><a href="<?php echo base_url();  ?>">Ínicio</a></li>
-				<li><a href="<?php echo base_url();  ?>institucional">Institucional</a></li>
-				<li><a href="<?php echo base_url();  ?>curso">Cursos</a></li>
-				<li><a href="<?php echo base_url();  ?>noticia">Noticias</a></li>
-				<li><a href="<?php echo base_url();  ?>evento">Eventos</a></li>
+				<li class="active"><a href="<?php echo base_url();?>inicio/">Ínicio</a></li>
+				<li><a href="<?php echo base_url();  ?>institucional/">Institucional</a></li>
+				<li><a href="<?php echo base_url();  ?>curso/">Cursos</a></li>
+				<li><a href="<?php echo base_url();  ?>noticia/">Noticias</a></li>
+				<li><a href="<?php echo base_url();  ?>evento/">Eventos</a></li>
 			 </ul>
 				<form class="navbar-form navbar-left">
 				  <div class="input-group">
@@ -47,11 +47,11 @@
 			<ul class="nav navbar-nav navbar-right">
 				<?php if(isset($_SESSION['user_data'])){?>
 				<li>
-				<a href="<?php echo base_url();  ?>perfil" class="link-user-log"><span class="glyphicon glyphicon-user"></span></a><a href="<?php echo base_url();  ?>logout" class="link-user-log"><span class="glyphicon glyphicon-log-out"></span></a>
+				<a href="<?php echo base_url();  ?>perfil/" class="link-user-log"><span class="glyphicon glyphicon-user"></span></a><a href="<?php echo base_url();  ?>logout" class="link-user-log"><span class="glyphicon glyphicon-log-out"></span></a>
 			 	</li>
 			 	<?php }else{ ?>
 			 	<li>
-			 	<a href="<?php echo base_url();  ?>login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+			 	<a href="<?php echo base_url();  ?>login/"><span class="glyphicon glyphicon-log-in"></span> Login</a>
 			 	</li>
 			 	<?php }?>
 			 </ul>

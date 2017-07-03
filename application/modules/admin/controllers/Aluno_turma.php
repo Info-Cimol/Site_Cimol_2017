@@ -31,9 +31,7 @@ class Aluno_turma extends MX_Controller{
 		if(isset($_POST['alunos_turma'])){
 			$alunos_turma['alunos_turma']= $_POST['alunos_turma'];
 			$alunos_turma['turma_id']=$_POST['turma_id'];
-			//print_r($_POST);
 			
-				
 			if($disciplina_id=$this->aluno_turma_model->salvar($alunos_turma)){
 		
 				$this->view->set_message("Alunos salvos com sucesso", "alert alert-success");
@@ -45,7 +43,7 @@ class Aluno_turma extends MX_Controller{
 			}
 			
 		}
-		redirect("admin/disciplina_turma/"+$disciplina_turma['turma_id'],"redirect");
+		redirect("admin/aluno_turma/listar/".$alunos_turma['turma_id'],"redirect");
 	}
 	
 }

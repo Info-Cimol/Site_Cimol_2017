@@ -200,7 +200,7 @@ p a{
 @media screen and (min-width: 1024px){
     section{
         width: 50%;
-        height: 80%;
+        height: 480px;
         position: absolute;
         margin-left: 25%;
         margin-top: 15%;
@@ -257,7 +257,7 @@ p a{
 @media screen and (min-width: 1200px){
     section{
         width: 35%;
-        height: 100%;
+        height: 480px;
         position: absolute;
         margin-left: 30%;
         margin-top: 0px;

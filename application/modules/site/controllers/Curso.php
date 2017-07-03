@@ -8,16 +8,21 @@ class Curso extends MX_Controller{
 	public function index($curso_id=null){
 		
             $this->data['title']="Cimol - Cursos";
-           // $this->data['cursos']=$this->curso_model->listar();
+           	$this->data['cursos']=$this->curso_model->listar();
             $this->data['content']="curso/index";
-            if($curso_id){
-            	$this->data['curso_id']=$curso_id;
-            }
+            
             $this->view->show_view($this->data);
-            /*$this->data['cursos']=$this->curso_model->listar();
-		echo json_encode($this->data);*/
+            
 	}
 	
+	public function saiba_mais($id){
+		
+		$this->data['curso']=$this->curso_model->buscar_curso($id);
+		$this->data['grades']=$this->curso_model->grade($id);
+		$this->data['title']="Cimol - "+$this->data['curso'][0]->titulo;
+		$this->data['content']="curso/saiba_mais";
+		$this->view->show_view($this->data);
+	}
 	
     public function lista()
     {

@@ -44,7 +44,6 @@
     				"<div class='control-group'>"+
     					"<label style='font-size:18px'><strong>"+turma.nome+" - "+ordenar(turma.periodo)+" - "+turma.titulo_curso+"</strong></label>"+
        			 		"<input type='hidden' name='turma_id' value='"+turma.id+"'/>"+
-       			 	
        			 	"</div>"+
        			 	"<div class='select'>"+
 	       			 	"<div class='control-group'>"+
@@ -108,7 +107,7 @@
 	    	        	$.each(data,function(index, element){
 	    		 			
 	    	 				$('#alunos_curso').append(
-	    	 						"<option value="+element.id+" selected>"+element.id+" - "+element.matricula+" - "+element.nome+"</option>"
+	    	 						"<option value="+element.id+" selected >"+element.id+" - "+element.matricula+" - "+element.nome+"</option>"
 	    	 				)
 	    	 			});
 	    	        }
