@@ -7,7 +7,7 @@
         ?>
         <div id="conteudo_evento">
             <div class="item-evento">
-                <a href="#">
+                <a href="<?php echo base_url()."evento/".$evento->id  ?>">
                     <img src="<?php echo base_url().$evento->url_imagem.$evento->nome_imagem?>"/>
                     <div class="descricao">
                         <div class="titulo"><strong><?php echo $evento->titulo?></strong></div> 
