@@ -1,0 +1,184 @@
+#conteudo-evento{
+    width: 70%;
+    margin-left: 10%;
+    position: absolute;
+}
+.item-evento img{
+    width: 300px;
+}
+.item-evento{
+    float: left;
+    margin: 15px;
+}
+.descricao{
+    background-color:#1b4ea1;
+    width: 300px;
+    color: #fff;
+    padding: 10px 0px 10px 10px;
+    font: 14px Elvetica, sans-serif;
+    min-height: 50px;
+    text-align: center;
+}
+.titulo{
+    font: 18px Elvetica, sans-serif;
+}
+
+
+#conteudo{
+    margin: 10px;
+}
+#imagem-descricao{
+    width: 100%;
+    float: none;
+    min-height: 300px;
+}
+#lista-eventos{
+    width: 100%;
+    float: none;
+    min-height: 300px;
+}
+#imagem img{
+    width: 380px;
+    margin-right: 10px;
+    float: left;
+}
+#feintec{
+    font: 25px Elvetica, sans-serif;
+    font-size:23px;
+    color: #333	;
+    margin: 30px 0px 30px 0px;
+}
+#sobre-evento{
+    color: #333	;
+    font: 20px Elvetica, sans-serif;
+    float: none;
+    text-align: justify;
+}
+#edicoes{
+    color: #333	;
+    float: none;
+    margin-left: 10px;
+}
+#edicoes img{
+    float: left;
+}
+i.glyphicon{
+    font-size:15px;
+    color: lightgray;
+}
+h4{
+   color: #333	; 
+}
+.item-evento-descricao{
+    float: left;
+    margin: 10px;
+    font: 10px Elvetica, sans-serif;
+}
+.item-evento-descricao img{
+    width: 250px;
+}
+.descricao-evento{
+    background-color:#1b4ea1;
+    width: 250px;
+    color: #fff;
+    padding: 10px 0px 10px 0px;
+    font: 9px Elvetica, sans-serif;
+    text-align: center;
+}
+
+
+#imagem_evento{
+    float: left;
+    border-right: 1px solid #000;
+    width: 60%;
+    text-align: center;
+}
+#imagem_evento img{
+    width: 200px;
+    margin: 5px;
+}
+#painel_evento{
+    float: left;
+    width: 40%;
+    text-align: center;
+}
+.item-evento-descricao-painel{
+    float: left;
+    padding: 5px;
+    font: 10px Elvetica, sans-serif;
+    text-align: center;
+    
+}
+.item-evento-descricao-painel img{
+    width: 250px;
+    text-align: center;
+}
+
+#lightbox img{ 
+    height: 480px; 
+    width:640px;
+}
+
+@media screen and (min-width: 320px){
+    #conteudo-evento{
+    margin-left: 0%;
+    }
+    #imagem img{
+        width: 97%;
+    }
+}
+@media screen and (min-width: 370px){
+    #conteudo-evento{
+    margin-left: 10%;
+    }
+    #imagem img{
+        width: 97%;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+}
+@media screen and (min-width: 490px){
+    #conteudo-evento{
+    margin-left: 20%;
+    }
+}
+@media screen and (min-width: 670px){
+    #conteudo-evento{
+    margin-left: 30%;
+    }
+}
+@media screen and (min-width: 1024px){
+    #conteudo-evento{
+    margin-left: 10%;
+    }
+    #imagem img{
+        width: 380px;
+        margin-right: 10px;
+        float: left;
+    }
+}
+@media screen and (min-width: 1100px){
+    #conteudo-evento{
+    margin-left: 15%;
+    }
+}
+@media screen and (min-width: 1260px){
+    #conteudo-evento{
+    margin-left: 20%;
+    }
+}
+@media screen and (min-width: 1433px){
+    #conteudo-evento{
+    margin-left: 10%;
+    }
+}
+@media screen and (max-width: 1400px){
+    #imagem_evento{
+        width: 100%;
+        border-right: 0px;
+    }
+    #painel_evento{
+        width: 100%;
+        margin: auto;
+    }
+}
