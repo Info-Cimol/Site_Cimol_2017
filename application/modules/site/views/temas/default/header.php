@@ -28,7 +28,7 @@
 				<a class="navbar-brand" href="#"><img src = "<?php echo base_url();  ?>public/temas/default/images/logo_desktop.png" id="logo_desktop" alt = "escola" class="visible-desktop"/></a>
 			 </div>
 			 <ul class="nav navbar-nav">
-				<li class="active"><a href="<?php echo base_url();?>inicio/">Ínicio</a></li>
+				<li class="active"><a href="<?php echo base_url();?>">Ínicio</a></li>
 				<li><a href="<?php echo base_url();  ?>institucional/">Institucional</a></li>
 				<li><a href="<?php echo base_url();  ?>curso/">Cursos</a></li>
 				<li><a href="<?php echo base_url();  ?>noticia/">Noticias</a></li>

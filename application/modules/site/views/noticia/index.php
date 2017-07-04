@@ -18,13 +18,13 @@
 				
 					</div>
 					
-						<div class="texto">
+					<div class="texto">
 					
-							<h2><strong><?php echo $noticia->titulo?></strong></h2>
+							<h2><?php echo $noticia->titulo?></h2>
 							<p><?php echo $noticia->data_noticia.": ".$noticia->resumo?></p>
 							<a href="<?php echo base_url()."noticia/".$noticia->id  ?>" class="saiba_mais">Saiba mais ...</a>
 						
-						</div>
+					</div>
 					
 				</div>
 			

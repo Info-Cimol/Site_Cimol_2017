@@ -102,6 +102,56 @@ header #escola{
 
 }
 
+.titulo_pagina{
+	/*background-color:#CFCFCF;*/
+	background-color:#1b4fa3;
+	height: 35px;
+	width: 100%;
+	font-size:24px;
+	font-family: Helvetica;
+	color: #fff;
+	font-weight: normal;
+	text-align:center;
+	padding:5px;
+	background: linear-gradient(top, #fff, #1b4fa3,#1b4fa3,#1b4fa3,#fff);
+	
+}
+
+.sessao_pagina{
+	/*background-color:#CFCFCF;*/
+	background-color:#1b4fa3;
+	height: 25px;
+	width: 100%;
+	font-size:18px;
+	font-family: Helvetica;
+	color: #fff;
+	font-weight: normal;
+	text-align:center;
+	padding:5px;
+	
+}
+
+.sessao_aside{
+	
+	background-color:#f8f8f8;
+	border:#solid 1px #ffff00
+	height: 25px;
+	width: 100%;
+	font-size:18px;
+	font-family: Helvetica;
+	color: #fff;
+	font-weight: normal;
+	text-align:center;
+	padding:5px;
+	
+}
+
+p{
+	text-align:justify;	
+}
+
+
+
 @media screen and (min-width: 1025px) {
 	main{
 		width:80%;
@@ -152,6 +202,11 @@ header #escola{
 		border:solid #fff;
 		width: 200px;
 		/*height: 300px;*/
+		margin:auto;
+	}
+	
+	#area_estagio{
+		width: 200px;
 		margin:auto;
 	}
 
@@ -241,36 +296,3 @@ header #escola{
 	
 }
 
-.titulo_pagina{
-	/*background-color:#CFCFCF;*/
-	background-color:#1b4fa3;
-	height: 35px;
-	width: 100%;
-	font-size:24px;
-	font-family: Helvetica;
-	color: #fff;
-	font-weight: normal;
-	text-align:center;
-	padding:5px;
-	background: linear-gradient(top, #fff, #1b4fa3,#1b4fa3,#1b4fa3,#fff);
-	
-}
-
-.sessao_pagina{
-	/*background-color:#CFCFCF;*/
-	background-color:#1b4fa3;
-	height: 25px;
-	width: 100%;
-	font-size:18px;
-	font-family: Helvetica;
-	color: #fff;
-	font-weight: normal;
-	text-align:center;
-	padding:5px;
-	
-}
-
-p{
-	text-align:justify;	
-}
-}

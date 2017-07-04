@@ -3,7 +3,7 @@
 	
 		
 		
-			<h4 class="titulo_pagina">Notícias</h4>
+			<h4 class="titulo_pagina">Cursos</h4>
 			
 			<?php 
 				
