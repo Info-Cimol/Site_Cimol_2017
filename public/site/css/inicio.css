@@ -1,0 +1,159 @@
+@CHARSET "UTF-8";
+#inicio{
+	min-height:600px;
+	
+	padding:10px;
+}
+
+#noticia_destaque{
+	width:100%;
+	min-height:250px;
+	margin-bottom:15px;
+	/*border-bottom:solid #545454 1px;*/
+	background-color:#F5F5F5;
+	padding:0px;
+
+	
+}
+
+#lista_noticias_recentes{
+	width:100%;
+	height:auto;
+	margin:auto;
+	border-top:solid #545454 1px;
+	padding-top:15px;
+}
+
+.noticias_recentes{
+	min-height:100%;
+	margin-bottom:15px;
+	border-bottom:solid #545454 1px;
+	background-color:#F5F5F5;
+	float:left;
+	width:100%;
+}
+
+.img_noticia{
+	/*min-height:250px;*/
+	margin:0px;
+	
+	
+}
+.img_noticia img{
+	width:100%;
+	float:left;
+	
+}
+
+.resumo_noticia{
+	
+	margin-top:-10px;
+	
+	
+}
+.resumo_noticia h2{
+	font-size:20px;
+}
+
+p{
+	text-align:justify;
+	
+}
+
+@media screen and (min-width: 1024px){
+	#noticia_destaque{
+		margin:auto;
+		min-height:270px;
+		width:100%;
+		border-bottom:none;
+		border:solid #EEE9E9 1px;
+		margin-bottom:15px;
+		padding:10px;
+		
+	}
+	#noticia_destaque .img_noticia{
+		width:340px;
+		min-height:130px;
+		float:left;
+	}
+	
+	#noticia_destaque .img_noticia img{
+		min-height:130px;
+		
+	}
+	
+	#noticia_destaque .resumo_noticia{
+		width:420;
+		min-height:270px;
+		float:left;
+		margin_top:10px;
+	}
+	
+	.noticias_recentes{
+		width:300px;
+		margin-left:10px;
+		min-height:380px;
+	}
+	
+	.noticias_recentes .img_noticia{
+		
+	}
+	
+	
+	
+}
+/*
+@media screen and (min-width: 1280px) {
+	#noticia_destaque .resumo_noticia{
+		width:640px;
+	}
+	.noticias_recentes{
+		width:480px;
+		
+	}
+	
+}
+
+@media screen and (min-width: 1366px) {
+	#noticia_destaque .resumo_noticia{
+		width:710px;
+	}
+	.noticias_recentes{
+		width:520px;
+		
+	}
+	
+}
+@media screen and (min-width: 1440px) {
+	#noticia_destaque .resumo_noticia{
+		width:750px;
+	}
+	
+}
+@media screen and (min-width: 1600px) {
+	#noticia_destaque .resumo_noticia{
+		width:900px;
+	}
+	
+}
+@media screen and (min-width: 1680px) {
+	#noticia_destaque .resumo_noticia{
+		width:970px;
+	}
+	
+}
+
+@media screen and (min-width: 1920px) {
+	#noticia_destaque .resumo_noticia{
+		width:1150px;
+	}
+	
+}
+@media screen and (min-width: 2560px) {
+	#noticia_destaque .resumo_noticia{
+		width:1750px;
+	}
+	
+}
+
+*/

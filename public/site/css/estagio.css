@@ -1,0 +1,74 @@
+#estagio{
+	padding:15px;
+}
+
+
+#cursos{
+	margin:10px;
+	width:100%;
+}
+
+.curso{
+	margin-top:5px;
+	padding:5px;
+	width:100%;
+	float:left;
+}
+
+#informacoes{
+	width:100%;
+	
+}
+
+#eletronica{
+	border-left:solid #32689b 10px;
+}
+
+#mecanica{
+	border-left:solid #626262 10px;
+}
+
+#eletro{
+	border-left:solid #3e499c 10px;
+}
+
+#quimica{
+	border-left:solid #000000 10px;
+}
+
+#informatica{
+	border-left:solid #008d8f 10px;
+}
+
+#meio_ambiente{
+	border-left:solid #17a74a 10px;
+}
+#anexos{
+	width:100%;
+	
+}
+#anexos a{
+	width:100%;
+	
+}
+#anexos a img{
+	width:50px;
+}
+
+p{
+	font-size:16px;
+}
+@media screen and (min-width: 1024px) {
+	.curso{
+		width:33%
+		margin-top:15px;
+	}
+	
+	#informacoes{
+		margin-top:15px;
+	}
+	
+	
+	
+	
+}
