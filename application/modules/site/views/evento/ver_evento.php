@@ -31,7 +31,7 @@
                     foreach($edicoes AS $edicao){
                 ?>
                 <div class="item-evento-descricao">
-                    <a href="#">
+                    <a href="<?php echo base_url()."evento/edicao/".$edicao->id  ?>">
                         <img src="<?php echo base_url().$edicao->url_imagem.$edicao->nome_imagem?>"/>
                         <div class="descricao-evento">
                             <div class="titulo"><strong><?php echo $edicao->titulo?></strong></div>
