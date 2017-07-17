@@ -24,5 +24,15 @@ class Evento extends MX_Controller{
 		$this->data['content']="evento/ver_evento";
 		$this->view->show_view($this->data);
 	}
+        
+        //fiz
+        public function edicao($id){
+		$this->data['title']="Cimol - Eventos";
+		$this->data['edicao']=$this->evento_model->buscar_edicao_evento($id);
+                $this->data['imagens']=$this->evento_model->listarImagensEdicao($id);
+                $this->data['paineis']=$this->evento_model->listarPaineisEdicao($id);
+		$this->data['content']="evento/edicao_evento";
+		$this->view->show_view($this->data);
+	}
 	
 }
