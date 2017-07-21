@@ -25,7 +25,6 @@ class Evento extends MX_Controller{
 		$this->view->show_view($this->data);
 	}
         
-        //fiz
         public function edicao($id){
 		$this->data['title']="Cimol - Eventos";
 		$this->data['edicao']=$this->evento_model->buscar_edicao_evento($id);
