@@ -82,15 +82,21 @@ h4{
     width: 250px;
     color: #fff;
     padding: 10px 0px 10px 0px;
-    font: 9px Elvetica, sans-serif;
+    font: 11px Elvetica, sans-serif;
     text-align: center;
 }
 
+.descricao-evento-painel{
+    background-color:#1b4ea1;
+    width: 250px;
+    color: #fff;
+    padding: 10px 0px 10px 0px;
+    font: 11px Elvetica, sans-serif;
+    text-align: center;
+    height: 80px;
+}
 
 #imagem_evento{
-    float: left;
-    border-right: 1px solid #000;
-    width: 60%;
     text-align: center;
 }
 #imagem_evento img{
@@ -98,8 +104,6 @@ h4{
     margin: 5px;
 }
 #painel_evento{
-    float: left;
-    width: 40%;
     text-align: center;
 }
 .item-evento-descricao-painel{
@@ -114,10 +118,7 @@ h4{
     text-align: center;
 }
 
-#lightbox img{ 
-    height: 480px; 
-    width:640px;
-}
+
 
 @media screen and (min-width: 320px){
     #conteudo-evento{
