@@ -29,7 +29,12 @@ class Login extends MX_Controller{
 			$_SESSION['user_data']['rg']=$resultado->rg;
 			$_SESSION['user_data']['cpf']=$resultado->cpf;
 			if($resultado->admin>0){
-				$_SESSION['user_data']['permissoes'][]="admin";
+				$permissao_admin=$this->login_model->buscarPermissaoAdmin($resultado->id);
+				$permissoes= array($permissao_admin,"admin");
+				//$_SESSION['user_data']['permissoes'][]="admin";
+				$_SESSION['user_data']['permissoes'][]=$permissoes;
+				
+				//$permissao_admin=$this->login_model->buscarPermissaoAdmin($resultado->id);
 			}
 			if($resultado->aluno>0){
 				$_SESSION['user_data']['permissoes'][]="aluno";

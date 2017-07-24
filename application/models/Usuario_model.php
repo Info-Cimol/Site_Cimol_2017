@@ -176,9 +176,14 @@ class Usuario_model extends CI_Model{
 			return false;
 		}
 	}
-	function buscarNivelAdmin(){
-		
-		return null;
+	
+	function buscarPermissaoAdmin($admin_id){
+		$this->db->select("p.*")
+		->from("permissao_admin pa")
+		->join("permissao p","p.id=pa.permissao_id")
+		->where("pa.admin_id",$admin_id);
+		$query=$this->db->get();
+		return $query->result();
 	}
 	
 	function listarUsuarios(){
@@ -229,4 +234,9 @@ class Usuario_model extends CI_Model{
 			return false;
 		}
 	}
+	
+	
+	
+	
+	
 }
