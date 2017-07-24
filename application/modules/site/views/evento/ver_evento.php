@@ -22,7 +22,6 @@
                 </p>
             </div>
     </div>
-
     <div id="lista-eventos">
             <div id="edicoes">
                 <h4><strong>EDIÇÕES</strong></h4>

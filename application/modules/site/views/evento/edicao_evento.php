@@ -1,96 +1,40 @@
 <link rel="stylesheet" href="<?php echo base_url();  ?>public/site/css/evento.css" />
+<link rel="stylesheet"  href="<?php echo base_url();  ?>public/site/css/lightbox.css" >
+<link rel="stylesheet" href="<?php echo base_url();  ?>public/site/css/bootstrap.min.css" >
 
 <div id="conteudo">
-            
-            <div id="imagem">               
-                <img src="images/feintec logo desktop.png"/>
-            </div>
-            
-            <div id="feintec">
-                <p><strong>9ª FEINTEC</strong></p>
-            </div>
-            
-            <div id="sobre-evento">
-                <p>O CHÃO É O LIMITE</p>
-                <p>De 27-05-2016 à 30-07-2016</p>
-            </div>
-            
+    <div id="imagem-descricao">
+                <div id="imagem">  
+                    <img src="<?php echo base_url().$edicao[0]->url_imagem.$edicao[0]->nome_imagem ?>"/>
+                </div>
+
+                <div id="feintec">
+                    <p><strong><?php echo $edicao[0]->titulo?></strong></p>
+                </div>
+
+                <div id="sobre-evento">
+                    <p><?php echo $edicao[0]->slogan?></p>
+                    <p><?php echo $edicao[0]->data_final?></p>
+                </div>
+    </div>
+    
+    <div id="imagens-paineis">
             <div id="imagem_evento">
                 <h3>IMAGENS</h3>
                 
-                <a href="images/feintec.png" data-lightbox="galeria" >               
+                <?php 
+                    foreach($imagens AS $imagem){
+                ?>
                 
-                <img src="images/feintec.png" class="img-thurmbnail"/>
+                <a href="<?php echo base_url().$imagem->url_imagem.$imagem->nome ?>" data-lightbox="galeria" >               
                 
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
+                <img src="<?php echo base_url().$imagem->url_imagem.$imagem->nome ?>" class="img-thurmbnail"/>
                 
                 </a>
                 
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                    <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                <a href="images/feintec.png" data-lightbox="galeria" >               
-                
-                <img src="images/feintec.png" class="img-thurmbnail"/>
-                
-                </a>
-                
-                
+                <?php
+                    }
+                ?>
                 
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                   <div class="modal-dialog" role="document">
@@ -115,46 +59,27 @@
             <div id="painel_evento">
                 
                 <h3>PAINEIS</h3>
-                
-                <div class="item-evento-descricao-painel">
-                        <img src="images/feintec.png"/>
-                        <div class="descricao-evento">
-                            <div class="data"><strong>06 NOV</strong></div>
-                            <div class="titulo"><strong>8ª FEINTEC</strong></div> 
-                            Feira de inovação tecnológica
-                        </div> 
-                </div>
-                
-                <div class="item-evento-descricao-painel">
-                        <img src="images/feintec.png"/>
-                        <div class="descricao-evento">
-                            <div class="data"><strong>06 NOV</strong></div>
-                            <div class="titulo"><strong>8ª FEINTEC</strong></div> 
-                            Feira de inovação tecnológica
-                        </div> 
-                </div>
-                
-                <div class="item-evento-descricao-painel">
-                        <img src="images/feintec.png"/>
-                        <div class="descricao-evento">
-                            <div class="data"><strong>06 NOV</strong></div>
-                            <div class="titulo"><strong>8ª FEINTEC</strong></div> 
-                            Feira de inovação tecnológica
-                        </div> 
-                </div>
-                
-                <div class="item-evento-descricao-painel">
-                        <img src="images/feintec.png"/>
-                        <div class="descricao-evento">
-                            <div class="data"><strong>06 NOV</strong></div>
-                            <div class="titulo"><strong>8ª FEINTEC</strong></div> 
-                            Feira de inovação tecnológica
-                        </div> 
-                </div>
+                    <?php 
+                        foreach($paineis AS $painel){
+                    ?>
+
+                    <div class="item-evento-descricao-painel">
+                            <img src="<?php echo base_url().$painel->url_imagem.$painel->nome_imagem?>"/>
+                            <div class="descricao-evento-painel">
+                                <div class="titulo"><strong><?php echo $painel->titulo?></strong></div> 
+                                <div class="descricao_painel"><?php echo $painel->descricao?></div>
+                                <?php echo $painel->data?> - <?php echo $painel->hora?>
+                            </div> 
+                    </div>
+
+                    <?php
+                        }
+                    ?> 
                 
             </div>
             
-        </div>
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/lightbox.min.js"></script>
+    </div>
+    <script src="<?php echo base_url();  ?>public/js/jquery-2.1.4.min.js"></script>
+    <script src="<?php echo base_url();  ?>public/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();  ?>public/js/lightbox.min.js"></script>
+</div>

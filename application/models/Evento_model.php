@@ -112,8 +112,19 @@ class Evento_model extends CI_Model{
 		return $query->result_array();
 	}
 	
-	function listarEdicoesEvento($idEvento){
-		$this->db->select("e.titulo ,e.resumo,, e.id AS evento_id, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.*, ee.id AS edicao_evento_id,i.nome AS nome_imagem")
+       
+        function buscar_edicao_evento($id){
+		$this->db->select("e.*, i.nome as nome_imagem, i.url_imagem, date_format(e.data_final,'%d/%m/%Y') as 'data_final'")
+		->from('edicao_evento e')
+                ->join('imagem i',"i.id=e.imagem_id")
+		->where('e.status =','ativo')
+		->where('e.id =', $id);
+		$query=$this->db->get();
+		return $query->result();
+	}
+        
+	function listarEdicoesEvento($id){
+		$this->db->select("e.titulo ,e.resumo,, e.id AS evento_id, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.url_imagem, ee.id AS edicao_evento_id,i.nome AS nome_imagem")
 		->from('evento e')
 		->join("edicao_evento ee", "ee.evento_id=e.id")
 		->join('imagem i', 'i.id=ee.imagem_id')
@@ -171,7 +182,7 @@ class Evento_model extends CI_Model{
 			}
 		}else{
 		
-			if($this->db->insert('painel_edicao_evento', $painelEdicaoEvento)){
+			if($this->db->insert('painel', $painelEdicaoEvento)){
 				return $this->db->insert_id();
 			}else{
 				return false;
@@ -208,15 +219,15 @@ class Evento_model extends CI_Model{
 		}
 	} 
 	
-	function listarPaineisEdicao($eventoId,$edicaoId){
-		$this->db->select("e.*, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.*, ee.id AS edicao_evento_id,i.nome AS nome_imagem, pee.*")
+	function listarPaineisEdicao($edicaoId){
+		$this->db->select("e.*, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.url_imagem, ee.id AS edicao_evento_id,i.nome AS nome_imagem, p.*, date_format(p.data,'%d/%m/%Y') as 'data', TIME_FORMAT(p.hora, '%H:%i') as 'hora'")
 		->from('evento e')
 		->join("edicao_evento ee", "ee.evento_id=e.id")
-		->join('painel_edicao_evento pee','pee.edicao_id=ee.id')
-		->join('imagem i', 'i.id=pee.imagem_id')
-		->where('e.id',$eventoId)
+		->join('painel p','p.edicao_id=ee.id')
+		->join('imagem i', 'i.id=p.imagem_id')
 		->where('ee.id',$edicaoId)
-		->where('pee.status =','ativo');
+                 
+               	->where('p.status =','ativo');
 		
 		$this->db->order_by('ee.id',"desc");
 		$query=$this->db->get();
