@@ -28,15 +28,27 @@ class Feintec extends MX_Controller {
 	public function index()
 	{
 		
+		//$this->load->model('feintec/Eixo_model');
+		//$this->Eixo_model->busca();	
+
+		$this->data['eixo'] = $this->Eixo_model->busca();
 		$this->data['title']="Cimol - Feintec";
-		$this->data['template']="inicio";
+		$this->data['template']="inscricao";
+
+		print_r($this->data);
 		$this->view->show_view($this->data);
 	}
 	
 	public function inscricao(){
-		$this->data['title']="Cimol - Feintec";
-		$this->data['template']="inscricao";
-		$this->view->show_view($this->data);
+		$this->load->model("feintec/Projeto_model");
+		$dados = $this->input->post();
+		$tabela = $this->input->post('tabela');
+		if (isset($dados['tabela'])) {
+			unset($dados['tabela']);
+		}
+		$this->Projeto_model->salva($tabela,$dados);
+		echo TRUE;
+		
 	}
 	
 	

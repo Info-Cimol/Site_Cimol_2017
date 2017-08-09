@@ -34,7 +34,7 @@ header #escola{
 	padding-left:20px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
 		header{
 			background-color: #1b4fa3;
 			
@@ -98,7 +98,7 @@ header #escola{
 
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
 	main{
 		width:80%;
 		border:solid #fff;

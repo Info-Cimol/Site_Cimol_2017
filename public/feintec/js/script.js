@@ -5,6 +5,29 @@
 	var telefone = '<input class="entrada-dados" type="text" placeholder="Telefone">';
 	var addAluno = '</br><h3>Dados do Aluno</h3></br><input class="Campform" type="text" name="matricula" placeholder="Matrícula"></br></br><select class="Campform"><option value="" disabled="disabled" selected="selected">Tamanho de Camiseta</option><option value="PP">PP</option><option value="P">P</option><option value="M">M</option><option value="G">G</option><option value="GG">GG</option><option value="XG">XG</option></select></br></br><select id="tipoCamisa" class="Campform"><option value="" disabled="disabled" selected="selected">Estilo de Camiseta</option><option value="babyLook">Baby Look</option><option value="comum">Comum</option></select>';
 	
+	salvar();
+
+	function salvar(){
+		$('form').submit(function(){
+			var dados = $(this).serialize();
+			$.ajax({
+				type: "post",
+				url: "feintec/inscricao",
+				dataType: "html",
+				data: dados,
+				success: function(data){
+					if (data == true) {
+						$('.success').html("Dados salvos com sucesso!");
+					}
+				}
+			});
+
+			return false;
+		});
+
+	}
+
+
 	function addCampos(cont,local){
 		return local.append(cont);
 	}
