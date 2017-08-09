@@ -13,6 +13,7 @@
 </head>
 <body>
 	<header>
+		
 		<div id="info" class="visible-desktop">Visitante</div>
 		<div id="icon_nav" class="visible-phone visible-tablet">
 			<img onclick="showMenuMobile()" src = "<?php echo base_url();  ?>public/temas/default/images/threelines.png" alt = "nav"/>

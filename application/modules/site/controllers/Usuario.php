@@ -40,7 +40,7 @@ class Usuario extends MX_Controller{
 			$_SESSION['user_data']['cpf']=$resultado->cpf;
 			if($resultado->admin>0){
 				$_SESSION['user_data']['permissoes'][]="admin";
-				$_SESSION['user_data']['permissoes']['nivel_admin']=$this->usuario_model->buscarNivelAdmin($resultado->id);
+				$_SESSION['user_data']['permissoes']['permissoes_admin']=$this->usuario_model->buscarPermissaoAdmin($resultado->id);
 			}
 			if($resultado->aluno>0){
 				$_SESSION['user_data']['permissoes'][]="aluno";
@@ -70,10 +70,13 @@ class Usuario extends MX_Controller{
 		}
 		
 	}
+	
+	
 	function logout(){
 		unset($_SESSION['user_data']);
 		redirect('', 'refresh');
 	}
+	
 	
 	function esqueceu_senha(){
 		
@@ -84,6 +87,7 @@ class Usuario extends MX_Controller{
 			$this->view->show_view($this->data);
 		}
 	}
+	
 	
 	function mensagem_recuperar_senha(){
 		$this->load->model('usuario_model');
@@ -138,6 +142,7 @@ class Usuario extends MX_Controller{
 		//redirect('usuario/resposta_mensagem_recuperar_senha', 'refresh');
 	}
 	
+	
 	function resposta_mensagem_recuperar_senha(){
 		$this->data['title']="Cimol";
 		$this->data['content']="usuario/resposta_mensagem_recuperar_senha";
@@ -145,12 +150,14 @@ class Usuario extends MX_Controller{
 		$this->view->show_view($this->data);
 	}
 	
+	
 	function solicitar_usuario(){
 		$this->data['title']="Cimol";
 		$this->data['content']="usuario/form_solicitar_usuario";
 		
 		$this->view->show_view($this->data);
 	}
+	
 	
 	function alterar_senha($chave_de_acesso=null){
 		$this->data['title']="Cimol";
@@ -184,6 +191,7 @@ class Usuario extends MX_Controller{
 			
 	}
 	
+	
 	function registrar_alteracao_senha(){
 		
 		
@@ -197,6 +205,7 @@ class Usuario extends MX_Controller{
 		redirect('login', 'refresh');
 	}
 	
+	
 	function perfil(){
 		$this->data['title']="Cimol";
 		if(!empty($this->user_data)){
@@ -209,9 +218,11 @@ class Usuario extends MX_Controller{
 		$this->view->show_view($this->data);
 	}
 	
+	
 	function obter_chave_de_acesso($usuario){
 		return md5($usuario->nome.date('s'));
 	}
+	
 	
 	function registrar_usuario(){
 		echo $this->input->post('email');
