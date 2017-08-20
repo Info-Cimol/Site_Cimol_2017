@@ -19,9 +19,6 @@ header #escola{
 	
 }
 
-
-
-
 #logo_desktop{
 	height: 55px;
 	margin-top:-8px;
@@ -33,6 +30,7 @@ header #escola{
 	color:#fff;
 	padding-left:20px;
 }
+
 
 @media screen and (max-width: 1023px) {
 		header{
@@ -235,5 +233,7 @@ header #escola{
 
 	
 }
+
+
 
 

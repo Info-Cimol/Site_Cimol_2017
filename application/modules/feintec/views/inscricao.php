@@ -28,10 +28,10 @@
 				<div id="eixoAluno" class="Inscrconteudo">
 					<form action="" method="post">
 						<div class="formulario">
-							<input class="Campmarc" type="checkbox" name="inovacao-tecnologica">Inovação Tecnológica</input>
-							<input class="Campmarc" type="checkbox" name="inovacao-cientifica">Inovação Ciêntifica</input>
-							<input class="Campmarc" type="checkbox" name="trabalho-cientifico">Trabalho Ciêntifico</input>
-							<input class="Campmarc" type="checkbox" name="aprimoramento">Aprimoramento</input><br>
+							<input class="Campmarc" type="radio" name="inovacao-tecnologica">Inovação Tecnológica</input>
+							<input class="Campmarc" type="radio" name="inovacao-cientifica">Inovação Ciêntifica</input>
+							<input class="Campmarc" type="radio" name="trabalho-cientifico">Trabalho Ciêntifico</input>
+							<input class="Campmarc" type="radio" name="aprimoramento">Aprimoramento</input><br>
 							<button type="submit" class="btn btn-primary btnEnviar">Enviar</button>
 						</div>
 					</form>	
@@ -79,5 +79,4 @@
 				</div>	
 				
 		</div>
-	</form>	
 		

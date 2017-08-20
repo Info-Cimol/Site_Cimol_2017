@@ -51,7 +51,7 @@ ul{
     padding: 10px;
 }
 .conteudo{
-	/*display: none;*/
+	display: none;
 }
 table {
     border: 1px solid;
@@ -93,8 +93,6 @@ td {
     height: 430px;
 }
 .formulario {
-    width: 50%;
-    text-align: center;
     background: #363636;
     border-radius: 4px;
     color: #a9a9a9;
@@ -185,7 +183,7 @@ input[type=checkbox], input[type=radio] {
 h3 {
     margin-left: 11px;
 }
-#inscricao .formulario{
+.formulario{
     width: 100%;
     padding-top: 20px;
     text-align: left;
@@ -195,5 +193,22 @@ h3 {
 .formulario label{
     font-weight: normal;
     color: #c5bcbc;
-    margin: 0;
+    width: 30%;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.formulario input  {
+    display: block;
+}
+
+#lista-menu li a { 
+    font-size: 16px;
+}
+
+#codigo-evento {
+    width: 50px;
+}
+input[type="radio"].Campmarc{
+    display: inline-block;
 }

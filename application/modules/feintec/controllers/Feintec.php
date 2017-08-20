@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Feintec extends MX_Controller {
 	public function __construct(){
 		parent::__construct();
+		$this->data['title']="Cimol - Feintec";
 		/*if(isset($this->user_data)){
 			//print_r($this->user_data['permissoes']);
 			if(
@@ -25,22 +26,17 @@ class Feintec extends MX_Controller {
 		
 	}
 	
-	public function index()
-	{
+	public function index(){
 		
 		//$this->load->model('feintec/Eixo_model');
 		//$this->Eixo_model->busca();	
 
-		$this->data['eixo'] = $this->Eixo_model->busca();
-		$this->data['title']="Cimol - Feintec";
-		$this->data['template']="inscricao";
-
-		print_r($this->data);
+		$this->data['template']='inicio';
 		$this->view->show_view($this->data);
 	}
 	
 	public function inscricao(){
-		$this->load->model("feintec/Projeto_model");
+		//$this->load->model("feintec/Projeto_model");
 		$dados = $this->input->post();
 		$tabela = $this->input->post('tabela');
 		if (isset($dados['tabela'])) {
@@ -51,7 +47,8 @@ class Feintec extends MX_Controller {
 		
 	}
 	
-	
-	
+	public function configracoes(){
+		$this->data['template']='configuracoes';
+	}
 	
 }
