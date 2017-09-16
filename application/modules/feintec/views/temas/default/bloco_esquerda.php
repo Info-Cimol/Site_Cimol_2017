@@ -18,7 +18,10 @@
 								<?php }
 								}else{
 									?>
-									<li><a href="#" ng-click="incricoes()">Inscrições <span class="glyphicon glyphicon-pencil"></span></a></li>
+									<li><a href="#" data-content="configuracoes">Configurações <span class="glyphicon glyphicon-cog"></span></a></li>
+									<li><a href="#" data-content="inscricao">Inscrições <span class="glyphicon glyphicon-pencil"></span></a></li>
+									<li><a href="#" data-content="avaliador">Avaliador <span class="glyphicon glyphicon-user"></span></a></li>
+									<li><a href="#" data-content="eixos">Eixos <span class="glyphicon glyphicon-tag"></span></a></li>
 								<?php
 								}?>
 						</ul>

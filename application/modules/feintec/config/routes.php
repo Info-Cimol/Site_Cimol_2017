@@ -54,4 +54,5 @@ $route['projeto/noticia/buscar_noticia/(:num)'] = 'noticia/buscar_noticia/$1';
 $route['default_controller'] = 'site/inicio';*/
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['configuracoes'] = 'index/configuracoes';
 

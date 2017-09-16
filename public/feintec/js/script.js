@@ -1,35 +1,48 @@
 	var base_url="http://localhost/cimol/";
 	
 	//Oculta os elementos da classe conteudo
-	$('.conteudo').fadeOut(300);
+	$('.conteudo').fadeOut();
 	var telefone = '<input class="entrada-dados" type="text" placeholder="Telefone">';
 	var addAluno = '</br><h3>Dados do Aluno</h3></br><input class="Campform" type="text" name="matricula" placeholder="Matrícula"></br></br><select class="Campform"><option value="" disabled="disabled" selected="selected">Tamanho de Camiseta</option><option value="PP">PP</option><option value="P">P</option><option value="M">M</option><option value="G">G</option><option value="GG">GG</option><option value="XG">XG</option></select></br></br><select id="tipoCamisa" class="Campform"><option value="" disabled="disabled" selected="selected">Estilo de Camiseta</option><option value="babyLook">Baby Look</option><option value="comum">Comum</option></select>';
 	
+	salvar();
+	mostra();
+
+	function salvar(){
+		$('form').submit(function(){
+			var dados = $(this).serialize();
+			$.ajax({
+				type: "post",
+				url: "feintec/inscricao",
+				dataType: "html",
+				data: dados,
+				success: function(data){
+					if (data == true) {
+						$('.success').html("Dados salvos com sucesso!");
+					}
+				}
+			});
+
+			return false;
+		});
+
+	}
+
+
 	function addCampos(cont,local){
 		return local.append(cont);
 	}
-	
-	$('#lista-menu li').click(function(){
 
-		//VERIFICA SE A DIV ESTÁ VISIVEL
-		$('.conteudo').fadeOut(300);
-		
-		//SELECIONA O CONTEUDO
-		switch($(this).text().trim()){
-			case 'Aluno':
-				$('#Admaluno').fadeIn(300);
-				break;
-			case 'Inscrições':
-				$('#inscricao').fadeIn(300);
-				break; 
-			case 'Edições':
-				$('#edicao').fadeIn(300);
-				break;
-			case 'Eixo':
-				$('#eixo').fadeIn(300);
-				break;	
-		}
-	});
+	function mostra(){
+		$('#lista-menu li a').click(function(){
+			var view = $(this).attr('data-content');
+			console.log('#'+view);	
+			//VERIFICA SE A DIV ESTÁ VISIVEL
+			$('.conteudo').fadeOut(300);
+			$('#'+view).fadeIn(300);
+		});
+	}
+	
 	
 	//ABRE MODAL
 	$('.novo').click(function(){
@@ -38,11 +51,6 @@
 	
 	$('#menu-aluno li').click(function(){
 		//VERIFICA SE A DIV ESTÁ VISIVEL
-		/*$('.Inscrconteudo').each(function(){
-			if($(this).show()){
-				$(this).hide();
-			}
-		});*/
 
 		//SELECIONA O CONTEÚDO
 		switch($(this).text()){

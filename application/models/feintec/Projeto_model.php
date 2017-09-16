@@ -26,7 +26,9 @@ class Projeto_model extends CI_Model{
 		$result=$this->db->query($query);
 		return $result->result();
 	}
-	
-	
+
+	public function salva($tabela,$dados){
+		return $this->db->insert($tabela, $dados);
+	}	
 	
 }
