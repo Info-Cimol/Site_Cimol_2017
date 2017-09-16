@@ -83,10 +83,10 @@ p{
 	}
 	
 	#noticia_destaque .resumo_noticia{
-		width:420;
+		width:420px;
 		min-height:270px;
 		float:left;
-		margin_top:10px;
+		margin:10px;
 	}
 	
 	.noticias_recentes{

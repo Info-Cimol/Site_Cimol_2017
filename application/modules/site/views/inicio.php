@@ -13,6 +13,8 @@
 			<h2><?php echo $noticias[0]->titulo ?></h2>
 			<p><?php echo $noticias[0]->resumo ?></p>
 			<p>Em:<?php echo $noticias[0]->data_postagem ?></p>
+			<a href="<?php echo base_url()."noticia/".$noticias[0]->id  ?>" class="saiba_mais">Saiba mais ...</a>
+					
 		</div>
 	</div>
 
@@ -43,6 +45,7 @@
 						?>
 						</p>
 						<p>Em:<?php echo $noticias[$i]->data_postagem ?></p>
+						<a href="<?php echo base_url()."noticia/".$noticias[$i]->id  ?>" class="saiba_mais">Saiba mais ...</a>
 					</div>
 				
 				</div>

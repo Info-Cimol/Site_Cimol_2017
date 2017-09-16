@@ -8,7 +8,8 @@
 					<h4 class="sessao_pagina">CARGA HORÁRIA DE ESTÁGIO OBRIGATÓRIO</h4>
 					
 				
-					<p>Os cursos Técnicos em Móveis  e Design de Móveis não possuem a obrigatoriedade de estágio em suas grades curriculares.</p>
+					<p>Os cursos Técnicos em Móveis  e Design de Móveis não possuem a obrigatoriedade de estágio em suas grades curriculares. 
+					Já os demais cursos possuem a obrigatoriedade do periodo de estágio no final do curso, conforme é apresentado a seguir.</p>
 				
 				
 				
@@ -55,9 +56,11 @@
 				
 				<div id="anexos">
 					<h4 class="sessao_pagina"">ANEXOS</h4>
-					<a href="<?php echo base_url();  ?>"><img src="<?php echo base_url();?>public/images/site/estagio/word.png">ANEXO 1</a>
-					<a href="<?php echo base_url();  ?>"><img src="<?php echo base_url();?>public/images/site/estagio/word.png">ANEXO 2</a>
-					<a href="<?php echo base_url();  ?>"><img src="<?php echo base_url();?>public/images/site/estagio/word.png">ANEXO 3</a>
+					<a href="<?php echo base_url();  ?>public/arquivos/estagio/ANEXO-11.docx"><img src="<?php echo base_url();?>public/images/site/estagio/word.png">ANEXO 1</a>
+					<a href="<?php echo base_url();  ?>public/arquivos/estagio/ANEXO-22.docx"><img src="<?php echo base_url();?>public/images/site/estagio/word.png">ANEXO 2</a>
+					<a href="<?php echo base_url();  ?>public/arquivos/estagio/ANEXO-3A3.docx"><img src="<?php echo base_url();?>public/images/site/estagio/word.png">ANEXO 3A</a>
+					<a href="<?php echo base_url();  ?>public/arquivos/estagio/ANEXO-3B2.docx"><img src="<?php echo base_url();?>public/images/site/estagio/word.png">ANEXO 3B</a>
+					<a href="<?php echo base_url();  ?>public/arquivos/estagio/ANEXO-42.docx"><img src="<?php echo base_url();?>public/images/site/estagio/word.png">ANEXO 4</a>
 				</div>
 					
 </section>

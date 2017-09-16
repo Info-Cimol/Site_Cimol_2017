@@ -83,6 +83,9 @@ h3{
 }
 
 @media screen and (min-width: 1024px) {
+	#noticia img{
+		width:50%;
+	}
 	.noticia{
 		width:30%;
 		

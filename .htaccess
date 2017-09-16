@@ -4,3 +4,9 @@
  RewriteCond %{REQUEST_FILENAME} !-f
  RewriteCond %{REQUEST_FILENAME} !-d
  RewriteRule ^(.*)$ index.php/$1 [QSA,L]
+
+ ErrorDocument 400 /index.php
+ ErrorDocument 401 /401.html
+ ErrorDocument 403 /errors/403.php
+ ErrorDocument 404 /404.php
+ ErrorDocument 500 /lapr5_3/index.php

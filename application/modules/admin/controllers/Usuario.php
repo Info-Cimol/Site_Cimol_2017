@@ -23,4 +23,21 @@ class Usuario extends MX_Controller{
 		//print_r($this->data);
 		$this->view->show_view($this->data);
 	}
+	
+	public function editar_permissoes($usuario_id){
+		$this->data['template']="usuario/editar_permissoes";
+		$this->data['usuario']=$this->usuario_model->buscarUsuario($usuario_id);
+		//print_r($this->data['usuario']);
+		$this->data['permissoes_usuario']=$this->usuario_model->listarPermissoesUsuario($usuario_id);
+		if(in_array("admin",$this->data['permissoes_usuario'])){
+			$this->data["lista_niveis_permissao_admin"]=$this->usuario_model->listarNiveisPermissaoAdmin();
+			$this->data['niveis_permissao_admin']=$this->usuario_model->buscarNiveisPermissaoAdmin($usuario_id);
+		}else{
+			$this->data['niveis_permissao_admin']=null;
+			
+		}
+		$this->data['lista_permissoes']=$this->usuario_model->listarPermissoes();
+		
+		$this->view->show_view($this->data);
+	}
 }

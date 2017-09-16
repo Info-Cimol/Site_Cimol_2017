@@ -6,26 +6,30 @@
 			<div id="sobre-cimol">
 				<h3>SOBRE O CIMOL</h3>
 				<ul class="lista-footer">
-					<li><a class="link-lista-resumo" href="">Institucional</a></li>
-					<li><a class="link-lista-resumo" href="">Cursos</a></li>
+					<li><a class="link-lista-resumo" href="<?php echo base_url();  ?>institucional/">Institucional</a></li>
+					<li><a class="link-lista-resumo" href="<?php echo base_url();  ?>curso">Cursos</a></li>
+					<!--  
 					<li><a class="link-lista-resumo" href="">Agenda</a></li>
 					<li><a class="link-lista-resumo" href="">Eventos</a></li>
+					-->
 				</ul>
 			</div>
 			<div id="multimidia">
 				<h3>MULTIMÍDIA</h3>
 				<ul class="lista-footer">
-					<li><a class="link-lista-resumo" href="">Institucional</a></li>
-					<li><a class="link-lista-resumo" href="">Cursos</a></li>
+					<li><a class="link-lista-resumo" href="<?php echo base_url();  ?>noticia/">Notícias</a></li>
+					<!--<li><a class="link-lista-resumo" href="<?php echo base_url();  ?>curso/">Cursos</a></li>-->
+					<!-- 
 					<li><a class="link-lista-resumo" href="">Agenda</a></li>
 					<li><a class="link-lista-resumo" href="">Eventos</a></li>
+					 -->
 				</ul>
 			</div>
 			<div id="redes-sociais">
 			<h3>REDES SOCIAIS</h3>
-				<img src="<?php echo base_url();  ?>public/temas/default/images/icone_fb.png" />
-				<img src="<?php echo base_url();  ?>public/temas/default/images/icone_gmail.png" />
-				<img src="<?php echo base_url();  ?>public/temas/default/images/icone_moodle.png" />
+				<a href="https://www.facebook.com/CimolOficial/"><img src="<?php echo base_url();?>public/temas/default/images/icone_fb.png" /></a>
+				<!--  <img src="<?php echo base_url();  ?>public/temas/default/images/icone_gmail.png" />-->
+				<a href="https://moodle2.cimol.g12.br"><img src="<?php echo base_url();  ?>public/temas/default/images/icone_moodle.png" /></a>
 			</div>
 		</div>
 		

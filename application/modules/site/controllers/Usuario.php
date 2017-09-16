@@ -51,10 +51,10 @@ class Usuario extends MX_Controller{
 			if($resultado->biblioteca>0){
 				$_SESSION['user_data']['permissoes'][]="biblioteca";
 			}
-			if($resultado->biblioteca>0){
+			if($resultado->faintec>0){
 				$_SESSION['user_data']['permissoes'][]="feintec";
 			}
-			if($resultado->biblioteca>0){
+			if($resultado->coordenador_curso>0){
 				$_SESSION['user_data']['permissoes'][]="coordenador_curso";
 			}
 			

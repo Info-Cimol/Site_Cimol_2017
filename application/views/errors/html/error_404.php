@@ -1,4 +1,5 @@
-<?php
+<script> window.location.href = "http://localhost/cimol_2017/erro/erro_404";</script>
+ <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">

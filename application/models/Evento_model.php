@@ -223,7 +223,7 @@ class Evento_model extends CI_Model{
 		$this->db->select("e.*, e.titulo AS titulo_evento, ee.*,ee.titulo AS titulo_edicao,i.url_imagem, ee.id AS edicao_evento_id,i.nome AS nome_imagem, p.*, date_format(p.data,'%d/%m/%Y') as 'data', TIME_FORMAT(p.hora, '%H:%i') as 'hora'")
 		->from('evento e')
 		->join("edicao_evento ee", "ee.evento_id=e.id")
-		->join('painel p','p.edicao_id=ee.id')
+		->join('painel_edicao_evento p','p.edicao_id=ee.id')
 		->join('imagem i', 'i.id=p.imagem_id')
 		->where('ee.id',$edicaoId)
                  

@@ -3,13 +3,18 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CIMOL</title>
+	<link rel="icon" href="http://www2.cimol.g12.br/public/images/logo/LOGO CIMOL - favicon.png" />
+	<meta name="keywords" content="Escola Técnica, CIMOL, Ensino técnico, Taquara" />
+		<meta name="description" content="Escola Técnica Estadual Monteiro Lobato" />
+		<meta name="author" content="CIMOL" />
+	<title><?php echo $title ?></title>
 	
 	<link rel="stylesheet" href="<?php echo base_url();  ?>public/plugins/bootstrap/css/bootstrap.min.css">
 	<script src="<?php echo base_url();  ?>public/plugins/jquery.min.js"></script>
 	<script src="<?php echo base_url();  ?>public/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<link href="<?php echo base_url();  ?>public/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url();  ?>public/temas/default/css/style.css" />
+	<script src="<?php echo base_url();  ?>public/temas/default/js/menu.js"></script>
 </head>
 <body>
 	<header>
@@ -33,7 +38,7 @@
 				<li><a href="<?php echo base_url();  ?>institucional/">Institucional</a></li>
 				<li><a href="<?php echo base_url();  ?>curso/">Cursos</a></li>
 				<li><a href="<?php echo base_url();  ?>noticia/">Noticias</a></li>
-				<li><a href="<?php echo base_url();  ?>evento/">Eventos</a></li>
+				<!--  <li><a href="<?php echo base_url();  ?>evento/">Eventos</a></li> -->
 			 </ul>
 				<form class="navbar-form navbar-left">
 				  <div class="input-group">
@@ -87,27 +92,30 @@
 				<li><a href="<?php echo base_url();  ?>evento">Eventos</a></li>
 				<li><a href="<?php echo base_url();  ?>estagio">Estágio</a></li>
 				
-				<li><a tabindex="0" data-toggle="dropdown" data-submenu class="item-dropdown">
+				<li><a tabindex="0" data-toggle="dropdown" data-submenu class="item-dropdown" id="item-dropdown-menu-redes-sociais">
 						Redes Sociais 
 						<span class="caret"></span>
-						<uL class="dropdown-menu">
-							<li class="dropdown">Facebook</li>
-							<li class="dropdown">Twitter</li>
-							<li class="dropdown">Moodle</li>
+						<uL class="dropdown-menu" id="dropdown-menu-redes-sociais">
+							<li class="dropdown"><a href="https://www.facebook.com/CimolOficial/">Facebook</a></li>
+							<!--<li class="dropdown">Twitter</li>  -->
+							<li class="dropdown"><a href="https://moodle2.cimol.g12.br">Moodle</a></li>
 						</ul>
 					</a>
 				</li>
+				<!--  
 				<li><a tabindex="0" data-toggle="dropdown" data-submenu class="item-dropdown">
 						Status 
 						<span class="caret"></span>
-						<uL class="dropdown-menu">
+						<uL class="dropdown-menu" id="dropdown-menu-status">
 							<li class="dropdown">Vistante</li>
 							<li class="dropdown">Administrador</li>
 							<li class="dropdown">-------</li>
 						</ul>
 					</a>
 				</li>
+				-->
 		</ul>
 	</nav>
+	<script src="<?php echo base_url();  ?>public/temas/default/js/menu.js"></script>
 	</div>
 	

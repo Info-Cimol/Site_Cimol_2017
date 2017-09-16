@@ -29,6 +29,12 @@
 	                		"<input type='file' name='noticia[imagem]' />"+
 	            "</div>"+
             "</div>"+
+            "<div class='control-group'>"+
+            "<label class='control-label'>FEED:</label>"+
+            "<div class='controls'>"+
+                		"<input type='checkbox' name='noticia[feed]' />"+
+            "</div>"+
+        "</div>"+
             
             "<div class='form-actions'>"+
             	"<button type='submit' class='btn btn-blue'>Salvar Mudanças</button>"+

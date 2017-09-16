@@ -60,7 +60,7 @@ p{
 }
 @media screen and (min-width: 1024px) {
 	.curso{
-		width:33%
+		width:33%;
 		margin-top:15px;
 	}
 	

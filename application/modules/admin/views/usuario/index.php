@@ -3,6 +3,9 @@
 		float:left;
 		margin:10px;
 	}
+	td{
+		font-size:10px;
+	}
 	
 	</style>
 	<div class="box-content padded">
@@ -48,26 +51,31 @@
 							<?php 
 								foreach($usuario->permissoes as $permissao){
 									if($permissao->admin==1){
-										echo "<div class='permissao_usuario'>Administrador</div>";
+										echo "<div class='permissao_usuario'>Administrador </div><br/>";
 									}
 									if($permissao->coordenador_curso==1){
-										echo "<div class='permissao_usuario'>Coordenador</div>";
+										echo "<div class='permissao_usuario'>Coordenador </div><br/>";
 									}
 									if($permissao->professor==1){
-										echo "<div class='permissao_usuario'>Professor</div>";
+										echo "<div class='permissao_usuario'>Professor </div><br/>";
 									}
 									if($permissao->aluno==1){
-										echo "<div class='permissao_usuario'>Aluno.</div>";
+										echo "<div class='permissao_usuario'>Aluno. </div><br/>";
 									}
 									if($permissao->biblioteca==1){
-										echo "<div class='permissao_usuario'>Biblioteca</div>";
+										echo "<div class='permissao_usuario'>Biblioteca </div><br/>";
 									}
 						
 								}
 							?>
 							</td>
 							<td align="center">
-								
+								<a data-toggle="modal" href="<?php echo base_url();?>admin/usuario/editar_permissoes/<?php echo $usuario->id;?>" class="btn btn-blue btn-small" title="Permissões"> 
+                                		<i class="icon-user"></i>
+                                </a>
+								<a data-toggle="modal" href="#modal-delete" onclick="modal_delete('<?php echo base_url();?>admin/usuario/desativar/<?php echo $usuario->id;?>')" class="btn btn-red btn-small" title="Desativar">
+                                		<i class="icon-trash"></i> 
+                                </a>
         					</td>
                         </tr>
                         <?php endforeach;

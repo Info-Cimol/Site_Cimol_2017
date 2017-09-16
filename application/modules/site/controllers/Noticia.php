@@ -25,4 +25,23 @@ class Noticia extends MX_Controller{
 		$this->data['content']="noticia/saiba_mais";
 		$this->view->show_view($this->data);
 	}
+	
+	  function feed()
+      {
+        //parent::Controller();
+        $this->data['noticias']=$this->noticia_model->listar_noticias(5);
+        $this->load->helper('xml');
+        $this->load->helper('text');
+        
+        $this->data['feed_name'] = 'cimol.g12.br';
+        $this->data['encoding'] = 'utf-8'; // the encoding
+        $this->data['feed_url'] = 'http://www.cimol.g12.br/feed';
+        $this->data['page_description'] = 'Notícias do CIMOL';
+        $this->data['page_language'] = 'pt-br';
+        $this->data['creator_email'] = 'info_cimol@gmail.com';
+        header("Content-Type: application/rss+xml");
+         
+        $this->load->view('noticia/rss', $this->data);
+        
+      }
 }

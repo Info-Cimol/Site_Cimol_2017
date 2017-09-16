@@ -9,12 +9,15 @@ class Noticia_model extends CI_Model{
         }
     }
     
-    function listar_noticias(){
+    function listar_noticias($limit=null){
         $this->db->select("n.*,date_format(n.data_postagem,'%d/%m/%Y') as data_noticia")
                 ->from('noticia n')
                
                 ->where('n.status =','ativo')
         		->order_by('n.id','desc');
+        if($limit){
+        	$this->db->limit($limit);
+        }
         $query=$this->db->get();
         return $query->result();
     }

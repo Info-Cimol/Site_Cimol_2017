@@ -77,8 +77,7 @@ class Noticia extends MX_Controller {
     
    
  	public function editar_imagens($files=null){
- 		echo "Editar imagens <br>";
- 		 print_r($files['tmp_name']);
+ 		
  		$ext_images=array('jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'gif', 'GIF', 'bmp', 'BMP');
  		print_r($files);
  		if(isset($files['tmp_name']['imagem']) and !empty($files['tmp_name']['imagem'])){
@@ -146,10 +145,15 @@ class Noticia extends MX_Controller {
  	
     
     public function salvar_noticia(){
-    	
     	if(isset($_SESSION['post']['noticia'])){
     		$noticia = $_SESSION['post']['noticia'];
-	    	
+    		
+    		if(isset($noticia['feed'])){
+    			$noticia['feed']="on";
+    		}else{
+    			$noticia['feed']="off";
+    		}
+	    	print_r($noticia);
 	    	if($noticia['id']!=''){
 	    		if($this->noticia_model->editar($noticia, $noticia['id'])){
 		    		$this->view->set_message("Mudanças salvas com sucesso", "alert alert-success");
@@ -161,6 +165,7 @@ class Noticia extends MX_Controller {
 	    	}else{
 	    		$noticia['data_postagem']=date("Y-m-d");
 		        $noticia['ip']=$_SERVER['REMOTE_ADDR'];
+		        
 		        if(isset($_POST['imagem'][0])){
 		        	$nome_imagem=explode("/",$_POST['imagem'][0]);
 		        	$nome_imagem=$nome_imagem[count($nome_imagem)-1];
@@ -185,16 +190,16 @@ class Noticia extends MX_Controller {
 		        		unlink($_POST['imagem'][0]);
 	                   
 		             }*/
-		        	redirect('admin/noticia', 'refresh');
+		        	//redirect('admin/noticia', 'refresh');
 		        }else{
 		        	$this->view->set_message("Ocorreu um erro ao adicionar noticia", "alert alert-error");
-		        	redirect('admin/noticia', 'refresh');
+		        	//redirect('admin/noticia', 'refresh');
 		        }
 	    	}
 	    	unset($_SESSION["post"]);
 	    	
     	}else{
-    		
+    		print_r($_POST['noticia']);
     		if(isset($_POST['noticia'])){
     			
     			$_SESSION['post']=$_POST;

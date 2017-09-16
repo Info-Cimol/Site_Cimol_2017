@@ -235,6 +235,85 @@ class Usuario_model extends CI_Model{
 		}
 	}
 	
+	function buscarUsuario($usuario_id){
+		$this->db->select("p.*")
+		->from("usuario u")
+		->join("pessoa p","p.id=u.pessoa_id")
+		->where("u.id",$usuario_id);
+		$query=$this->db->get();
+		return $query->result();
+	}
+	
+	
+	/**
+	 * Função responsavel por listar as permissões do usuario.
+	
+	 * @param unknown $usuario_id
+	 * @return array - lista de permissões
+	 */
+	function listarPermissoesUsuario($usuario_id){
+		$query="SELECT usuario.id, pessoa.nome,pessoa.rg, pessoa.cpf, 
+			count(administrador.pessoa_id) as admin,
+			count(aluno.pessoa_id) as aluno,
+			count(professor.pessoa_id) as professor,
+	        count(feintec.pessoa_id) as feintec,
+	        count(biblioteca.pessoa_id) as biblioteca,
+	        count(coordenador_curso.professor_id) as coordenador_curso,
+			count(pessoa.id) as pessoa from pessoa 
+	        	LEFT JOIN usuario ON usuario.pessoa_id = pessoa.id 
+	            LEFT JOIN email ON email.pessoa_id=pessoa.id 
+	            LEFT JOIN administrador ON administrador.pessoa_id=pessoa.id 
+	            LEFT JOIN aluno ON aluno.pessoa_id=pessoa.id 
+	            LEFT JOIN professor ON professor.pessoa_id=pessoa.id 
+	            LEFT JOIN feintec ON feintec.pessoa_id=pessoa.id 
+	            LEFT JOIN biblioteca ON biblioteca.pessoa_id=pessoa.id 
+	            LEFT JOIN coordenador_curso ON coordenador_curso.professor_id=professor.id
+	            WHERE usuario.id =".$usuario_id;
+	       $query = $this->db->query($query); 
+	       $resultado=$query->result();
+	       $permissoes=null;
+	       if($resultado[0]->admin >0){
+	       	 $permissoes[]='admin';
+	       }
+	       if($resultado[0]->professor>0){
+	       	$permissoes[]='professor';
+	       }
+	       if($resultado[0]->aluno>0){
+	       	$permissoes[]='aluno';
+	       }
+	       if($resultado[0]->biblioteca>0){
+	       	$permissoes[]='biblioteca';
+	       }
+	       if($resultado[0]->coordenador_curso>0){
+	       	$permissoes[]='coordenador';
+	       }
+	      
+       		return $permissoes;
+	}
+	
+	function listarPermissoes(){
+		return array('admin','professor','aluno','biblioteca','coordenador');
+	}
+	
+	function listarNiveisPermissaoAdmin(){
+		$this->db->select("p.*")
+		->from("permissao p");
+		$query=$this->db->get();
+		return $query->result();
+		//return array('noticia','total','evento','secretaria');
+	}
+	
+	function buscarNiveisPermissaoAdmin($usuario_id){
+		$this->db->select("p.*")
+		->from("usuario u")
+		->join("permissao_admin pa","pa.admin_id=u.pessoa_id")
+		->join("permissao p","p.id=pa.permissao_id")
+		->where("u.id",$usuario_id);
+		$query=$this->db->get();
+		return $query->result();
+		
+		
+	}
 	
 	
 	
