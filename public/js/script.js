@@ -1,3 +1,4 @@
+
 //var base_url="http://www2.cimol.g12.br/";
 var base_url="http://localhost/cimol_2017/";
 //var base_url="http://cimol.esy.es/";

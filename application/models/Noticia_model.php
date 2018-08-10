@@ -2,11 +2,22 @@
 class Noticia_model extends CI_Model{
 	
     function postar_noticia($noticia){
-        if($this->db->insert('noticia', $noticia)){
-        	return $this->db->insert_id();
-        }else{
-        	return false;
-        }
+    	echo $noticia['id'];
+    	if(empty($noticia['id'])){
+	        if($this->db->insert('noticia', $noticia)){
+	        	return $this->db->insert_id();
+	        }else{
+	        	return false;
+	        }
+    	}else{
+    		if($this->db->where('id', $noticia['id'])
+    				->update('noticia', $noticia)){
+    			return true;
+    		}else{
+    			return false;
+    		}
+    		
+    	}
     }
     
     function listar_noticias($limit=null){

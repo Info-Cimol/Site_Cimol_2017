@@ -22,14 +22,31 @@
                 "<div class='controls'>"+
                     		"<textarea name='noticia[resumo]' rows='5' required>"+noticia.resumo+"</textarea>"+
                 "</div>"+
-            "</div>"+
-            "<div class='control-group'>"+
+            "</div>";
+			if(noticia.arquivo_imagem!=''){
+				console.log(noticia.url_imagem+noticia.arquivo_imagem);
+				form+="<div class='text-left' >"+
+				  "<img src='"+base_url+noticia.url_imagem+noticia.arquivo_imagem+"' class='rounded' alt='...' style='width:25%'>"+
+				"</div>";
+				
+			}
+			
+            form+="<div class='control-group'>"+
 	            "<label class='control-label'>Imagem:</label>"+
 	            "<div class='controls'>"+
 	                		"<input type='file' name='noticia[imagem]' />"+
 	            "</div>"+
-            "</div>"+
-            "<div class='control-group'>"+
+            "</div>";
+			if(noticia.arquivo_imagem!=''){
+				console.log(noticia.url_imagem+noticia.arquivo_imagem);
+				form+="<div class='text-left' >"+
+				  "<img src='"+base_url+noticia.url_imagem+noticia.arquivo_imagem+"' class='rounded' alt='...' style='width:25%'>"+
+				"</div>";
+				
+			}
+			
+			
+			form+="<div class='control-group'>"+
             "<label class='control-label'>FEED:</label>"+
             "<div class='controls'>"+
                 		"<input type='checkbox' name='noticia[feed]' />"+

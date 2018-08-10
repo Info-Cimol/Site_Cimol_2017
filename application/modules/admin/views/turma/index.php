@@ -69,6 +69,9 @@
 								
 								?></td>
 							<td align="center">
+							    <a data-toggle="modal" href="<?php echo base_url();?>admin/horario_turma/<?php echo $turma->id;?>/<?php echo $turma->nome;?>" class="btn btn-gray btn-small" title="Horários"> 
+                                		<i class="icon-list"></i>
+								</a>
 								<a data-toggle="modal" href="<?php echo base_url();?>admin/disciplina_turma/<?php echo $turma->id;?>/<?php echo $turma->nome;?>" class="btn btn-blue btn-small" title="Disciplinas"> 
                                 		<i class="icon-th-list"></i>
                                 </a>

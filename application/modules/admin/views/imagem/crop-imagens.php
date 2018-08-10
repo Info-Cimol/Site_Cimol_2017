@@ -6,13 +6,15 @@
             	<h3 class="editar-imagem-aviso">Clique na imagem para editar o tamanho:</h3>
                 <div class="box-content">
                 	<?php 
+                	//print_r($_COOKIE);
                 	$i=0;
                 	foreach($imagens as $imagem){
                 		?>
                 		<div class='imagem-editar'>
                 		<a data-toggle='modal' href='.modal-imagem' onclick='editar_imagem("<?php echo $imagem ?>",<?php echo $i?>);'><img src="<?php echo base_url().$imagem?>"></img></a>
                 		</div>
-                		<form action="<?php echo base_url().$_SESSION['form_action']?>" method="post">
+                		<?php echo $_COOKIE['form_action'] ?>
+                		<form action="<?php echo base_url().$_COOKIE['form_action']?>" method="post">
 	                		<input id='width-<?php echo $i?>' type='hidden' name='width[<?php echo $i ?>]'>
 	                		<input id='height-<?php echo $i?>' type='hidden' name='height[<?php echo $i ?>]'>
 	                		<input id='x-<?php echo $i?>' type='hidden' name='x[<?php echo $i ?>]'>

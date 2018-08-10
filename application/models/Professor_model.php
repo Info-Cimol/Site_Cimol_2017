@@ -30,7 +30,70 @@ class Professor_model extends CI_Model{
 		}
 		
 		
+		
+		
 		return $professores;
+	}
+	
+	function listar_disciplinas_professor($professor_id, $turma_id){
+	    /*$this->db->select('c.titulo as curso, t.nome as turma, t.id as turma_id, d.titulo as disciplina, d.id as disciplina_id, dtp.dia as dia, p.turno as turno, p.ordem as ordem, p.inicio as inicio,dt.professor_id as professor_id, sa.nome as sala')
+	    ->from('curso c')
+	    ->join('segmento_curso sc','sc.curso_id=c.id')
+	    ->join('segmento s','s.id=sc.segmento_id')
+	    ->join('turma t','t.segmento_curso_segmento_id=s.id and t.segmento_curso_curso_id=c.id')
+	    ->join('disciplina_turma dt','dt.turma_id=t.id')
+	    ->join('disciplina d', 'd.id=dt.disciplina_id')
+	    ->join('disciplina_turma_periodo dtp', 'dtp.disciplina_turma_id=dt.id')
+	    ->join('periodo p', 'dtp.periodo_id = p.id')
+	    ->join('sala sa' , 'dtp.sala_id = sa.id')*/
+	    if ($this->db->select('*')->from('vw_consulta_horario_professor')
+	        ->where('professor_id',$professor_id)
+	        ->where('turma_id',$turma_id)
+	        ->where('dia','seg')
+	        ->order_by('inicio','asc')) {
+	            $query=$this->db->get();
+	            if($query->result())
+	            	$resultado->seg = $query->result();
+	        }
+	        if ($this->db->select('*')->from('vw_consulta_horario_professor')
+	            ->where('professor_id',$professor_id)
+	            ->where('turma_id',$turma_id)
+	            ->where('dia','ter')
+	            ->order_by('inicio','asc')) {
+	                $query=$this->db->get();
+	                if($query->result())
+	                 	$resultado->ter = $query->result();
+	            }
+	            if ($this->db->select('*')->from('vw_consulta_horario_professor')
+	                ->where('professor_id',$professor_id)
+	                ->where('turma_id',$turma_id)
+	                ->where('dia','qua')
+	                ->order_by('inicio','asc')) {
+	                    $query=$this->db->get();
+	                    if($query->result())
+	                    	$resultado->qua = $query->result();
+	                }
+	                if ($this->db->select('*')->from('vw_consulta_horario_professor')
+	                    ->where('professor_id',$professor_id)
+	                    ->where('turma_id',$turma_id)
+	                    ->where('dia','qui')
+	                    ->order_by('inicio','asc')) {
+	                        $query=$this->db->get();
+	                        if($query->result())
+	                        	$resultado->qui = $query->result();
+	                    }
+	                    if ($this->db->select('*')->from('vw_consulta_horario_professor')
+	                        ->where('professor_id',$professor_id)
+	                        ->where('turma_id',$turma_id)
+	                        ->where('dia','sex')
+	                        ->order_by('inicio','asc')) {
+	                            $query=$this->db->get();
+	                            if($query->result())
+	                            	$resultado->sex = $query->result();
+	                        }
+	 	if(isset($resultado))
+	         return $resultado;
+	 	return false;
 	}
 	
 	function salvar($professor){

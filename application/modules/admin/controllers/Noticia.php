@@ -5,13 +5,14 @@ class Noticia extends MX_Controller {
     public function __construct(){
         parent::__construct();
         
-        if(isset($this->user_data)){
+       /* if(isset($this->user_data) ){
 			if(!in_array('admin', $this->user_data['permissoes'])){
 				redirect('', 'refresh');
 			}
 		}else{
 			redirect('login', 'refresh');
-		}
+		}*/
+		
         $this->load->model('noticia_model');
         $this->load->model('imagem_model');
         date_default_timezone_set("Brazil/East");
@@ -24,6 +25,7 @@ class Noticia extends MX_Controller {
         $this->data['noticias']=$this->noticia_model->listar_noticias();
         $this->view->show_view($this->data);
         unset($_SESSION["post"]);
+        setcookie('noticia');
     }
     
     function exibir_formulario($noticia_id=null){
@@ -142,18 +144,84 @@ class Noticia extends MX_Controller {
  		
  	}
  	
- 	
-    
-    public function salvar_noticia(){
-    	if(isset($_SESSION['post']['noticia'])){
-    		$noticia = $_SESSION['post']['noticia'];
-    		
+ 	public function salvar_noticia(){
+ 		if(isset($_POST['noticia'])){
+ 			if(isset($_FILES['noticia'])){
+ 				if(is_array($_FILES['noticia'])){
+	 				$noticia=$_POST['noticia'];
+	 				$noticia['data_postagem']=date('Y-m-d');
+	 				
+	 				$upload_dir = "public/images/noticias/";
+	 				
+	 				
+	 				$temp_name = $_FILES['noticia']['tmp_name']["imagem"];
+	 				
+	 				/*Obtem dados da imagem*/
+	 				list($width, $height, $type, $attr) = getimagesize($temp_name);
+	 				
+	 				
+	 				
+	 				
+	 				$temp = explode(".",$_FILES['noticia']['name']['imagem']);
+	 				$data_nome=date("m-d-Y_H-i-s");
+	 				$nome_imagem = $data_nome.".".end($temp);
+	 				$upload_file = $upload_dir.$nome_imagem;
+	 				
+	 				if(!($width==800 and $height==600)){
+	 					$upload_file_tmp = "public/images/temp/".$nome_imagem;
+	 					if(move_uploaded_file($_FILES['noticia']['tmp_name']['imagem'],$upload_file_tmp)){
+	 						
+	 					}
+	 						
+	 				}
+	 				
+	 				if(!move_uploaded_file($_FILES['noticia']['tmp_name']['imagem'],$upload_file)){
+	 				//Mensagem de erro
+	 					echo "erro imagem";
+	 					$noticia['arquivo_imagem']=null;
+	 					$noticia['url_imagem']=null;
+	 						
+	 				}else{
+	 					
+	 					$noticia['arquivo_imagem']=$nome_imagem;
+	 					$noticia['url_imagem']=$upload_dir;
+	 				}
+ 				}else{
+ 					$noticia['arquivo_imagem']=null;
+ 					$noticia['url_imagem']=null;
+ 				}
+ 			}else{
+ 				$noticia['arquivo_imagem']=null;
+ 				$noticia['url_imagem']=null;
+ 			}
+ 			
+ 			
+ 				
+ 			if($noticia_id=$this->noticia_model->postar_noticia($noticia)){
+ 				$this->view->set_message("Noticia adicionada com sucesso", "alert alert-success");
+ 			}else{
+ 				$this->view->set_message("Falha a salvar notícia", "alert alert-error");
+ 			}
+ 				
+ 			
+ 		}
+ 		//redirect('admin/noticia', 'refresh');
+ 	}
+   
+    public function _salvar_noticia(){
+    	//if(isset($_SESSION['post']['noticia'])){
+    	//print_r($_POST['noticia']);
+    	//print_r(unserialize($_COOKIE['noticia']));
+    	if(isset($_COOKIE['noticia']) and isset($_POST["crop"])){
+    		//$noticia = $_SESSION['post']['noticia'];
+    		$noticia =unserialize($_COOKIE['noticia']);
+    		print_r($noticia);
     		if(isset($noticia['feed'])){
     			$noticia['feed']="on";
     		}else{
     			$noticia['feed']="off";
     		}
-	    	print_r($noticia);
+	    	//print_r($noticia);
 	    	if($noticia['id']!=''){
 	    		if($this->noticia_model->editar($noticia, $noticia['id'])){
 		    		$this->view->set_message("Mudanças salvas com sucesso", "alert alert-success");
@@ -190,20 +258,23 @@ class Noticia extends MX_Controller {
 		        		unlink($_POST['imagem'][0]);
 	                   
 		             }*/
-		        	//redirect('admin/noticia', 'refresh');
+		        	redirect('admin/noticia', 'refresh');
 		        }else{
 		        	$this->view->set_message("Ocorreu um erro ao adicionar noticia", "alert alert-error");
-		        	//redirect('admin/noticia', 'refresh');
+		        	redirect('admin/noticia', 'refresh');
 		        }
 	    	}
-	    	unset($_SESSION["post"]);
+	    	//unset($_SESSION["post"]);
+	    	setcookie('noticia');
 	    	
     	}else{
-    		print_r($_POST['noticia']);
+    		//print_r($_POST['noticia']);
     		if(isset($_POST['noticia'])){
     			
+    			setcookie("noticia",serialize($_POST["noticia"]), time() + 180);
     			$_SESSION['post']=$_POST;
     			$_SESSION['form_action']="admin/noticia/salvar_noticia";
+    			setcookie("form_action", "admin/noticia/salvar_noticia", time() + 180);
     			$files=$_FILES['noticia'];
     			$this->editar_imagens($files);
     		

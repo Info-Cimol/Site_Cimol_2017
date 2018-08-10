@@ -21,7 +21,8 @@ class Coordenacao extends MX_Controller {
 	public function index()
 	{
 		$this->data['title']="Cimol - Área do Coordenador";
-		$this->data['template']="inicio";
+		$this->data['content']="inicio";
+		
 		$this->view->show_view($this->data);
 	}
 	

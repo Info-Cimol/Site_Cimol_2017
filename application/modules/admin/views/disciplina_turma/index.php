@@ -38,7 +38,9 @@
 							<td><?php echo $disciplina->turma;?></td>
 							<td><?php echo $disciplina->nome_professor;?></td>
 							<td align="center">
-								
+								<a data-toggle="modal" href="#modal-form" onclick="horario_disciplina(<?php echo $disciplina->turma_id.",".$disciplina->id;?>)" class="btn btn-gray btn-small"> 
+										<i class="icon-list"></i>
+                                </a>
                                 <a data-toggle="modal" href="#modal-form" onclick="editar_disciplina(<?php echo $disciplina->turma_id.",".$disciplina->id.",".$disciplina->professor_id;?>)" class="btn btn-gray btn-small"> 
                                 		<i class="icon-wrench"></i>
                                 </a>
